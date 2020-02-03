@@ -1,0 +1,221 @@
+/* setup */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: var(--fontSizeRegular);
+    line-height: var(--fontSizeRegular);
+    font-family: aktiv-grotesk, helvetica, arial, sans-serif;
+}
+
+div {
+    display: inline-block;
+    color: var(--textColor);
+}
+
+/* variables */
+:root {
+    --fontSizeSmall: 1.25vh;
+    --fontSizeRegular: 2vh;
+    --fontSizeMed: 3vh;
+    --fontSizeLarge: 4vh;
+
+    --borderRadiusSmall: 0.25vh;
+    --borderRadiusLarge: 1.5vh;
+
+    --hoverColor: #F5F5F5;
+    --activeColor: #FFE600;
+
+    --textColor: #515151;
+
+    --lightColor: #bbbbbb;
+}
+
+
+/* Menu */
+#menuBar {
+    height: 5vh;
+    width: 100vw;
+    background-color: white;
+    border-bottom: 1px solid #D2D2D2;
+    overflow: hidden;
+    z-index: 10;
+}
+
+
+.menuItem {
+    padding: 1.5vh;
+    font-weight: 500;
+}
+
+.menuItem:hover {
+    background: var(--hoverColor);
+    border-radius: var(--borderRadiusSmall);
+    cursor: pointer;
+    user-select: none;
+}
+
+.menuItem:active {
+    background: var(--activeColor);
+    user-select: none;
+}
+
+
+.ptyIcon {
+    height: 1.9vh;
+    width: 2.4vh;
+    margin-left: 0.5vh;
+}
+
+.left {
+    float: left;
+    display: flex;
+}
+
+
+.right {
+    float: right;
+}
+
+.right .menuItem {
+    font-weight: 300;
+}
+
+/* Menu - dropdown */
+
+.dropDown {
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    top: 5vh;
+    max-width: 30vh;
+    z-index: 200;
+
+}
+
+.dropDown#fileMenu {
+    left: 6.5vh;
+    background: white;
+}
+
+
+.dropDown#editMenu {
+    left: 12vh;
+    background: white;
+}
+
+
+.dropDown#viewMenu {
+    left: 18.5vh;
+    background: white;
+}
+
+.dropDownItem {
+    width: 100%;
+    padding: 1.5vh;
+}
+
+
+.dropDownItem:hover {
+    background: #eeeeee;
+}
+
+
+.dropDownSeperator {
+    height: 1px;
+    margin: 1.5vh 0;
+    background: var(--lightColor);
+    width: 100%;
+}
+
+
+
+/* Desktop  */
+
+#desktop {
+    padding: 2vh;
+    width: 100%;
+    height: 95vh;
+    display: flex;
+    flex-flow: column wrap-reverse;
+    justify-content: flex-start;
+    align-items: flex-start;
+    background: #F5F5F5;
+    align-content: flex-start;
+    margin-top: -2px;
+
+}
+
+.icon {
+    width: 10vh;
+    margin-left: 4vh;
+    cursor: pointer;
+    margin-bottom: 2vh;
+}
+
+.icon:hover {
+    filter: brightness(90%);
+}
+
+.icon:active {
+    filter: brightness(50%);
+}
+
+.iconImg {
+    height: 10vh;
+    width: 10vh;
+    background: url(images/placefolder.png) bottom center/contain no-repeat;
+    margin-bottom: 2vh;
+}
+
+.iconLabel {
+    text-align: center;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+}
+
+#window {
+    position: absolute;
+    z-index: 9;
+    background-color: #f1f1f1;
+    border: 1px solid #d3d3d3;
+    text-align: center;
+}
+
+#windowHeader {
+    padding: 10px;
+    cursor: move;
+    z-index: 10;
+    background-color: #2196F3;
+    color: #fff;
+}
+
+.draggable-mirror {
+    filter: drop-shadow(3px 10px 5px #00000025);
+}
+
+
+/* Misc */
+
+html {
+    background: black;
+    overflow: hidden;
+}
+
+#screen {
+    background: white;
+    border-radius: 1.5vh;
+    height: 100vh;
+    overflow: hidden;
+}
+
+:focus {
+    outline: none !important;
+}
+
+.hide {
+    display: none;
+}

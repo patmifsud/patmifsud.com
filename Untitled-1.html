@@ -1,0 +1,209 @@
+<html>
+
+<head>
+    <!-- Load the SDK -->
+    <script src="/tbc_sdk.js"></script>
+
+    <style>
+        html body {
+            padding: 0px;
+            margin: 0px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #fact {
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+            width: 90vw;
+            height: 90vh;
+            margin-left: 5vw;
+            margin-right: 5vw;
+            margin-top: 5vh;
+            margin-bottom: 5vh;
+            align-items: center;
+            justify-content: center;
+        }
+
+        img {
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+        }
+
+        h1 {
+            font-style: normal;
+            width: 80vw;
+            line-height: 115%;
+            letter-spacing: 0.04em;
+            margin: 0px 0px 0px 0px;
+            margin-block-start: 0em;
+            margin-block-end: 0em;
+            overflow: auto;
+            
+            color: #FFFFFF;
+            text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+            z-index: 1;
+        }
+
+        #top-text {
+            top: 3px;
+            width: 80vw;
+        }
+        
+        .powered-by {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+        }
+
+        .powered-by a {
+            color: white;
+            text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+            opacity: 0.8;
+            font-size: 8px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="fact">
+        <h1 id="top-text"></h1>
+    </div>
+    <img id="background-image">
+    <div class="powered-by"></div>
+    <script>
+        const MIN_FONT_SIZE = 1;
+        const MAX_FONT_SIZE = 50;
+        
+        //var globalInputs;
+        function drawFact(inputs) {
+
+            var topText = document.getElementById('top-text');
+            topText.textContent = inputs.topText;
+            topText.style.height = `${inputs.textSize}vh`;
+            topText.style.overflow = 'auto';
+            topText.style.fontFamily = inputs.fontFamily;
+            
+            var fact = document.getElementById('fact');
+            fact.style.color = inputs.textColor;
+            
+            if (inputs.textBackgroundColor) {
+             	topText.style.backgroundColor = inputs.textBackgroundColor;
+            }
+            
+            topText.style.width = inputs.textWidth + 'vw';
+            topText.style.color = inputs.textColor;
+            
+            switch(inputs.textPosition) {
+                case 'top':
+                    fact.style.justifyContent = 'center';
+                    fact.style.alignItems = 'flex-start';
+                    break;
+                case 'bottom':
+                    fact.style.justifyContent = 'center';
+                    fact.style.alignItems = 'flex-end';
+                    break;
+                case 'left':
+                    fact.style.justifyContent = 'flex-start';
+                    fact.style.alignItems = 'center';
+                    break;
+                case 'right':
+                    fact.style.justifyContent = 'flex-end';
+                    fact.style.alignItems = 'center';
+                    break;
+            }
+            
+            resize();
+			topText.style.height = 'auto';
+            topText.style.overflow = 'hidden';
+        }
+
+        function resize() {
+            var rect = document.getElementById('background-image').getBoundingClientRect();
+            var factBox = document.getElementById('fact');
+            
+            var topText = document.getElementById('top-text');
+            const topTextRect = topText.getBoundingClientRect();
+
+            drawFittedText(topText);
+        }
+
+        window.addEventListener("resize", function () {
+            resize();
+        });
+
+        TBC.vizzy({
+            onChange: (inputs) => {
+                //globalInputs = inputs;
+                var img = document.getElementById('background-image');
+                img.addEventListener('load', function () {
+                    drawFact(inputs);
+                }, false);
+                img.src = inputs.image;
+                drawFact(inputs);
+            }
+        });
+        
+            /**
+     * Draws text that fits within the bounding box.
+     * https://github.com/STRML/textFit/blob/master/textFit.js
+     * Algorithm one -
+     * 1. place text into a div, with the width and height set to the same as the space
+     * 2. measure the scroll distance on the span
+     * 3. if the span scroll distance is longer than the size of the div make text smaller.
+     * 4. if the scroll distance is the same, make the text bigger.
+     *
+     * https://gist.githubusercontent.com/videlais/9588989/raw/f2c60f3421308806a4842e884461ec432ed16422/fontHeight.js
+     * Algorithm two -
+     * 1. draw the text on a hidden canvas
+     * 2. place the letter M (highest letter) into a span
+     * 3. use context2d measure text to determine the width
+     * 4. measure the height of the span to determine the height of the text
+     * 5. if the text is within the bounds, make it bigger. If it's outside make it smaller
+     * @param {*} ctx
+     * @param {*} text
+     * @param {*} x
+     * @param {*} y
+     * @param {*} width
+     * @param {*} height
+     * @param {*} fontProperties
+     */
+    function drawFittedText(h1) { //text, w, h, family) {
+        // Flooring the width and height is required because the span.scrollwidth/height is rounded to nearest whole number.
+        const topTextRect = h1.getBoundingClientRect();
+        const width = Math.ceil(topTextRect.width);
+        const height = Math.ceil(topTextRect.height);
+        
+        console.log(`Trying to find the right font size for a div: ${width}x${height}`);
+        let low = MIN_FONT_SIZE + 1;
+        let high = MAX_FONT_SIZE + 1;
+        let proposedSize = (low + high) / 2;
+
+        const span = h1;
+            proposedSize = high;        
+        do {
+            span.style.fontSize = `${proposedSize}px`;
+			proposedSize -= 1;
+            
+            if (proposedSize < MIN_FONT_SIZE) break;
+	
+        } while(haveScrollBars(span, width, height));
+        return;
+    }
+        
+        function haveScrollBars(span, w, h) {
+            return span.scrollWidth > w || span.scrollHeight > h
+        }
+        
+    function getFontStyleFromProperties(family,size) {
+	    return `normal normal ${size}px ${family}`;
+	}
+    </script>
+</body>
+
+</html>
