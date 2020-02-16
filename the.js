@@ -1,3 +1,4 @@
+// available windows
 let windows = {
     about: {
         titleBar: "About",
@@ -21,27 +22,7 @@ let windows = {
     },
 }
 
-
-function downloadResume(format) {
-    console.log("download " + format + " resume");
-}
-
-function email() {
-    window.open.href = 'mailto:patmifsud@me.org';
-}
-
-function phone() {
-    window.open.href = "tel:+1800229933";
-}
-
-function twitter() {
-    window.open.href = 'https://twitter.com/patmifsud';
-}
-
-function linkedIn() {
-    window.open.href = 'mailto:patmifsud@me.org';
-}
-
+// top menu bar
 const topMenu = {
     file: {
         name: "File",
@@ -114,13 +95,7 @@ const topMenu = {
 
 }
 
-
-
-
-
 window.onload = function () {
-    makeWindowsDraggable();
-
     document.querySelector('#desktop').addEventListener("mouseover", function () {
         for (var i = 0; i < topMenu.length; i++) {
             hide(topMenu[i].id);
@@ -128,7 +103,7 @@ window.onload = function () {
     });
 };
 
-
+// Dom modifyers
 function hide(object) {
     object.classList.add('hide');
 }
@@ -151,17 +126,53 @@ function dropdownMenuClicked(object) {
 }
 
 
-// Open Window functions
+function downloadResume(format) {
+    console.log("download " + format + " resume");
+}
+
+function email() {
+    window.open.href = 'mailto:patmifsud@me.org';
+}
+
+function phone() {
+    window.open.href = "tel:+1800229933";
+}
+
+function twitter() {
+    window.open.href = 'https://twitter.com/patmifsud';
+}
+
+function linkedIn() {
+    window.open.href = 'mailto:patmifsud@me.org';
+}
+
+
 function openWindow(windowName) {
     console.log("opening " + windowName);
+
 };
+
+function writeWindowHtml(windowName){
+
+}
+
+
+function animateInWindow(){
+    document.getElementById('window').classList.remove('hideScale');
+};
+
+function animateOutWindow(){
+    document.getElementById('window').classList.add('hideScale');
+};
+
+
 
 function quit() {
     console.log("openAbout");
 };
 
 
-
+// interactjs.io
 interact('.resize-drag')
     .draggable({
         onmove: window.dragMoveListener
@@ -193,7 +204,7 @@ interact('.resize-drag')
 
         target.setAttribute('data-x', x);
         target.setAttribute('data-y', y);
-        
+
         // target.textContent = event.rect.width + '×' + event.rect.height;
     });
 
@@ -202,17 +213,17 @@ function dragMoveListener(event) {
         // keep the dragged position in the data-x/data-y attributes
         x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx,
         y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
-        let maxYValue = (0 - (2.5 / 100) * window.innerHeight);
+    let maxYValue = (0 - (2.5 / 100) * window.innerHeight);
     // translate the element
-    
+
 
     console.log(y);
     console.log("max Y value " + maxYValue);
     console.log("menubar height " + document.getElementById('menuBar').clientHeight);
     console.log("window height " + window.innerHeight);
 
-    if (y < maxYValue){ 
-        y = maxYValue 
+    if (y < maxYValue) {
+        y = maxYValue
     };
 
     target.style.webkitTransform =

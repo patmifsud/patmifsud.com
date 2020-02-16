@@ -11,7 +11,7 @@
 
 <body>
     <div id="screen">
-        <div id="menuBar">
+        <div id="menuBar" onclick="animateInWindow();">
             <div>
                 <div class="menuItem" onclick="dropdownMenuClicked(fileMenu);">
                     File
@@ -48,7 +48,7 @@
                 </div>
             </div>
         </div>
-        <div id="window" class="resize-drag">
+        <div id="window" class="resize-drag hideScale">
             <div id="windowHeader">Hello</div>
             <div id="windowContentContainer">
                 <div id="windowContent">
@@ -142,7 +142,7 @@
         </div>
         <div id="desktop">
 
-            <div class="icon dragable" onclick="">
+            <div class="icon dragable" onclick="animateOutWindow();">
                 <div class="iconImg"></div>
                 <div class="iconLabel">Folder</div>
             </div>
