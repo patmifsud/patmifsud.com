@@ -26,7 +26,7 @@ div {
     --fontSizeSmall: 1.25vh;
     --fontSizeRegular: 2vh;
     --fontSizeMed: 3vh;
-    --fontSizeLarge: 4vh;
+    --fontSizeLarge: calc(4vh + 0.5vw);
 
     --borderRadiusSmall: 0.25vh;
     --borderRadiusLarge: 1.5vh;
@@ -39,6 +39,12 @@ div {
     --lightColor: #bbbbbb;
     --shade1: #F5F5F5;
     --shade2: #E9E8E8;
+
+    --serif: Rooney, Georgia, serif;
+    --sans: aktiv-grotesk, helvetica, arial, sans-serif;
+
+    --transSimpleAll: ;
+    ;
 }
 
 
@@ -47,44 +53,30 @@ div {
     height: 5vh;
     width: 100vw;
     background-color: white;
-    border-bottom: 1px solid #D2D2D2;
     overflow: hidden;
-    z-index: 10;
+    z-index: 20;
     display: flex;
     justify-content: space-between;
+    padding: 0 1.5vh;
+
 }
 
 .menuItem {
     padding: 1.5vh;
     font-weight: 500;
+    border-radius: var(--borderRadiusSmall);
+
 }
+
 
 .menuItem:hover {
     background: var(--hoverColor);
-    border-radius: var(--borderRadiusSmall);
     cursor: pointer;
     user-select: none;
 }
 
 .menuItem:active {
     background: var(--activeColor);
-    user-select: none;
-}
-
-
-/* .ptyIcon {
-    height: 1.9vh;
-    width: 2.4vh;
-    margin-left: 0.5vh;
-} */
-
-.left {
-    float: left;
-    display: flex;
-}
-
-.right {
-    float: right;
 }
 
 
@@ -96,25 +88,24 @@ div {
     flex-wrap: wrap;
     top: 5vh;
     max-width: 30vh;
-    z-index: 20;
-
+    z-index: 60;
+    background: white;
 }
 
 .dropDown#fileMenu {
-    left: 6.5vh;
-    background: white;
+    left: 1.5vh;
 }
-
-
-.dropDown#editMenu {
-    left: 12vh;
-    background: white;
-}
-
 
 .dropDown#viewMenu {
-    left: 18.5vh;
-    background: white;
+    left: 8.5vh;
+}
+
+.dropDown#downloadMenu {
+    left: 16vh;
+}
+
+.dropDown#contactMenu {
+    left: 29vh;
 }
 
 .dropDown a {
@@ -125,14 +116,6 @@ div {
 
 .dropDown a:hover {
     background: #eeeeee;
-}
-
-
-.dropDownSeperator {
-    height: 1px;
-    margin: 1.5vh 0;
-    background: var(--lightColor);
-    width: 100%;
 }
 
 
@@ -150,7 +133,6 @@ div {
     background: #F5F5F5;
     align-content: flex-start;
     margin-top: -2px;
-
 }
 
 .icon {
@@ -161,11 +143,11 @@ div {
 }
 
 .icon:hover {
-    filter: brightness(90%);
+    filter: brightness(110%);
 }
 
 .icon:active {
-    filter: brightness(50%);
+    filter: brightness(120%);
 }
 
 .iconImg {
@@ -181,7 +163,6 @@ div {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-
 }
 
 
@@ -200,19 +181,27 @@ div {
     min-height: 30vh;
     background-color: var(--shade2);
     border-radius: 1.5vh 1.5vh 0 0;
+    transition: opacity 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     overflow: auto;
-    z-index: 99;
+    z-index: 50;
     display: flex;
     flex-direction: column;
+}
 
+#window:active {
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+    opacity: 0.8;
 }
 
 #windowHeader {
-    transition: opacity 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: opacity 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: box-shadow 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     height: 5vh;
     border-radius: 1.5vh 1.5vh 0 0;
     padding: 1.5vh;
     z-index: 15;
+    display: flex;
+    justify-content:space-between;
     user-select: none;
     background-color: var(--shade2);
     width: 100%;
@@ -220,9 +209,12 @@ div {
 
 }
 
-#windowContentContainer {
-    transition: opacity 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+#windowHeader.scrolled {
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+}
 
+#windowContentContainer {
+    transition: opacity 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     padding: 0 1vh;
     overflow: scroll;
     flex-direction: column;
@@ -232,13 +224,127 @@ div {
 }
 
 #windowContent {
-    transition: opacity 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-
-    padding: 5vh 2.5vh 2.5vh 2.5vh;
+    transition: opacity 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    padding: 7.5vh 2.5vh 2.5vh 2.5vh;
+    padding-top:calc(5vh+ 5vw);
     background: white;
+    background-image: url(./images/pagecurl.png);
+    background-position: right top;
+    background-repeat: no-repeat;
+    background-size: 12%;
     z-index: 10;
     user-select: text;
+    width: 100%;
 }
+
+.actionContainer {}
+
+.action {}
+
+
+/* typography */
+a{
+    cursor: pointer;
+}
+
+
+p,
+p *,
+li {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: var(--fontSizeRegular);
+    line-height: 165%;
+    padding: 0 0 3vh 0;
+}
+
+
+
+h1 {
+    font-family: var(--sans);
+    font-style: normal;
+    font-weight: 800;
+    padding: 0 0 5vh 0;
+    font-size: var(--fontSizeLarge);
+    line-height: 110%;
+    letter-spacing: -0.03em;
+    color: black;
+}
+
+h2 {
+    font-size: var(--fontSizeMed);
+    font-family: var(--sans);
+    font-style: normal;
+    font-weight: bold;
+    line-height: 124%;
+    padding: 4vh 0 6vh 0;
+    color: black;
+}
+
+
+h3 {
+    font-size: var(--fontSizeMed);
+    font-family: var(--sans);
+    font-style: normal;
+    font-weight: bold;
+    line-height: 140%;
+}
+
+
+
+h4 {
+    font-family: var(--sans);
+    font-style: normal;
+    font-weight: bold;
+    line-height: 120%;
+    padding: 4vh 0 2.5vh 0;
+    color: black;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 4vh 0 3vh 0;
+    font-size: 1.8vh;
+
+
+}
+
+li{
+    margin-left: 2vh;
+    padding: 0 0 1.5vh 0;
+}
+
+ul {
+    list-style: none; 
+    margin-bottom:2.5vh!important;
+  }
+  
+  ul li::before {
+    content: "\2022";
+    color: #0000ff;
+    font-weight: bold;
+    display: inline-block;
+    width: 1vh;
+    margin-left: -2vh;
+    margin-right: 1vh;
+    
+  }
+
+
+#windowContent p,
+#windowContent h1,
+#windowContent h2,
+#windowContent h3,
+#windowContent h4, 
+#windowContent ul{
+    max-width: calc(350px + 45%);
+    margin: 0 auto;
+}
+
+
+.emph {
+    color: black;
+    font-weight: bold;
+}
+
 
 
 /* Misc */
@@ -264,9 +370,8 @@ html {
 }
 
 .hideScale {
-transform: scale(0);
-transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-opacity: 0;
+    opacity: 0;
+    transition: opacity 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .hideScale div {
@@ -279,11 +384,129 @@ opacity: 0;
 
 .resize-drag {
     touch-action: none;
-    /* This makes things *much* easier */
     box-sizing: border-box;
 }
 
-/* .resize-container {
-    width: 100%;
-    height: 240px;
-  }  */
+
+/* .ptyIcon {
+    height: 1.9vh;
+    width: 2.4vh;
+    margin-left: 0.5vh;
+} */
+
+
+/* accordian */
+
+@import url('https://fonts.googleapis.com/css?family=Hind:300,400');
+
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+html {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Hind', sans-serif;
+  background: #fff;
+  color: #4d5974;
+
+  display: flex;
+  min-height: 100vh;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 4rem;
+  width: 48rem;
+}
+
+h3 {
+  font-size: 1.75rem;
+  color: #373d51;
+  padding: 1.3rem;
+  margin: 0;
+}
+
+.accordion a {
+  position: relative;
+
+  display: flex;
+
+  flex-direction: column;
+  width: 100%;
+  padding: 1rem 3rem 1rem 1rem;
+  color: #7288a2;
+  font-size: 1.15rem;
+  font-weight: 400;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.accordion a:hover,
+.accordion a:hover::after {
+  cursor: pointer;
+  color: #03b5d2;
+}
+
+.accordion a:hover::after {
+  border: 1px solid #03b5d2;
+}
+
+.accordion a.active {
+  color: #03b5d2;
+  border-bottom: 1px solid #03b5d2;
+}
+
+.accordion a::after {
+  font-family: 'Ionicons';
+  content: '\f218';
+  position: absolute;
+  float: right;
+  right: 1rem;
+  font-size: 1rem;
+  color: #7288a2;
+  padding: 5px;
+  width: 30px;
+  height: 30px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  border: 1px solid #7288a2;
+  text-align: center;
+}
+
+.accordion a.active::after {
+  font-family: 'Ionicons';
+  content: '\f209';
+  color: #03b5d2;
+  border: 1px solid #03b5d2;
+}
+
+.accordion .content {
+  opacity: 0;
+  padding: 0 1rem;
+  max-height: 0;
+  border-bottom: 1px solid #e5e5e5;
+  overflow: hidden;
+  clear: both;
+
+  transition: all 0.2s ease 0.15s;
+}
+
+.accordion .content p {
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+.accordion .content.active {
+  opacity: 1;
+  padding: 1rem;
+  max-height: 100%;
+
+  transition: all 0.35s ease 0.15s;
+}

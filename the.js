@@ -23,97 +23,71 @@ let windows = {
 }
 
 // top menu bar
-const topMenu = {
-    file: {
-        name: "File",
+const topMenu = [{
+        named: "File",
         id: "fileMenu",
-        contents: {
-            about: {
-                name: "About",
-                ifClicked: openWindow(windows.about),
-            },
-            quit: {
-                name: "Quit",
-                ifClicked: quit(),
-            },
-        },
+        contents: [{
+            named: "About",
+            ifClicked: "openWindow(windows.about)"
+        }, ],
     },
-    view: {
-        name: "View",
+    {
+        named: "View",
         id: "viewMenu",
-        contents: {
-            viewResume: {
-                name: "View Resume",
-                ifClicked: openWindow(windows.resume),
+        contents: [{
+                named: "View Resume",
+                ifClicked: "openWindow(windows.resume)"
             },
-            viewCasestudies: {
-                name: "View Casestudies",
-                ifClicked: openWindow(windows.casestudies),
+            {
+                named: "View Casestudies",
+                ifClicked: "openWindow(windows.casestudies)"
             },
-            viewFolio: {
-                name: "View Folio",
-                ifClicked: openWindow(windows.foliow),
-            },
-        },
+            {
+                named: "View Folio",
+                ifClicked: "openWindow(windows.foliow)"
+            }
+        ],
     },
-    download: {
-        name: "Download",
+    {
+        named: "Download",
         id: "downloadMenu",
-        contents: {
-            resumePdf: {
-                name: "Download PDF Resume",
-                ifClicked: downloadResume('pdf'),
+        contents: [{
+                named: "Download PDF Resume",
+                ifClicked: "downloadResume('pdf')",
             },
-            quit: {
-                name: "Download Word Resume",
-                ifClicked: downloadResume('word'),
-            },
-        },
+            {
+                named: "Download Word Resume",
+                ifClicked: "downloadResume('word')",
+            }
+        ],
     },
-    contact: {
-        name: "Contact",
+    {
+        named: "Contact",
         id: "contactMenu",
-        contents: {
-            email: {
-                name: "Email",
-                ifClicked: email(),
-            },
-            phone: {
-                name: "Phone",
-                ifClicked: phone(),
-            },
-            twitter: {
-                name: "Twitter",
-                ifClicked: twitter(),
-            },
-            linkedIn: {
-                name: "linkedIn",
-                ifClicked: linkedIn(),
-            },
-        },
+        contents: [{
+            named: "Email",
+            ifClicked: "email()",
+        }, {
+            named: "Phone",
+            ifClicked: "phone()",
+        }, {
+            named: "Twitter",
+            ifClicked: "twitter()",
+        }, {
+            named: "linkedIn",
+            ifClicked: "linkedIn()",
+        }],
     },
 
-}
+]
 
-window.onload = function () {
+
+function topMenuDesktopMouseoverListener() {
     document.querySelector('#desktop').addEventListener("mouseover", function () {
         for (var i = 0; i < topMenu.length; i++) {
             hide(topMenu[i].id);
         }
     });
-};
-
-// Dom modifyers
-function hide(object) {
-    object.classList.add('hide');
-}
-
-function show(object) {
-    object.classList.remove('hide');
-}
-
-function toggleVisibility(object) {
-    object.classList.toggle('hide');
 }
 
 function dropdownMenuClicked(object) {
@@ -126,6 +100,42 @@ function dropdownMenuClicked(object) {
 }
 
 
+// 🎩 Handy actions to add and remove classes
+
+function hide(object) {
+    object.classList.add('hide');
+}
+
+function show(object) {
+    object.classList.remove('hide');
+}
+
+function toggleVisibility(object) {
+    object.classList.toggle('hide');
+}
+
+
+
+// 🔝 Menu Bar functions 
+
+function drawTopMenu() {
+    document.getElementById("menuBarInner").innerHTML = `
+    ${topMenu.map(menuTemplate).join("")}`
+};
+
+
+// ${topMenu.map(menuTemplate).join("")}
+
+function menuTemplate(menuItem) {
+    return `<div class="menuItem" onclick="dropdownMenuClicked(${menuItem.id})">${menuItem.named}</div>
+    <div class="dropDown hide" id="${menuItem.id}">${menuItem.contents.map(dropdownMenuTemplate).join("")}
+</div>
+`
+};
+
+function dropdownMenuTemplate(parentMenu) {
+    return `<a class="drop${parentMenu.named}" onclick="${parentMenu.ifClicked}">${parentMenu.named}</a>`
+}
 function downloadResume(format) {
     console.log("download " + format + " resume");
 }
@@ -147,32 +157,43 @@ function linkedIn() {
 }
 
 
+
+// 🏠 Window logic
+
 function openWindow(windowName) {
     console.log("opening " + windowName);
-
 };
 
-function writeWindowHtml(windowName){
 
-}
-
-
-function animateInWindow(){
+function animateInWindow() {
     document.getElementById('window').classList.remove('hideScale');
 };
 
-function animateOutWindow(){
+function animateOutWindow() {
     document.getElementById('window').classList.add('hideScale');
 };
 
 
+// 🏂 Visuals and animations
 
-function quit() {
-    console.log("openAbout");
-};
+function addShadowOnScroll() {
+    let windowContainer = document.querySelector('#windowContentContainer');
+    let windowHeader = document.querySelector('#windowHeader');
+
+    windowContainer.onscroll = function addShadow() {
+        if (windowContainer.scrollTop > 2) {
+            windowHeader.classList.add('scrolled');
+        } else {
+            windowHeader.classList.remove('scrolled');
+        }
+
+    }
+}
 
 
-// interactjs.io
+// Window move and resizing 
+// using interactjs.io
+
 interact('.resize-drag')
     .draggable({
         onmove: window.dragMoveListener
@@ -238,3 +259,24 @@ function dragMoveListener(event) {
 // console.log(x);
 //         if (x > ((5 / 100) * window.innerHeight)){ console.log("yes");}
 // let maxYValue = (document.getElementById('menuBar').clientHeight - window.innerHeight);
+
+// accordian
+const items = document.querySelectorAll(".accordion a");
+
+function toggleAccordion() {
+    this.classList.toggle('active');
+    this.nextElementSibling.classList.toggle('active');
+}
+
+items.forEach(item => item.addEventListener('click', toggleAccordion));
+
+
+
+
+
+window.onload = function () {
+    drawTopMenu();
+    topMenuDesktopMouseoverListener()
+    addShadowOnScroll();
+
+};
