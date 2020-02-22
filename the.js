@@ -1,24 +1,24 @@
-// available windows
+// Windows
 let windows = {
     about: {
         titleBar: "About",
         openState: 0,
-        html: '<object type="text/html" data="placeholder.html"></object>',
+        contentUrl: `/placeholder.html`,    
     },
     resume: {
         titleBar: "Resume",
         openState: 0,
-        html: '<object type="text/html" data="placeholder.html"></object>',
+        contentUrl: `/placeholder.html`,    
     },
     casestudies: {
         titleBar: "Case Studies",
         openState: 0,
-        html: '<object type="text/html" data="placeholder.html"></object>',
+        contentUrl: `/placeholder.html`,    
     },
     folio: {
         titleBar: "Folio",
         openState: 0,
-        html: '<object type="text/html" data="placeholder.html"></object>',
+        contentUrl: `/placeholder.html`,    
     },
 }
 
@@ -85,16 +85,18 @@ const topMenu = [{
 function topMenuDesktopMouseoverListener() {
     document.querySelector('#desktop').addEventListener("mouseover", function () {
         for (var i = 0; i < topMenu.length; i++) {
-            hide(topMenu[i].id);
+            let divToHide = document.getElementById(topMenu[i].id);
+            hide(divToHide);
         }
     });
 }
 
 function dropdownMenuClicked(object) {
     toggleVisibility(object)
-    for (var i = 0; i < menu.length; i++) {
-        if (menu[i] === object) {} else {
-            hide(menu[i].id);
+    for (var i = 0; i < topMenu.length; i++) {
+        if (topMenu[i].id === object.id) {} else {
+            let divToHide = document.getElementById(topMenu[i].id);
+            hide(divToHide);
         };
     };
 }
@@ -158,20 +160,38 @@ function linkedIn() {
 
 
 
+
 // 🏠 Window logic
 
 function openWindow(windowName) {
     console.log("opening " + windowName);
 };
 
-
-function animateInWindow() {
+function animateInWindow(windowToAnimateIn) {
+    console.log(windowToAnimateIn);
     document.getElementById('window').classList.remove('hideScale');
+    writeWindow(windowToAnimateIn);
+    windowToAnimateIn.openState = 1;
+
 };
 
 function animateOutWindow() {
     document.getElementById('window').classList.add('hideScale');
+    windowToAnimateIn.openState = 0;
+
 };
+
+function writeWindow(windowName){
+console.log(windowName);
+document.getElementById("windowHeaderText").innerHTML = `${windowName.titleBar}`
+document.getElementById("windowPastebox").innerHTML = `
+<div id="windowContentContainer">
+<div id="windowContent"><object type="text/html" data="${windowName.contentUrl}"></object></div></div>`
+}
+
+
+
+
 
 
 // 🏂 Visuals and animations
@@ -277,6 +297,6 @@ items.forEach(item => item.addEventListener('click', toggleAccordion));
 window.onload = function () {
     drawTopMenu();
     topMenuDesktopMouseoverListener()
-    addShadowOnScroll();
+    // addShadowOnScroll();
 
 };
