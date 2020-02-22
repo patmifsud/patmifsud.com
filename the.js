@@ -3,22 +3,22 @@ let windows = {
     about: {
         titleBar: "About",
         openState: 0,
-        contentUrl: `/placeholder.html`,    
+        contentUrl: `placeholder.html`,    
     },
     resume: {
         titleBar: "Resume",
         openState: 0,
-        contentUrl: `/placeholder.html`,    
+        contentUrl: `placeholder.html`,    
     },
     casestudies: {
         titleBar: "Case Studies",
         openState: 0,
-        contentUrl: `/placeholder.html`,    
+        contentUrl: `placeholder.html`,    
     },
     folio: {
         titleBar: "Folio",
         openState: 0,
-        contentUrl: `/placeholder.html`,    
+        contentUrl: `placeholder.html`,    
     },
 }
 
@@ -184,9 +184,7 @@ function animateOutWindow() {
 function writeWindow(windowName){
 console.log(windowName);
 document.getElementById("windowHeaderText").innerHTML = `${windowName.titleBar}`
-document.getElementById("windowPastebox").innerHTML = `
-<div id="windowContentContainer">
-<div id="windowContent"><object type="text/html" data="${windowName.contentUrl}"></object></div></div>`
+document.getElementById("windowPastebox").innerHTML = `<object type="text/html" id="windowContentContainer" data="${windowName.contentUrl}"></object></div></div>`
 }
 
 
@@ -256,12 +254,6 @@ function dragMoveListener(event) {
         y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
     let maxYValue = (0 - (2.5 / 100) * window.innerHeight);
     // translate the element
-
-
-    console.log(y);
-    console.log("max Y value " + maxYValue);
-    console.log("menubar height " + document.getElementById('menuBar').clientHeight);
-    console.log("window height " + window.innerHeight);
 
     if (y < maxYValue) {
         y = maxYValue
