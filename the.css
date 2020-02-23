@@ -62,11 +62,17 @@ div {
 
 }
 
+#menuBarInner {
+    margin-top: 0;
+    transition: margin-top 2.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition-delay: 1.2s;
+
+}
+
 .menuItem {
     padding: 1.5vh;
     font-weight: 500;
     border-radius: var(--borderRadiusSmall);
-
 }
 
 
@@ -118,6 +124,7 @@ div {
 .dropDown a:hover {
     background: #eeeeee;
 }
+
 .dropDown a:active {
     background: rgb(63, 63, 63);
     color: white;
@@ -144,12 +151,14 @@ div {
     width: 10vh;
     margin-left: 4vh;
     cursor: pointer;
+    transition: opacity 3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    opacity: 1;
     margin-bottom: 2vh;
 }
 
 .icon:hover {
-    filter:saturate(1.7) drop-shadow(4px 5px 12px rgba(217, 217, 217, 0.468));
-    
+    filter: saturate(1.7) drop-shadow(4px 5px 12px rgba(217, 217, 217, 0.468));
+
 }
 
 .icon:active {
@@ -383,11 +392,19 @@ html {
 
 .hide {
     display: none;
+
 }
 
-.windowClosed{
+.iconTransition{
+    opacity: 0!important;
+
+
+}
+
+
+.windowClosed {
     opacity: 0;
-    display: none!important;
+    display: none !important;
     user-select: none;
 }
 
@@ -396,6 +413,16 @@ html {
     color: #eeeeee;
     transition: opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
+
+
+/* Amnimation  */
+/* animating in the top menu bar by removing margin top */
+.slideIn {
+    margin-top: 1000px!important;
+    transition: margin-top 2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+}
+
 
 /* dragging */
 

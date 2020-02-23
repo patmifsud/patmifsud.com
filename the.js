@@ -117,6 +117,22 @@ const desktopIcons = [{
     whenClicked: "animateInWindow(windows.contact)",
 }]
 
+
+// 📷 Preload Images
+// via https://stackoverflow.com/questions/3646036/preloading-images-with-javascript
+function preloadImage(url) {
+    var img = new Image();
+    img.src = url;
+}
+
+// preload every desktop icon for smooth animation on fadein
+function preloadDesktopIcons() {
+    desktopIcons.forEach(function (iconObject) {
+        preloadImage(iconObject.img);
+    })
+}
+
+
 // 👂 listeners
 
 // close dropdown menus when the mouse enters desktop or window
@@ -216,7 +232,7 @@ function writeWindow(windowName) {
 function writeDesktopIcon(icon) {
     console.log(icon);
     console.log(icon.id);
-    return ` <div id="${icon.id}" class="icon hide" onclick="${icon.whenClicked}">
+    return ` <div id="${icon.id}" class="icon iconTransition" onclick="${icon.whenClicked}">
 <div class="iconImg" style="background: url(${icon.img}) bottom center/contain no-repeat;"></div>
 <div class="iconLabel">${icon.named}</div></div>
 `
@@ -225,14 +241,14 @@ function writeDesktopIcon(icon) {
 function drawDesktop() {
     let desktop = document.getElementById("desktop");
     // this delay makes it look like the icons are being drawn on one by one, like when starting up an old Macintosh
-    let delay = 600
+    let delay = 1000
     desktopIcons.forEach(function (desktopIcons) {
         desktop.innerHTML += writeDesktopIcon(desktopIcons);
         setTimeout(function () {
             // remove the class 'Hide' from the icon. Adding and immediatly removing this class is how the icons animate in.
-            show(document.getElementById(desktopIcons.id));
+            document.getElementById(desktopIcons.id).classList.remove('iconTransition');
         }, delay);
-        delay += 200;
+        delay += 150;
     });
 }
 
@@ -278,6 +294,7 @@ function addShadowOnScroll() {
 
     }
 }
+
 
 
 // Window move and resizing 
@@ -360,6 +377,9 @@ window.onload = function () {
     topMenuDesktopMouseoverListener();
     clickedOnDropdownListener();
     drawDesktop();
+
+    document.getElementById('menuBarInner').classList.remove('slideIn');
+
     // addShadowOnScroll();
 
 };
