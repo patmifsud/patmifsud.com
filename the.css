@@ -12,7 +12,7 @@ html,
 body {
     margin: 0;
     height: 100%;
-    overflow: hidden
+    overflow: hidden;
 }
 
 
@@ -26,7 +26,8 @@ div {
     --fontSizeSmall: 1.25vh;
     --fontSizeRegular: 2vh;
     --fontSizeMed: 3vh;
-    --fontSizeLarge: calc(4vh + 0.5vw);
+    --fontSizeWindowP: 2.5vh;
+    --fontSizeLarge: calc(5vh + 1vw);
 
     --borderRadiusSmall: 0.25vh;
     --borderRadiusLarge: 1.5vh;
@@ -38,7 +39,7 @@ div {
 
     --lightColor: #bbbbbb;
     --shade1: #F5F5F5;
-    --shade2: #E9E8E8;
+    --shade2: #efecec;
 
     --serif: Rooney, Georgia, serif;
     --sans: aktiv-grotesk, helvetica, arial, sans-serif;
@@ -117,6 +118,10 @@ div {
 .dropDown a:hover {
     background: #eeeeee;
 }
+.dropDown a:active {
+    background: rgb(63, 63, 63);
+    color: white;
+}
 
 
 
@@ -143,18 +148,18 @@ div {
 }
 
 .icon:hover {
-    filter: brightness(110%);
+    filter:saturate(1.7) drop-shadow(4px 5px 12px rgba(217, 217, 217, 0.468));
+    
 }
 
 .icon:active {
-    filter: brightness(120%);
+    filter: brightness(99%);
 }
 
 .iconImg {
     height: 10vh;
     width: 10vh;
-    background: url(images/placefolder.png) bottom center/contain no-repeat;
-    margin-bottom: 2vh;
+    margin-bottom: 0.5vh;
 }
 
 .iconLabel {
@@ -194,19 +199,16 @@ div {
 }
 
 #windowHeader {
-    transition: opacity 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    transition: box-shadow 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     height: 5vh;
     border-radius: 1.5vh 1.5vh 0 0;
     padding: 1.5vh;
-    z-index: 15;
+    z-index: 55;
     display: flex;
-    justify-content:space-between;
+    justify-content: space-between;
     user-select: none;
     background-color: var(--shade2);
     width: 100%;
     position: relative;
-
 }
 
 #windowHeader.scrolled {
@@ -216,27 +218,40 @@ div {
 #windowContentContainer {
     transition: opacity 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     padding: 0 1vh;
-    overflow: scroll;
     flex-direction: column;
     width: 100%;
-    max-height: 100%;
-    overflow: scroll;
+    height: 100%;
 }
 
 #windowContent {
     transition: opacity 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     padding: 7.5vh 2.5vh 2.5vh 2.5vh;
-    padding-top:calc(5vh+ 5vw);
+    padding-top: calc(5vh+ 5vw);
     background: white;
-    background-image: url(./images/pagecurl.png);
-    background-position: right top;
-    background-repeat: no-repeat;
-    background-size: 12%;
     z-index: 10;
+    overflow: scroll;
     user-select: text;
     width: 100%;
 }
 
+#windowPastebox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.pageCurl {
+    background-image: url(./images/pagecurl.png);
+    background-position: right top;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 7.5vh;
+}
 
 .actionContainer {}
 
@@ -244,7 +259,7 @@ div {
 
 
 /* typography */
-a{
+a {
     cursor: pointer;
 }
 
@@ -253,8 +268,8 @@ p,
 p *,
 li {
     font-family: var(--serif);
-    font-weight: 500;
-    font-size: var(--fontSizeRegular);
+    font-weight: 400;
+    font-size: var(--fontSizeWindowP);
     line-height: 165%;
     padding: 0 0 3vh 0;
 }
@@ -308,17 +323,17 @@ h4 {
 
 }
 
-li{
+li {
     margin-left: 2vh;
     padding: 0 0 1.5vh 0;
 }
 
 ul {
-    list-style: none; 
-    margin-bottom:2.5vh!important;
-  }
-  
-  ul li::before {
+    list-style: none;
+    margin-bottom: 2.5vh !important;
+}
+
+ul li::before {
     content: "\2022";
     color: #0000ff;
     font-weight: bold;
@@ -326,16 +341,16 @@ ul {
     width: 1vh;
     margin-left: -2vh;
     margin-right: 1vh;
-    
-  }
+
+}
 
 
 #windowContent p,
 #windowContent h1,
 #windowContent h2,
 #windowContent h3,
-#windowContent h4, 
-#windowContent ul{
+#windowContent h4,
+#windowContent ul {
     max-width: calc(350px + 45%);
     margin: 0 auto;
 }
@@ -370,12 +385,13 @@ html {
     display: none;
 }
 
-.hideScale {
+.windowClosed{
     opacity: 0;
-    transition: opacity 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: none!important;
+    user-select: none;
 }
 
-.hideScale div {
+.windowClosed div {
     opacity: 0;
     color: #eeeeee;
     transition: opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -400,114 +416,80 @@ html {
 
 @import url('https://fonts.googleapis.com/css?family=Hind:300,400');
 
-*, *:before, *:after {
-  -webkit-box-sizing: inherit;
-  box-sizing: inherit;
-}
-
-html {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Hind', sans-serif;
-  background: #fff;
-  color: #4d5974;
-
-  display: flex;
-  min-height: 100vh;
-}
-
-.container {
-  margin: 0 auto;
-  padding: 4rem;
-  width: 48rem;
-}
-
-h3 {
-  font-size: 1.75rem;
-  color: #373d51;
-  padding: 1.3rem;
-  margin: 0;
-}
-
 .accordion a {
-  position: relative;
+    position: relative;
 
-  display: flex;
+    display: flex;
 
-  flex-direction: column;
-  width: 100%;
-  padding: 1rem 3rem 1rem 1rem;
-  color: #7288a2;
-  font-size: 1.15rem;
-  font-weight: 400;
-  border-bottom: 1px solid #e5e5e5;
+    flex-direction: column;
+    width: 100%;
+    padding: 1rem 3rem 1rem 1rem;
+    color: #7288a2;
+    font-size: 1.15rem;
+    font-weight: 400;
+    border-bottom: 1px solid #e5e5e5;
 }
 
 .accordion a:hover,
 .accordion a:hover::after {
-  cursor: pointer;
-  color: #03b5d2;
+    cursor: pointer;
+    color: #03b5d2;
 }
 
 .accordion a:hover::after {
-  border: 1px solid #03b5d2;
+    border: 1px solid #03b5d2;
 }
 
 .accordion a.active {
-  color: #03b5d2;
-  border-bottom: 1px solid #03b5d2;
+    color: #03b5d2;
+    border-bottom: 1px solid #03b5d2;
 }
 
 .accordion a::after {
-  font-family: 'Ionicons';
-  content: '\f218';
-  position: absolute;
-  float: right;
-  right: 1rem;
-  font-size: 1rem;
-  color: #7288a2;
-  padding: 5px;
-  width: 30px;
-  height: 30px;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  border-radius: 50%;
-  border: 1px solid #7288a2;
-  text-align: center;
+    font-family: 'Ionicons';
+    content: '\f218';
+    position: absolute;
+    float: right;
+    right: 1rem;
+    font-size: 1rem;
+    color: #7288a2;
+    padding: 5px;
+    width: 30px;
+    height: 30px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    border: 1px solid #7288a2;
+    text-align: center;
 }
 
 .accordion a.active::after {
-  font-family: 'Ionicons';
-  content: '\f209';
-  color: #03b5d2;
-  border: 1px solid #03b5d2;
+    font-family: 'Ionicons';
+    content: '\f209';
+    color: #03b5d2;
+    border: 1px solid #03b5d2;
 }
 
 .accordion .content {
-  opacity: 0;
-  padding: 0 1rem;
-  max-height: 0;
-  border-bottom: 1px solid #e5e5e5;
-  overflow: hidden;
-  clear: both;
+    opacity: 0;
+    padding: 0 1rem;
+    max-height: 0;
+    border-bottom: 1px solid #e5e5e5;
+    overflow: hidden;
+    clear: both;
 
-  transition: all 0.2s ease 0.15s;
+    transition: all 0.2s ease 0.15s;
 }
 
 .accordion .content p {
-  font-size: 1rem;
-  font-weight: 300;
+    font-size: 1rem;
+    font-weight: 300;
 }
 
 .accordion .content.active {
-  opacity: 1;
-  padding: 1rem;
-  max-height: 100%;
+    opacity: 1;
+    padding: 1rem;
+    max-height: 100%;
 
-  transition: all 0.35s ease 0.15s;
+    transition: all 0.35s ease 0.15s;
 }

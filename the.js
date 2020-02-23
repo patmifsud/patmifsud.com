@@ -1,50 +1,57 @@
 // Windows
 let windows = {
     about: {
+        // Text that appears in the title bar of the window
         titleBar: "About",
-        openState: 0,
-        contentUrl: `placeholder.html`,    
+        // The file that the contents of the window will be loaded from
+        contentUrl: `about.html`,
     },
     resume: {
         titleBar: "Resume",
-        openState: 0,
-        contentUrl: `placeholder.html`,    
+        contentUrl: `resume.html`,
     },
     casestudies: {
         titleBar: "Case Studies",
-        openState: 0,
-        contentUrl: `placeholder.html`,    
+        contentUrl: `casestudies.html`,
     },
-    folio: {
-        titleBar: "Folio",
-        openState: 0,
-        contentUrl: `placeholder.html`,    
+    portfolio: {
+        titleBar: "Portfolio",
+        contentUrl: `portfolio.html`,
+    },
+    contact: {
+        titleBar: "Contact",
+        contentUrl: `contact.html`,
     },
 }
 
 // top menu bar
 const topMenu = [{
+        // Menu bar details
         named: "File",
         id: "fileMenu",
+
+        // Define the menu that drops down here
         contents: [{
             named: "About",
-            ifClicked: "openWindow(windows.about)"
+            // Function to perform when the dropdown is clicked
+            ifClicked: "animateInWindow(windows.about)"
         }, ],
+        // for now, margins need to manually be set on these dropdown menus via css to center them under the parent menu. Working on automating.
     },
     {
         named: "View",
         id: "viewMenu",
         contents: [{
                 named: "View Resume",
-                ifClicked: "openWindow(windows.resume)"
+                ifClicked: "animateInWindow(windows.resume)"
             },
             {
                 named: "View Casestudies",
-                ifClicked: "openWindow(windows.casestudies)"
+                ifClicked: "animateInWindow(windows.casestudies)"
             },
             {
                 named: "View Folio",
-                ifClicked: "openWindow(windows.foliow)"
+                ifClicked: "animateInWindow(windows.portfolio)"
             }
         ],
     },
@@ -81,16 +88,55 @@ const topMenu = [{
 
 ]
 
+const desktopIcons = [{
+    named: "Case Studies",
+    id: "casestudies",
+    // icon for each desktop object:
+    img: "images/casestudies-icon.png",
+    // funciton to perform when icon is clicked:
+    whenClicked: "animateInWindow(windows.casestudies)",
+}, {
+    named: "Resume",
+    id: "resume",
+    img: "images/resume-icon.png",
+    whenClicked: "animateInWindow(windows.resume)",
+}, {
+    named: "Portfolio",
+    id: "portfolio",
+    img: "images/portfolio-icon.png",
+    whenClicked: "animateInWindow(windows.portfolio)",
+}, {
+    named: "About",
+    id: "about",
+    img: "images/about-icon.png",
+    whenClicked: "animateInWindow(windows.about)",
+}, {
+    named: "Contact",
+    id: "contact",
+    img: "images/contact-icon.png",
+    whenClicked: "animateInWindow(windows.contact)",
+}]
 
+// 👂 listeners
+
+// close dropdown menus when the mouse enters desktop or window
 function topMenuDesktopMouseoverListener() {
-    document.querySelector('#desktop').addEventListener("mouseover", function () {
-        for (var i = 0; i < topMenu.length; i++) {
-            let divToHide = document.getElementById(topMenu[i].id);
-            hide(divToHide);
-        }
-    });
+    document.querySelectorAll('.closeDropdownMouseOver').forEach(item => {
+        item.addEventListener("mouseover", function () {
+            closeAllDropdowns();
+        })
+    })
+}
+// close dropdown menus when clicked on another dropdown menu
+function clickedOnDropdownListener() {
+    document.querySelectorAll('.drop').forEach(item => {
+        item.addEventListener("click", function () {
+            closeAllDropdowns();
+        })
+    })
 }
 
+// close dropdown menus when clicked on a dropdown item
 function dropdownMenuClicked(object) {
     toggleVisibility(object)
     for (var i = 0; i < topMenu.length; i++) {
@@ -116,28 +162,87 @@ function toggleVisibility(object) {
     object.classList.toggle('hide');
 }
 
+function closeAllDropdowns() {
+    for (var i = 0; i < topMenu.length; i++) {
+        let divToHide = document.getElementById(topMenu[i].id);
+        hide(divToHide);
+    }
+}
+
+
+
+// 📦 Template Literals
+
+// 📦 📦 Top Menu Draw
+function drawTopMenu() {
+    document.getElementById("menuBarInner").innerHTML = `
+        ${topMenu.map(menuTemplate).join("")}`
+};
+
+
+function menuTemplate(menuItem) {
+    return `<div class="menuItem" onclick="dropdownMenuClicked(${menuItem.id})">${menuItem.named}</div>
+        <div class="dropDown hide" id="${menuItem.id}">${menuItem.contents.map(dropdownMenuTemplate).join("")}
+    </div>
+    `
+};
+
+function dropdownMenuTemplate(parentMenu) {
+    return `<a class="drop" onclick="${parentMenu.ifClicked}">${parentMenu.named}</a>`
+}
+
+// 📦 📦 Window Draw
+function animateInWindow(windowToAnimateIn) {
+    console.log(windowToAnimateIn);
+    document.getElementById('window').classList.remove('windowClosed');
+    writeWindow(windowToAnimateIn);
+
+};
+
+function animateOutWindow() {
+    document.getElementById('window').classList.add('windowClosed');
+
+};
+
+function writeWindow(windowName) {
+    console.log(windowName);
+    document.getElementById("windowHeaderText").innerHTML = `${windowName.titleBar}`
+    document.getElementById("windowPastebox").innerHTML = `<object type="text/html" id="windowContentContainer" data="${windowName.contentUrl}"></object></div></div>`
+}
+
+// 📦 📦 Desktop Icon Draw
+
+// element.innerHTML += "additional HTML code"
+function writeDesktopIcon(icon) {
+    console.log(icon);
+    console.log(icon.id);
+    return ` <div id="${icon.id}" class="icon hide" onclick="${icon.whenClicked}">
+<div class="iconImg" style="background: url(${icon.img}) bottom center/contain no-repeat;"></div>
+<div class="iconLabel">${icon.named}</div></div>
+`
+}
+
+function drawDesktop() {
+    let desktop = document.getElementById("desktop");
+    // this delay makes it look like the icons are being drawn on one by one, like when starting up an old Macintosh
+    let delay = 600
+    desktopIcons.forEach(function (desktopIcons) {
+        desktop.innerHTML += writeDesktopIcon(desktopIcons);
+        setTimeout(function () {
+            // remove the class 'Hide' from the icon. Adding and immediatly removing this class is how the icons animate in.
+            show(document.getElementById(desktopIcons.id));
+        }, delay);
+        delay += 200;
+    });
+}
+
+
 
 
 // 🔝 Menu Bar functions 
 
-function drawTopMenu() {
-    document.getElementById("menuBarInner").innerHTML = `
-    ${topMenu.map(menuTemplate).join("")}`
-};
 
 
-// ${topMenu.map(menuTemplate).join("")}
-
-function menuTemplate(menuItem) {
-    return `<div class="menuItem" onclick="dropdownMenuClicked(${menuItem.id})">${menuItem.named}</div>
-    <div class="dropDown hide" id="${menuItem.id}">${menuItem.contents.map(dropdownMenuTemplate).join("")}
-</div>
-`
-};
-
-function dropdownMenuTemplate(parentMenu) {
-    return `<a class="drop${parentMenu.named}" onclick="${parentMenu.ifClicked}">${parentMenu.named}</a>`
-}
 function downloadResume(format) {
     console.log("download " + format + " resume");
 }
@@ -159,45 +264,11 @@ function linkedIn() {
 }
 
 
-
-
-// 🏠 Window logic
-
-function openWindow(windowName) {
-    console.log("opening " + windowName);
-};
-
-function animateInWindow(windowToAnimateIn) {
-    console.log(windowToAnimateIn);
-    document.getElementById('window').classList.remove('hideScale');
-    writeWindow(windowToAnimateIn);
-    windowToAnimateIn.openState = 1;
-
-};
-
-function animateOutWindow() {
-    document.getElementById('window').classList.add('hideScale');
-    windowToAnimateIn.openState = 0;
-
-};
-
-function writeWindow(windowName){
-console.log(windowName);
-document.getElementById("windowHeaderText").innerHTML = `${windowName.titleBar}`
-document.getElementById("windowPastebox").innerHTML = `<object type="text/html" id="windowContentContainer" data="${windowName.contentUrl}"></object></div></div>`
-}
-
-
-
-
-
-
 // 🏂 Visuals and animations
 
 function addShadowOnScroll() {
     let windowContainer = document.querySelector('#windowContentContainer');
     let windowHeader = document.querySelector('#windowHeader');
-
     windowContainer.onscroll = function addShadow() {
         if (windowContainer.scrollTop > 2) {
             windowHeader.classList.add('scrolled');
@@ -284,11 +355,11 @@ items.forEach(item => item.addEventListener('click', toggleAccordion));
 
 
 
-
-
 window.onload = function () {
     drawTopMenu();
-    topMenuDesktopMouseoverListener()
+    topMenuDesktopMouseoverListener();
+    clickedOnDropdownListener();
+    drawDesktop();
     // addShadowOnScroll();
 
 };
