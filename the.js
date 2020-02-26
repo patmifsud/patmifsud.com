@@ -11,7 +11,7 @@ let windows = {
         contentUrl: `resume.html`,
     },
     casestudies: {
-        titleBar: "Case Studies",
+        titleBar: "Case Study",
         contentUrl: `casestudies.html`,
     },
     portfolio: {
@@ -89,7 +89,7 @@ const topMenu = [{
 ]
 
 const desktopIcons = [{
-    named: "Case Studies",
+    named: "Case Study",
     id: "casestudies",
     // icon for each desktop object:
     img: "images/casestudies-icon.png",

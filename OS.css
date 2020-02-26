@@ -3,9 +3,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-size: var(--fontSizeRegular);
-    line-height: var(--fontSizeRegular);
+    font-size: var(--fontSizeInterface);
+    line-height: var(--fontSizeInterface);
     font-family: aktiv-grotesk, helvetica, arial, sans-serif;
+    -webkit-tap-highlight-color: transparent;
+
 }
 
 html,
@@ -18,34 +20,18 @@ body {
 
 div {
     display: inline-block;
-    color: var(--textColor);
+    color: var(--interfaceTextColor);
 }
 
 /* variables */
 :root {
-    --fontSizeSmall: 1.25vh;
-    --fontSizeRegular: 2vh;
-    --fontSizeMed: 3vh;
-    --fontSizeWindowP: 2.5vh;
-    --fontSizeLarge: calc(5vh + 1vw);
-
+    --fontSizeInterface: 2vh;
     --borderRadiusSmall: 0.25vh;
     --borderRadiusLarge: 1.5vh;
-
     --hoverColor: #F5F5F5;
-    --activeColor: #FFE600;
-
-    --textColor: #515151;
-
-    --lightColor: #bbbbbb;
-    --shade1: #F5F5F5;
+    --interfaceTextColor: #515151;
+    /* used in menu background */
     --shade2: #efecec;
-
-    --serif: Rooney, Georgia, serif;
-    --sans: aktiv-grotesk, helvetica, arial, sans-serif;
-
-    --transSimpleAll: ;
-    ;
 }
 
 
@@ -86,6 +72,8 @@ div {
 
 .menuItem:active {
     background: var(--activeColor);
+    font-size: 2.15vh!important;
+
 }
 
 
@@ -178,14 +166,15 @@ div {
     height: 10vh;
     width: 10vh;
     margin-bottom: 0.5vh;
+    margin-left: -4px;
 }
 
 .iconLabel {
     text-align: center;
     width: 100%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    /* overflow: hidden; */
+    /* text-overflow: ellipsis; */
+    white-space: nowrap; */
 }
 
 
@@ -193,7 +182,7 @@ div {
 /* Window */
 
 #window {
-    width: 700px;
+    width: 70vw;
     min-width: 30vw;
     height: 70vh;
     position: absolute;
@@ -241,16 +230,7 @@ div {
     height: 100%;
 }
 
-#windowContent {
-    transition: opacity 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    padding: 7.5vh 2.5vh 2.5vh 2.5vh;
-    padding-top: calc(5vh+ 5vw);
-    background: white;
-    z-index: 10;
-    overflow: scroll;
-    user-select: text;
-    width: 100%;
-}
+
 
 #windowPastebox {
     display: flex;
@@ -259,124 +239,12 @@ div {
     height: 100%;
 }
 
-.pageCurl {
-    background-image: url(./images/pagecurl.png);
-    background-position: right top;
-    background-repeat: no-repeat;
-    background-size: contain;
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 100%;
-    height: 7.5vh;
-}
 
-.actionContainer {}
-
-.action {}
 
 
 /* typography */
 a {
     cursor: pointer;
-}
-
-
-p,
-p *,
-li {
-    font-family: var(--serif);
-    font-weight: 400;
-    font-size: var(--fontSizeWindowP);
-    line-height: 165%;
-    padding: 0 0 3vh 0;
-}
-
-
-
-h1 {
-    font-family: var(--sans);
-    font-style: normal;
-    font-weight: 800;
-    padding: 0 0 5vh 0;
-    font-size: var(--fontSizeLarge);
-    line-height: 110%;
-    letter-spacing: -0.03em;
-    color: black;
-}
-
-h2 {
-    font-size: var(--fontSizeMed);
-    font-family: var(--sans);
-    font-style: normal;
-    font-weight: bold;
-    line-height: 124%;
-    padding: 4vh 0 6vh 0;
-    color: black;
-}
-
-
-h3 {
-    font-size: var(--fontSizeMed);
-    font-family: var(--sans);
-    font-style: normal;
-    font-weight: bold;
-    line-height: 140%;
-}
-
-
-
-h4 {
-    font-family: var(--sans);
-    font-style: normal;
-    font-weight: bold;
-    line-height: 120%;
-    padding: 4vh 0 2.5vh 0;
-    color: black;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 4vh 0 3vh 0;
-    font-size: 1.8vh;
-
-
-}
-
-li {
-    margin-left: 2vh;
-    padding: 0 0 1.5vh 0;
-}
-
-ul {
-    list-style: none;
-    margin-bottom: 2.5vh !important;
-}
-
-ul li::before {
-    content: "\2022";
-    color: #0000ff;
-    font-weight: bold;
-    display: inline-block;
-    width: 1vh;
-    margin-left: -2vh;
-    margin-right: 1vh;
-
-}
-
-
-#windowContent p,
-#windowContent h1,
-#windowContent h2,
-#windowContent h3,
-#windowContent h4,
-#windowContent ul {
-    max-width: calc(350px + 45%);
-    margin: 0 auto;
-}
-
-
-.emph {
-    color: black;
-    font-weight: bold;
 }
 
 
