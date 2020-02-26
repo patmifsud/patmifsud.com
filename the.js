@@ -220,10 +220,18 @@ function animateOutWindow() {
 
 };
 
+function getWindowHTML(windowHTMLURL){
+    fetch('https://patmifsud.com/' + windowHTMLURL)
+        .then(response => response.text())
+        .then((data) => {
+    return data;
+  })
+}
+
 function writeWindow(windowName) {
     console.log(windowName);
-    document.getElementById("windowHeaderText").innerHTML = `${windowName.titleBar}`
-    document.getElementById("windowPastebox").innerHTML = `<object type="text/html" id="windowContentContainer" data="${windowName.contentUrl}"></object></div></div>`
+    document.getElementById("windowHeaderText").innerHTML = `${windowName.titleBar}`;
+    document.getElementById("windowPastebox").innerHTML = getWindowHTML(windowName.contentUrl); 
 }
 
 // 📦 📦 Desktop Icon Draw
