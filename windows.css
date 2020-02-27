@@ -3,25 +3,29 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-size: var(--fontSizeRegular);
-    line-height: var(--fontSizeRegular);
+
     font-family: aktiv-grotesk, helvetica, arial, sans-serif;
 }
 
 
 /* variables */
 :root {
---headingFont: aktiv-grotesk, helvetica, arial, sans-serif;
---bodyFont: noto-sans, helvetica, arial, sans-serif;
+    /* this is modified through javascript on resize. This allows the vh inside of the object window act like the vh outside of the object window.  */
 
---windowPColor:rgb(154, 154, 154);
---windowHeadColor:#8C8C8C;
---space1:3vh;
---space2:5vh;
---space3:7.5vh;
+    --headingFont: aktiv-grotesk, helvetica, arial, sans-serif;
+    --bodyFont: noto-sans, helvetica, arial, sans-serif;
 
+    --windowPColor: #B7B7B7;
+    --windowHeadColor: #8C8C8C;
+    --space1: calc(1.5vh + 1vw);
+    --space2: calc(2.5vh + 1.25vw);
+    --space3: calc(3.75vh + 1.8vw);
 
+    --fontSizeP: calc(1vh +0.5vw);
+    --fontSizeH2: calc(2vh + 1vw);
+    --fontSizeH1: calc(2.75vh + 1.4vw);
 }
+
 
 html,
 body {
@@ -36,37 +40,65 @@ div {
 }
 
 
-
 p,
 p *,
 li {
+    font-family: var(--bodyFont);
     font-weight: 400;
-    font-size: 2vh;
+    font-size: var(--fontSizeP);
     line-height: 165%;
-    color:var(--windowPColor);
-    margin-bottom:var(--space1);
+    color: var(--windowPColor);
+    margin-bottom: var(--space1) !important;
 }
 
 
 
 h1 {
+    font-family: var(--headingFont);
+    color: var(--windowHeadColor);
+    font-weight: bold;
+    font-size: 5vh;
+    line-height: 110%;
+    font-size: var(--fontSizeH1);
+    margin-bottom: var(--space2) !important;
 
 }
 
 h2 {
+    font-family: var(--headingFont);
+    font-style: normal;
+    font-weight: bold;
+    line-height: 120%;
+    margin-bottom: var(--space2);
+    color: #A4A3D6;
+    font-size: var(--fontSizeH2);
 
 }
 
 
-h3 {
-
-}
+h3 {}
 
 
 
 h4 {
+    color: var(--windowHeadColor);
+    margin-bottom: var(--space1) !important;
+    font-weight: 600;
+    font-size: var(--fontSizeP);
+
+    line-height: 165%;
+    text-transform: capitalize;
+}
 
 
+h5 {
+    font-style: italic;
+    font-weight: 500;
+    font-size: var(--fontSizeP);
+    line-height: 110%;
+    color: #D2D2D2;
+    margin-bottom: var(--space2) !important;
+    letter-spacing: 0.25em;
 }
 
 li {
@@ -91,37 +123,64 @@ ul li::before {
 }
 
 
-p,h1,h2,h3,h4,ul {
+section {
+    padding-bottom: var(--space2);
+    display: block;
     max-width: calc(350px + 45%);
     margin: 0 auto;
 }
 
 
 .emph {
-    color:var(-windowHeadColor);
+    color: var(-windowHeadColor);
     font-weight: bold;
+    text-transform: capitalize;
+
 }
 
 
-.pageCurl {
+#pageCurl {
     background-image: url(./images/pagecurl.png);
+    transition: opacity 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
     background-position: right top;
     background-repeat: no-repeat;
     background-size: contain;
     position: absolute;
-    right: 0;
-    top: 0;
+    right: 1vh;
+    top: 4.9vh;
     width: 100%;
-    height: 7.5vh;
+    height: 5vh;
+    opacity: 1;
 }
 
-#windowContent {
-    transition: opacity 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    padding: 7.5vh 2.5vh 2.5vh 2.5vh;
-    padding-top: calc(5vh+ 5vw);
-    background: white;
-    z-index: 10;
-    overflow: scroll;
-    user-select: text;
+.buttonContainer {
+    margin: 0 -1vh;
+    display: flex;
+    flex-wrap: wrap;
     width: 100%;
+    margin-bottom: var(--space3) !important;
+}
+
+.buttonContainer a {
+    margin: 0 1vh 2vh 1vh;
+    cursor: pointer;
+    padding: 1vh;
+    background: #EAEDFF;
+    color: #918FDE;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.5vh;
+    line-height: 110%;
+
+}
+
+
+
+.iconIllustration {
+    margin-bottom: var(--space1);
+    float: right;
+    width: 10vh;
+    max-width: 18%;
+    margin-left: 1vh;
 }

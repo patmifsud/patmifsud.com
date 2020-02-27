@@ -1,3 +1,20 @@
+/* https://codepen.io/storm11/pen/pZXxBB */
+
+
+
+/* variables */
+:root {
+
+    --fontSizeInterface: 2vh;
+    --borderRadiusSmall: 0.25vh;
+    --borderRadiusLarge: 1.5vh;
+    --hoverColor: #F5F5F5;
+    --interfaceTextColor: #848484;
+    /* used in menu background */
+    --shade2: #EDEDED;
+}
+
+
 /* setup */
 * {
     margin: 0;
@@ -23,16 +40,6 @@ div {
     color: var(--interfaceTextColor);
 }
 
-/* variables */
-:root {
-    --fontSizeInterface: 2vh;
-    --borderRadiusSmall: 0.25vh;
-    --borderRadiusLarge: 1.5vh;
-    --hoverColor: #F5F5F5;
-    --interfaceTextColor: #515151;
-    /* used in menu background */
-    --shade2: #efecec;
-}
 
 
 /* Menu */
@@ -45,34 +52,35 @@ div {
     display: flex;
     justify-content: space-between;
     padding: 0 1.5vh;
-
 }
 
 #menuBarInner {
     margin-top: 0;
+    display: flex;
+    flex-wrap: wrap;
+    vertical-align: middle;
     transition: margin-top 2.3s cubic-bezier(0.165, 0.84, 0.44, 1);
-    transition-delay: 1.2s;
-
 }
 
 .menuItem {
     padding: 1.5vh;
+    height: 5vh;
     font-weight: 500;
     border-radius: var(--borderRadiusSmall);
-    transition:font-size 0.1s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+    transition: font-size 0.1s cubic-bezier(0.445, 0.05, 0.55, 0.95);
 }
 
 
 .menuItem:hover {
     background: var(--hoverColor);
     cursor: pointer;
-    font-size: 2.2vh!important;
+    font-size: 2.2vh !important;
     user-select: none;
 }
 
 .menuItem:active {
     background: var(--activeColor);
-    font-size: 2.15vh!important;
+    font-size: 2.15vh !important;
 
 }
 
@@ -128,6 +136,7 @@ div {
     padding: 2vh;
     width: 100%;
     height: 95vh;
+    border-top: solid 3px #efefef;
     display: flex;
     flex-flow: column wrap-reverse;
     justify-content: flex-start;
@@ -147,16 +156,16 @@ div {
 }
 
 .icon:hover {
-    filter: saturate(2)  drop-shadow(4px 5px 12px rgba(217, 217, 217, 0.468));
-    transform:scale(1.025);
+    filter: saturate(2) drop-shadow(4px 5px 12px rgba(217, 217, 217, 0.468));
+    transform: scale(1.025);
     transition: transform 0.1s cubic-bezier(0.445, 0.05, 0.55, 0.95);
 
-    
+
 }
 
 .icon:active {
     filter: brightness(99%) saturate(2);
-    transform:scale(1.05);
+    transform: scale(1.05);
     transition: transform 0.1s cubic-bezier(0.445, 0.05, 0.55, 0.95);
 
 
@@ -174,7 +183,7 @@ div {
     width: 100%;
     /* overflow: hidden; */
     /* text-overflow: ellipsis; */
-    white-space: nowrap; */
+    white-space: nowrap;
 }
 
 
@@ -182,22 +191,23 @@ div {
 /* Window */
 
 #window {
-    width: 70vw;
+    width: 75vw;
     min-width: 30vw;
-    height: 70vh;
+    height: 85vh;
     position: absolute;
     max-width: 100vw;
     max-height: 95vh;
-    left: 2.5vh;
-    top: 7.5vh;
+    left: 1vh;
+    top: 6vh;
     min-height: 30vh;
     background-color: var(--shade2);
     border-radius: 1.5vh 1.5vh 0 0;
-    transition: opacity 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: opacity 2s cubic-bezier(0.215, 0.61, 0.355, 1), transform 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
     overflow: auto;
     z-index: 50;
     display: flex;
     flex-direction: column;
+    transform: scale(1);
 }
 
 #window:active {
@@ -206,16 +216,23 @@ div {
 }
 
 #windowHeader {
+    transition: opacity 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: box-shadow 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     height: 5vh;
     border-radius: 1.5vh 1.5vh 0 0;
     padding: 1.5vh;
-    z-index: 55;
+    z-index: 15;
     display: flex;
     justify-content: space-between;
     user-select: none;
     background-color: var(--shade2);
     width: 100%;
     position: relative;
+}
+
+#windowHeaderText{
+    color:#9C9C9C;
+    font-weight: 500;
 }
 
 #windowHeader.scrolled {
@@ -225,22 +242,48 @@ div {
 #windowContentContainer {
     transition: opacity 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     padding: 0 1vh;
+    overflow: scroll;
     flex-direction: column;
     width: 100%;
-    height: 100%;
+    max-height: 100%;
+    overflow: scroll;
+}
+
+#windowContent {
+    transition: opacity 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    padding: 6vh 3vh;
+    background: white;
+    z-index: 10;
+    overflow: scroll;
+    user-select: text;
+    width: 100%;
+    overflow: scroll;
 }
 
 
 
 #windowPastebox {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    overflow: scroll;
     height: 100%;
+    padding: 0 1vh;
+
 }
 
+.close {
+    height: 2vh;
+    width: 2vh;
+    border-radius: 100%;
+    background-color: #C4C4C4;
+    transition: background-color 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform: scale(1)
+}
 
+.close:hover {
+    background: rgb(255, 88, 88);
+    transform: scale(0.9);
+    transition: background-color 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
+}
 
 /* typography */
 a {
@@ -272,30 +315,15 @@ html {
 
 }
 
-.iconTransition{
-    opacity: 0!important;
-
-
-}
-
-
-.windowClosed {
-    opacity: 0;
-    display: none !important;
-    user-select: none;
-}
-
-.windowClosed div {
-    opacity: 0;
-    color: #eeeeee;
-    transition: opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+.invisible {
+    opacity: 0 !important;
 }
 
 
 /* Amnimation  */
 /* animating in the top menu bar by removing margin top */
 .slideIn {
-    margin-top: 1000px!important;
+    margin-top: 1000px !important;
     transition: margin-top 2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
 }
@@ -397,3 +425,38 @@ html {
 
     transition: all 0.35s ease 0.15s;
 }
+
+.windowClosed {
+    opacity: 0;
+    transform: scale(0)!important;
+    user-select: none;
+    transition: opacity 0.2s cubic-bezier(0.215, 0.61, 0.355, 1), transform 0.6s cubic-bezier(0.215, 0.61, 0.355, 1)!important;
+
+}
+
+@media only screen and (max-width: 850px){
+    .pageCurl {
+display: none;    }
+
+.iconIllustration{
+    display: none;
+}
+
+#window{
+left:0;
+top:5vh;
+width: 100vw;
+height:90vh;
+}
+
+.close{
+    background-color:#d8b6b6;
+}
+#windowHeaderText{
+    margin-left: 1vh;
+
+}
+#windowContent{padding: 4vh 2vh;
+}
+
+  }

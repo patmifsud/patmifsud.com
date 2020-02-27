@@ -1,37 +1,21 @@
-<!doctype html>
-<html>
+const windowData = {
+    casestudies: {
+        windowHTML: `<div id="windowContent">
+        <div id="pageCurl"></div>
+        <section>
+        <img class="iconIllustration" src="images/casestudies-icon.png">
 
-<head>
-    <meta charset="utf-8">
-    <meta name="description" content="Pat Mifsud - UI, UX, Product Designer">
-    <title>Pat Mifsud</title>
-    <link href="windows.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.typekit.net/flp6boc.css">
-
-    <style> 
-    /* Page Specific Colour Variables */
-        :root {
-        --pageKeyColor:#A4A3D6;
-        --pageLinkColor:#918FDE;
-        --pageLinkBgColor:#EAEDFF;
-        }
-    </style> 
-</head>
-
-<body style="overflow:scroll;">
-
-    <div id="windowContent">
-        <div class="pageCurl"></div>
-        <h5>CASESTUDY</h5>
-        <h1>Scaling and automating a business consulting product for LPMA</h1>
-
+        <h1>Scaling a business consulting product for LPMA</h1>
+        <div class="buttonContainer">
+<a target=”_blank” href="/casestudies.html" >OPEN IN NEW TAB</a> <a onClick="downloadResume()"> DOWNLOAD</a></div>
+        
         <p><span class="emph">My role:</span> Product Owner / UX</p>
         <p><span class="emph">Goal:</span> To provide an easy way for real estate agency owners to see how
             much of the rental market they have today, and set goals on how much of the market they want to
             own in the future.</p>
         <p><span class="emph">Company:</span> Leading Property Managers Association (LPMA)
             Lpma.com.au</p>
-        
+        </section><section>
         <h4>BACKGROUND</h4>
         <p>LPMA is an industry association for rental property managers, kind of like AGDA for Graphic
             Designers, or CPA for Accountants.
@@ -45,19 +29,25 @@
             this point, nor lead a project myself, but it was exactly the kind of baptism of fire challenge
             I was looking for, and the transformation aspect was really appealing.
         </p>
+        </section>
+        <section>
 
         <h2>
             My core task at LPMA was to design an app that did this:
         </h2>
-
+        </section>
+        <section>
         <div style="width:100%; height:15vh; background:#642f2f;"></div>
-
+        </section>
+        <section>
         <p>
             In the past when the company helped real estate agencies understand their market and set goals,
             they used a consulting process called ‘5 Channels of Growth’. Here’s how that worked: </p>
-
+            </section>
+            <section>
         <div style="width:100%; height:15vh; background:#eeeeee;"></div>
-
+        </section>
+        <section>
         <p>Agency owners wanted to know how much market share they had in each of the suburbs they managed
             properties in, but it was a pain to calculate. An insular industry meant it was also hard to
             find advice on planning for growth and setting goals. With this process LPMA did that for them.
@@ -65,9 +55,11 @@
             The brief from stakeholders was something like this: Take the above process for ‘5 Channels of
             Growth’, and digitize it so that:
         </p>
-
+        </section>
+        <section>
         <div style="width:100%; height:15vh; background:#eeeeee;"></div>
-
+        </section>
+        <section>
 
         <h2>
             Getting to Work
@@ -93,14 +85,16 @@
             and discovery stage.
 
         </p>
-
+        </section>
+        <section>
 
 
         <h2>The Process </h2>
         <p>Whilst the tight deadlines made it difficult to run a comprehensive discovery process, the easy
             availability of internal and company friendly prospective users helped greatly.
         </p>
-
+        </section>
+        <section>
 
         <h4>01 Research and discovery </h4>
         <ul>
@@ -118,6 +112,8 @@
             delegate the work out to a department director.</p>
         <p>The problem that the product solves for each of these parties is quite different.
         </p>
+        </section>
+        <section>
         </br>
         <p><span class="emph">For the Agency Owner, </span>they want an easy way to grow their rental
             department without having to invest too much ongoing time into it. They want answers on
@@ -139,12 +135,16 @@
             how to run the rental department. It was fortunate that we found this out early on in the
             process.
         </p>
-        <br />
+        </section>
+        <section>
         <p>Next, it was on to:<br />
             Defining Prototyping, and Validation
         </p>
-
+        </section>
+        <section>
         <div style="width:100%; height:15vh; background:#eeeeee;"></div>
+        </section>
+        <section>
         <h2>Problems and solutions </h2>
 
         <table>
@@ -248,7 +248,8 @@
                 </tr>
             </tbody>
         </table>
-
+        </section>
+        <section>
         <h2>Flow, before and after</h2>
         <p>A simplified example of how our user flow looked before and after validation. We learnt a lot.
         </p>
@@ -257,7 +258,8 @@
             A link to <a target="_blank" 
                 href="https://www.figma.com/file/Izy3CeLSkLkRDQKGeuoqJTAE/LPMA-5COG-Wireframe?node-id=1256%3A6894">an
                 old version of the wireframes in figma</a>.</p>
-
+                </section>
+                <section>
 
         <h2>Outcome</h2>
         <p>In the end, together with our development partner we faced some budgeting issues which meant they
@@ -266,10 +268,22 @@
         </p>
         <p>A bit of a bitter sweet end to my first product, but the journey was an amazing one.
         </p>
-
+        </section>
+        <section>
         <p>Referees available upon request
-        </p>
-    </div>
-</body>
-
-</html>
+        </p>        </section>
+    </div> `,
+    },
+    resume: {
+        windowHTML: `content coming soon`
+    },
+    about: {
+        windowHTML: `content coming soon`
+    },
+    portfolio: {
+        windowHTML: `content coming soon`
+    },
+    contact: {
+        windowHTML: `content coming soon`
+    }
+}

@@ -5,22 +5,32 @@ let windows = {
         titleBar: "About",
         // The file that the contents of the window will be loaded from
         contentUrl: `about.html`,
+        data: windowData.about.windowHTML,
+
     },
     resume: {
         titleBar: "Resume",
         contentUrl: `resume.html`,
+        data: windowData.resume.windowHTML,
+
     },
     casestudies: {
         titleBar: "Case Study",
         contentUrl: `casestudies.html`,
+        data: windowData.casestudies.windowHTML,
+
     },
     portfolio: {
         titleBar: "Portfolio",
         contentUrl: `portfolio.html`,
+        data: windowData.portfolio.windowHTML,
+
     },
     contact: {
         titleBar: "Contact",
         contentUrl: `contact.html`,
+        data: windowData.contact.windowHTML,
+
     },
 }
 
@@ -212,35 +222,28 @@ function animateInWindow(windowToAnimateIn) {
     console.log(windowToAnimateIn);
     document.getElementById('window').classList.remove('windowClosed');
     writeWindow(windowToAnimateIn);
-
+    addShadowOnScroll();
 };
 
 function animateOutWindow() {
     document.getElementById('window').classList.add('windowClosed');
-
 };
 
-function getWindowHTML(windowHTMLURL){
-    fetch('https://patmifsud.com/' + windowHTMLURL)
-        .then(response => response.text())
-        .then((data) => {
-    return data;
-  })
-}
 
 function writeWindow(windowName) {
     console.log(windowName);
-    document.getElementById("windowHeaderText").innerHTML = `${windowName.titleBar}`;
-    document.getElementById("windowPastebox").innerHTML = getWindowHTML(windowName.contentUrl); 
+    document.getElementById("windowHeaderText").innerHTML = `${windowName.titleBar}`
+    document.getElementById("windowPastebox").innerHTML = `${windowName.data}`;
+    
 }
+
+
 
 // 📦 📦 Desktop Icon Draw
 
 // element.innerHTML += "additional HTML code"
 function writeDesktopIcon(icon) {
-    console.log(icon);
-    console.log(icon.id);
-    return ` <div id="${icon.id}" class="icon iconTransition" onclick="${icon.whenClicked}">
+    return ` <div id="${icon.id}" class="icon invisible" onclick="${icon.whenClicked}">
 <div class="iconImg" style="background: url(${icon.img}) bottom center/contain no-repeat;"></div>
 <div class="iconLabel">${icon.named}</div></div>
 `
@@ -254,7 +257,7 @@ function drawDesktop() {
         desktop.innerHTML += writeDesktopIcon(desktopIcons);
         setTimeout(function () {
             // remove the class 'Hide' from the icon. Adding and immediatly removing this class is how the icons animate in.
-            document.getElementById(desktopIcons.id).classList.remove('iconTransition');
+            document.getElementById(desktopIcons.id).classList.remove('invisible');
         }, delay);
         delay += 150;
     });
@@ -291,13 +294,19 @@ function linkedIn() {
 // 🏂 Visuals and animations
 
 function addShadowOnScroll() {
-    let windowContainer = document.querySelector('#windowContentContainer');
+    let windowContainer = document.querySelector('#windowPastebox');
     let windowHeader = document.querySelector('#windowHeader');
-    windowContainer.onscroll = function addShadow() {
+    let pageCurl = document.getElementById('pageCurl');
+    windowContainer.onscroll = function addShadow()
+    {
         if (windowContainer.scrollTop > 2) {
             windowHeader.classList.add('scrolled');
+            pageCurl.classList.add('invisible');
         } else {
             windowHeader.classList.remove('scrolled');
+            pageCurl.classList.remove('invisible');
+
+
         }
 
     }
@@ -385,9 +394,5 @@ window.onload = function () {
     topMenuDesktopMouseoverListener();
     clickedOnDropdownListener();
     drawDesktop();
-
     document.getElementById('menuBarInner').classList.remove('slideIn');
-
-    // addShadowOnScroll();
-
 };
