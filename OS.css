@@ -193,7 +193,7 @@ div {
 #window {
     width: 75vw;
     min-width: 30vw;
-    height: 85vh;
+    height: 93vh;
     position: absolute;
     max-width: 100vw;
     max-height: 95vh;
@@ -201,8 +201,8 @@ div {
     top: 6vh;
     min-height: 30vh;
     background-color: var(--shade2);
-    border-radius: 1.5vh 1.5vh 0 0;
-    transition: opacity 2s cubic-bezier(0.215, 0.61, 0.355, 1), transform 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+    border-radius: 1.5vh;
+    transition: opacity 1.8s cubic-bezier(0.215, 0.61, 0.355, 1), transform 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
     overflow: auto;
     z-index: 50;
     display: flex;
@@ -230,8 +230,8 @@ div {
     position: relative;
 }
 
-#windowHeaderText{
-    color:#9C9C9C;
+#windowHeaderText {
+    color: #9C9C9C;
     font-weight: 500;
 }
 
@@ -250,14 +250,15 @@ div {
 }
 
 #windowContent {
-    transition: opacity 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    padding: 6vh 3vh;
+    margin-bottom: 1vh;
+    padding: 5vh 3vh;
     background: white;
     z-index: 10;
     overflow: scroll;
     user-select: text;
     width: 100%;
     overflow: scroll;
+    border-radius: 1vh;
 }
 
 
@@ -428,35 +429,48 @@ html {
 
 .windowClosed {
     opacity: 0;
-    transform: scale(0)!important;
+    transform: scale(0) !important;
     user-select: none;
-    transition: opacity 0.2s cubic-bezier(0.215, 0.61, 0.355, 1), transform 0.6s cubic-bezier(0.215, 0.61, 0.355, 1)!important;
+    transition: opacity 0.2s cubic-bezier(0.075, 0.82, 0.165, 1), transform 3s cubic-bezier(0.215, 0.61, 0.355, 1) !important;
 
 }
 
-@media only screen and (max-width: 850px){
-    .pageCurl {
-display: none;    }
 
-.iconIllustration{
-    display: none;
+
+
+@media only screen and (max-width: 680px){
+    #pageCurl {
+        right: 0.4vh!important;
+    }
+
+    .iconIllustration {
+        display: none;
+    }
+
+    #window {
+        left: 0;
+        top: 5vh;
+        width: 100vw;
+        height: 90vh;
+        border-radius: 0;
+    }
+
+#windowPastebox{
+    padding: 0 0.5vh;
+
 }
 
-#window{
-left:0;
-top:5vh;
-width: 100vw;
-height:90vh;
-}
+    .close {
+        background-color: #d8b6b6;
+    }
 
-.close{
-    background-color:#d8b6b6;
-}
-#windowHeaderText{
-    margin-left: 1vh;
+    #windowHeaderText {
+        margin-left: 1vh;
+
+    }
+
+    #windowContent {
+        padding: 4vh 2vh;
+    }
 
 }
-#windowContent{padding: 4vh 2vh;
-}
-
-  }

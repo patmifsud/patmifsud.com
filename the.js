@@ -6,31 +6,52 @@ let windows = {
         // The file that the contents of the window will be loaded from
         contentUrl: `about.html`,
         data: windowData.about.windowHTML,
-
+        // each window has a color scheme that matches it's icon:
+        colors:{
+            main:"#B9DAE4",
+            dark:"#7BCEE7",
+            light:"#D0F4FF",
+        }
     },
     resume: {
         titleBar: "Resume",
         contentUrl: `resume.html`,
         data: windowData.resume.windowHTML,
-
+        colors:{
+            main:"#B4C4FF;",
+            dark:"#708EF9",
+            light:"#DCE4FE",
+        }
     },
     casestudies: {
         titleBar: "Case Study",
         contentUrl: `casestudies.html`,
         data: windowData.casestudies.windowHTML,
-
+        colors:{
+            main:"#A4A3D6;",
+            dark:"#918FDE",
+            light:"#EAEDFF",
+        }
     },
     portfolio: {
         titleBar: "Portfolio",
         contentUrl: `portfolio.html`,
         data: windowData.portfolio.windowHTML,
-
+        colors:{
+            main:"#C1DBEA",
+            dark:"#6FB7E1",
+            light:"#EAF7FF",
+        }
     },
     contact: {
         titleBar: "Contact",
         contentUrl: `contact.html`,
         data: windowData.contact.windowHTML,
-
+        colors:{
+            main:"#C5E8E6",
+            dark:"#73E5DD",
+            light:"#CFFCF9",
+        }
     },
 }
 
@@ -135,7 +156,7 @@ function preloadImage(url) {
     img.src = url;
 }
 
-// preload every desktop icon for smooth animation on fadein
+// preload every desktop icon for smooth(er) animation on fadein
 function preloadDesktopIcons() {
     desktopIcons.forEach(function (iconObject) {
         preloadImage(iconObject.img);
@@ -219,9 +240,9 @@ function dropdownMenuTemplate(parentMenu) {
 
 // 📦 📦 Window Draw
 function animateInWindow(windowToAnimateIn) {
-    console.log(windowToAnimateIn);
     document.getElementById('window').classList.remove('windowClosed');
     writeWindow(windowToAnimateIn);
+    swapCssColorVariablesForWindow(windowToAnimateIn);
     addShadowOnScroll();
 };
 
@@ -268,8 +289,6 @@ function drawDesktop() {
 
 // 🔝 Menu Bar functions 
 
-
-
 function downloadResume(format) {
     console.log("download " + format + " resume");
 }
@@ -305,13 +324,17 @@ function addShadowOnScroll() {
         } else {
             windowHeader.classList.remove('scrolled');
             pageCurl.classList.remove('invisible');
-
-
         }
-
     }
 }
 
+function swapCssColorVariablesForWindow(window){
+    document.documentElement.style.setProperty('--windowColorMain', window.colors.main);
+    document.documentElement.style.setProperty('--windowColorDark', window.colors.dark);
+    document.documentElement.style.setProperty('--windowColorLight', window.colors.light);
+ 
+
+}
 
 
 // Window move and resizing 
@@ -352,26 +375,26 @@ interact('.resize-drag')
         // target.textContent = event.rect.width + '×' + event.rect.height;
     });
 
-function dragMoveListener(event) {
-    var target = event.target,
-        // keep the dragged position in the data-x/data-y attributes
-        x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx,
-        y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
-    let maxYValue = (0 - (2.5 / 100) * window.innerHeight);
-    // translate the element
+// function dragMoveListener(event) {
+//     var target = event.target,
+//         // keep the dragged position in the data-x/data-y attributes
+//         x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx,
+//         y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
+//     let maxYValue = (0 - (2.5 / 100) * window.innerHeight);
+//     // translate the element
 
-    if (y < maxYValue) {
-        y = maxYValue
-    };
+//     if (y < maxYValue) {
+//         y = maxYValue
+//     };
+// // don't need window dragging anymore, just resizing for the moment so commenting this out
+//     // target.style.webkitTransform =
+//     //     target.style.transform =
+//     //     'translate(' + x + 'px, ' + y + 'px)';
 
-    target.style.webkitTransform =
-        target.style.transform =
-        'translate(' + x + 'px, ' + y + 'px)';
-
-    // update the posiion attributes
-    target.setAttribute('data-x', x);
-    target.setAttribute('data-y', y);
-}
+//     // update the posiion attributes
+//     target.setAttribute('data-x', x);
+//     target.setAttribute('data-y', y);
+// }
 
 // console.log(x);
 //         if (x > ((5 / 100) * window.innerHeight)){ console.log("yes");}

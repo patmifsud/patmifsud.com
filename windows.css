@@ -3,7 +3,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
     font-family: aktiv-grotesk, helvetica, arial, sans-serif;
 }
 
@@ -21,9 +20,15 @@
     --space2: calc(2.5vh + 1.25vw);
     --space3: calc(3.75vh + 1.8vw);
 
-    --fontSizeP: calc(1vh +0.5vw);
+    --fontSizeP: calc(1.5vh + 0.5vw);
+    --fontSizeH3: calc(1.7vh + 0.7vw);
     --fontSizeH2: calc(2vh + 1vw);
     --fontSizeH1: calc(2.75vh + 1.4vw);
+
+    --windowColorMain: #A4A3D6;
+    --windowColorDark: #918FDE;
+    --windowColorLight: #EAEDFF;
+
 }
 
 
@@ -42,7 +47,7 @@ div {
 
 p,
 p *,
-li {
+li, li *, section p, section p * {
     font-family: var(--bodyFont);
     font-weight: 400;
     font-size: var(--fontSizeP);
@@ -53,45 +58,54 @@ li {
 
 
 
-h1 {
+h1, h1 * {
     font-family: var(--headingFont);
     color: var(--windowHeadColor);
     font-weight: bold;
     font-size: 5vh;
     line-height: 110%;
     font-size: var(--fontSizeH1);
-    margin-bottom: var(--space2) !important;
+    margin-bottom: var(--space3) !important;
 
 }
 
-h2 {
+h2, h2 * {
     font-family: var(--headingFont);
     font-style: normal;
     font-weight: bold;
     line-height: 120%;
+    color: var(--windowColorMain);
     margin-bottom: var(--space2);
-    color: #A4A3D6;
     font-size: var(--fontSizeH2);
 
 }
 
 
-h3 {}
-
-
-
-h4 {
-    color: var(--windowHeadColor);
-    margin-bottom: var(--space1) !important;
-    font-weight: 600;
-    font-size: var(--fontSizeP);
-
-    line-height: 165%;
-    text-transform: capitalize;
+h3, h3 * {
+    font-family: var(--bodyFont);
+    font-style: italic;
+    font-weight: 500;
+    font-size: var(--fontSizeH3);
+    line-height: 170%;
+    max-width: 90%;
+    margin-top: var(--space2) !important;
+    color: #D3D3D3;
+    margin-bottom: var(--space2) !important;
 }
 
 
-h5 {
+
+h4, h4 * {
+    color: var(--windowHeadColor);
+    margin-bottom: var(--space1) !important;
+    font-weight: 500;
+    font-size: var(--fontSizeP);
+    line-height: 165%;
+
+}
+
+
+h5, h5 * {
     font-style: italic;
     font-weight: 500;
     font-size: var(--fontSizeP);
@@ -99,26 +113,27 @@ h5 {
     color: #D2D2D2;
     margin-bottom: var(--space2) !important;
     letter-spacing: 0.25em;
+    
 }
 
 li {
-    margin-left: 2vh;
-    padding: 0 0 1.5vh 0;
+    margin-left: 5vh;
+    margin-bottom:1vh!important;
 }
 
 ul {
     list-style: none;
-    margin-bottom: 2.5vh !important;
-}
+    margin-top:1vh;
+    margin-bottom: var(--space1) !important;}
 
 ul li::before {
     content: "\2022";
-    color: #0000ff;
+    color: var(--windowColorMain);
     font-weight: bold;
     display: inline-block;
     width: 1vh;
-    margin-left: -2vh;
-    margin-right: 1vh;
+    margin-left: -3.5vh;
+    margin-right: 2vh;
 
 }
 
@@ -132,17 +147,13 @@ section {
 
 
 .emph {
-    color: var(-windowHeadColor);
-    font-weight: bold;
-    text-transform: capitalize;
-
+    filter: brightness(0.85);
 }
 
 
 #pageCurl {
     background-image: url(./images/pagecurl.png);
     transition: opacity 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-
     background-position: right top;
     background-repeat: no-repeat;
     background-size: contain;
@@ -159,28 +170,39 @@ section {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    margin-bottom: var(--space3) !important;
+    margin-bottom: 2vh;
 }
 
 .buttonContainer a {
     margin: 0 1vh 2vh 1vh;
     cursor: pointer;
-    padding: 1vh;
-    background: #EAEDFF;
-    color: #918FDE;
+    padding: 1vh 1.5vh;
+    color: var(--windowColorDark);
+    background: var(--windowColorLight);
     text-decoration: none;
     font-weight: bold;
     font-size: 1.5vh;
     line-height: 110%;
+    transition: all 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
 }
 
+.buttonContainer a:hover{
+    background: var(--windowColorDark);
+    color: var(--windowColorLight);
+    transform: scale(0.95);
+}
 
+section a,
+p a {
+    color: var(--windowColorMain);
+}
 
 .iconIllustration {
-    margin-bottom: var(--space1);
     float: right;
     width: 10vh;
     max-width: 18%;
-    margin-left: 1vh;
+    margin-top: 1vh;
+    margin-left: 2vh;
 }
+
