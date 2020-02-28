@@ -59,7 +59,7 @@ div {
     display: flex;
     flex-wrap: wrap;
     vertical-align: middle;
-    transition: margin-top 2.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: margin-top 1s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .menuItem {
@@ -150,9 +150,10 @@ div {
     width: 10vh;
     margin-left: 4vh;
     cursor: pointer;
-    transition: opacity 3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: opacity 1s cubic-bezier(0.165, 0.84, 0.44, 1),  transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     opacity: 1;
     margin-bottom: 2vh;
+    transform:scale(1);
 }
 
 .icon:hover {
@@ -318,14 +319,14 @@ html {
 
 .invisible {
     opacity: 0 !important;
+    transform: scale(0.1)
 }
 
 
 /* Amnimation  */
 /* animating in the top menu bar by removing margin top */
 .slideIn {
-    margin-top: 1000px !important;
-    transition: margin-top 2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    margin-top: 100px !important;
 
 }
 

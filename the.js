@@ -8,27 +8,7 @@ let windows = {
         data: windowData.about.windowHTML,
         // each window has a color scheme that matches it's icon:
         colors:{
-            main:"#B9DAE4",
-            dark:"#7BCEE7",
-            light:"#D0F4FF",
-        }
-    },
-    resume: {
-        titleBar: "Resume",
-        contentUrl: `resume.html`,
-        data: windowData.resume.windowHTML,
-        colors:{
-            main:"#B4C4FF;",
-            dark:"#708EF9",
-            light:"#DCE4FE",
-        }
-    },
-    casestudies: {
-        titleBar: "Case Study",
-        contentUrl: `casestudies.html`,
-        data: windowData.casestudies.windowHTML,
-        colors:{
-            main:"#A4A3D6;",
+            main:"#918FDE",
             dark:"#918FDE",
             light:"#EAEDFF",
         }
@@ -38,19 +18,40 @@ let windows = {
         contentUrl: `portfolio.html`,
         data: windowData.portfolio.windowHTML,
         colors:{
-            main:"#C1DBEA",
-            dark:"#6FB7E1",
-            light:"#EAF7FF",
+            main:"#96ABF8",
+            dark:"#96ABF8",
+            light:"#F1F4FE",
         }
     },
+    resume: {
+        titleBar: "Resume",
+        contentUrl: `resume.html`,
+        data: windowData.resume.windowHTML,
+        colors:{
+            main:"#99C1E8",
+            dark:"#99C1E8",
+            light:"#F1F8FE",
+        }
+    },
+    casestudies: {
+        titleBar: "Case Study",
+        contentUrl: `casestudies.html`,
+        data: windowData.casestudies.windowHTML,
+        colors:{
+            main:"#A6C9D4",
+            dark:"#A6C9D4",
+            light:"#F4FBFD",
+        }
+    },
+    
     contact: {
         titleBar: "Contact",
         contentUrl: `contact.html`,
         data: windowData.contact.windowHTML,
         colors:{
-            main:"#C5E8E6",
-            dark:"#73E5DD",
-            light:"#CFFCF9",
+            main:"#B5DCDA",
+            dark:"#B5DCDA",
+            light:"#F3FCFC",
         }
     },
 }
@@ -120,28 +121,28 @@ const topMenu = [{
 ]
 
 const desktopIcons = [{
-    named: "Case Study",
-    id: "casestudies",
+    named: "About",
+    id: "about",
     // icon for each desktop object:
-    img: "images/casestudies-icon.png",
+    img: "images/about-icon.png",
     // funciton to perform when icon is clicked:
-    whenClicked: "animateInWindow(windows.casestudies)",
-}, {
-    named: "Resume",
-    id: "resume",
-    img: "images/resume-icon.png",
-    whenClicked: "animateInWindow(windows.resume)",
-}, {
+    whenClicked: "animateInWindow(windows.about)",
+},{
     named: "Portfolio",
     id: "portfolio",
     img: "images/portfolio-icon.png",
     whenClicked: "animateInWindow(windows.portfolio)",
-}, {
-    named: "About",
-    id: "about",
-    img: "images/about-icon.png",
-    whenClicked: "animateInWindow(windows.about)",
-}, {
+},{
+    named: "Resume",
+    id: "resume",
+    img: "images/resume-icon.png",
+    whenClicked: "animateInWindow(windows.resume)",
+},{
+    named: "Case Study",
+    id: "casestudies",
+    img: "images/casestudies-icon.png",
+    whenClicked: "animateInWindow(windows.casestudies)",
+},{
     named: "Contact",
     id: "contact",
     img: "images/contact-icon.png",
@@ -320,15 +321,19 @@ function addShadowOnScroll() {
     {
         if (windowContainer.scrollTop > 2) {
             windowHeader.classList.add('scrolled');
-            pageCurl.classList.add('invisible');
+            pageCurl.classList.add('hide');
         } else {
             windowHeader.classList.remove('scrolled');
-            pageCurl.classList.remove('invisible');
+            pageCurl.classList.remove('hide');
         }
     }
 }
 
 function swapCssColorVariablesForWindow(window){
+
+    console.log(window.colors.dark);
+    console.log(window.colors.main);
+    console.log(window.colors.light);
     document.documentElement.style.setProperty('--windowColorMain', window.colors.main);
     document.documentElement.style.setProperty('--windowColorDark', window.colors.dark);
     document.documentElement.style.setProperty('--windowColorLight', window.colors.light);
