@@ -7,51 +7,51 @@ let windows = {
         contentUrl: `about.html`,
         data: windowData.about.windowHTML,
         // each window has a color scheme that matches it's icon:
-        colors:{
-            main:"#918FDE",
-            dark:"#918FDE",
-            light:"#EAEDFF",
+        colors: {
+            main: "#918FDE",
+            dark: "#918FDE",
+            light: "#EAEDFF",
         }
     },
     portfolio: {
         titleBar: "Portfolio",
         contentUrl: `portfolio.html`,
         data: windowData.portfolio.windowHTML,
-        colors:{
-            main:"#96ABF8",
-            dark:"#96ABF8",
-            light:"#F1F4FE",
+        colors: {
+            main: "#96ABF8",
+            dark: "#96ABF8",
+            light: "#F1F4FE",
         }
     },
     resume: {
         titleBar: "Resume",
         contentUrl: `resume.html`,
         data: windowData.resume.windowHTML,
-        colors:{
-            main:"#99C1E8",
-            dark:"#99C1E8",
-            light:"#F1F8FE",
+        colors: {
+            main: "#99C1E8",
+            dark: "#99C1E8",
+            light: "#F1F8FE",
         }
     },
     casestudies: {
         titleBar: "Case Study",
         contentUrl: `casestudies.html`,
         data: windowData.casestudies.windowHTML,
-        colors:{
-            main:"#A6C9D4",
-            dark:"#A6C9D4",
-            light:"#F4FBFD",
+        colors: {
+            main: "#A6C9D4",
+            dark: "#A6C9D4",
+            light: "#F4FBFD",
         }
     },
-    
+
     contact: {
         titleBar: "Contact",
         contentUrl: `contact.html`,
         data: windowData.contact.windowHTML,
-        colors:{
-            main:"#B5DCDA",
-            dark:"#B5DCDA",
-            light:"#F3FCFC",
+        colors: {
+            main: "#B5DCDA",
+            dark: "#B5DCDA",
+            light: "#F3FCFC",
         }
     },
 }
@@ -127,22 +127,22 @@ const desktopIcons = [{
     img: "images/about-icon.png",
     // funciton to perform when icon is clicked:
     whenClicked: "animateInWindow(windows.about)",
-},{
+}, {
     named: "Portfolio",
     id: "portfolio",
     img: "images/portfolio-icon.png",
     whenClicked: "animateInWindow(windows.portfolio)",
-},{
+}, {
     named: "Resume",
     id: "resume",
     img: "images/resume-icon.png",
     whenClicked: "animateInWindow(windows.resume)",
-},{
+}, {
     named: "Case Study",
     id: "casestudies",
     img: "images/casestudies-icon.png",
     whenClicked: "animateInWindow(windows.casestudies)",
-},{
+}, {
     named: "Contact",
     id: "contact",
     img: "images/contact-icon.png",
@@ -217,6 +217,14 @@ function closeAllDropdowns() {
     }
 }
 
+function areWeOnMobile() {
+    let areWe = getComputedStyle(document.documentElement).getPropertyValue('--mobile');
+    if (areWe == "yes" ) {
+        return true
+    } else {
+        return false
+    };
+}
 
 
 // 📦 Template Literals
@@ -256,7 +264,7 @@ function writeWindow(windowName) {
     console.log(windowName);
     document.getElementById("windowHeaderText").innerHTML = `${windowName.titleBar}`
     document.getElementById("windowPastebox").innerHTML = `${windowName.data}`;
-    
+
 }
 
 
@@ -291,7 +299,7 @@ function drawDesktop() {
 // 🔝 Menu Bar functions 
 
 function downloadResume(format) {
-    console.log("download " + format + " resume");
+    document.getElementById('downloadResume').click();
 }
 
 function email() {
@@ -317,8 +325,7 @@ function addShadowOnScroll() {
     let windowContainer = document.querySelector('#windowPastebox');
     let windowHeader = document.querySelector('#windowHeader');
     let pageCurl = document.getElementById('pageCurl');
-    windowContainer.onscroll = function addShadow()
-    {
+    windowContainer.onscroll = function addShadow() {
         if (windowContainer.scrollTop > 2) {
             windowHeader.classList.add('scrolled');
             pageCurl.classList.add('hide');
@@ -329,15 +336,14 @@ function addShadowOnScroll() {
     }
 }
 
-function swapCssColorVariablesForWindow(window){
-
+function swapCssColorVariablesForWindow(window) {
     console.log(window.colors.dark);
     console.log(window.colors.main);
     console.log(window.colors.light);
     document.documentElement.style.setProperty('--windowColorMain', window.colors.main);
     document.documentElement.style.setProperty('--windowColorDark', window.colors.dark);
     document.documentElement.style.setProperty('--windowColorLight', window.colors.light);
- 
+
 
 }
 
@@ -380,41 +386,28 @@ interact('.resize-drag')
         // target.textContent = event.rect.width + '×' + event.rect.height;
     });
 
-// function dragMoveListener(event) {
-//     var target = event.target,
-//         // keep the dragged position in the data-x/data-y attributes
-//         x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx,
-//         y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
-//     let maxYValue = (0 - (2.5 / 100) * window.innerHeight);
-//     // translate the element
+function dragMoveListener(event) {
+    var onMobile = areWeOnMobile();
+    if ((onMobile == false)) {
+        var target = event.target,
+            // keep the dragged position in the data-x/data-y attributes
+            x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx,
+            y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
+        let maxYValue = (0 - (1.25 / 100) * window.innerHeight);
+        // translate the element
 
-//     if (y < maxYValue) {
-//         y = maxYValue
-//     };
-// // don't need window dragging anymore, just resizing for the moment so commenting this out
-//     // target.style.webkitTransform =
-//     //     target.style.transform =
-//     //     'translate(' + x + 'px, ' + y + 'px)';
+        if (y < maxYValue) {
+            y = maxYValue
+        };
+        target.style.webkitTransform =
+            target.style.transform =
+            'translate(' + x + 'px, ' + y + 'px)';
 
-//     // update the posiion attributes
-//     target.setAttribute('data-x', x);
-//     target.setAttribute('data-y', y);
-// }
-
-// console.log(x);
-//         if (x > ((5 / 100) * window.innerHeight)){ console.log("yes");}
-// let maxYValue = (document.getElementById('menuBar').clientHeight - window.innerHeight);
-
-// accordian
-const items = document.querySelectorAll(".accordion a");
-
-function toggleAccordion() {
-    this.classList.toggle('active');
-    this.nextElementSibling.classList.toggle('active');
+        // update the posiion attributes
+        target.setAttribute('data-x', x);
+        target.setAttribute('data-y', y);
+    }
 }
-
-items.forEach(item => item.addEventListener('click', toggleAccordion));
-
 
 
 window.onload = function () {

@@ -4,7 +4,6 @@
 
 /* variables */
 :root {
-
     --fontSizeInterface: 2vh;
     --borderRadiusSmall: 0.25vh;
     --borderRadiusLarge: 1.5vh;
@@ -12,7 +11,7 @@
     --interfaceTextColor: #848484;
     /* used in menu background */
     --shade2: #EDEDED;
-}
+    --mobile:no; }
 
 
 /* setup */
@@ -52,7 +51,9 @@ div {
     display: flex;
     justify-content: space-between;
     padding: 0 1.5vh;
+
 }
+
 
 #menuBarInner {
     margin-top: 0;
@@ -95,6 +96,10 @@ div {
     max-width: 30vh;
     z-index: 60;
     background: white;
+    opacity: 1;
+    transition: opacity 0.2s cubic-bezier(0.165, 0.84, 0.44, 1), transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+
 }
 
 .dropDown#fileMenu {
@@ -102,15 +107,15 @@ div {
 }
 
 .dropDown#viewMenu {
-    left: 8.5vh;
+    left: 7.5vh;
 }
 
 .dropDown#downloadMenu {
-    left: 16vh;
+    left: 15vh;
 }
 
 .dropDown#contactMenu {
-    left: 29vh;
+    left: 28vh;
 }
 
 .dropDown a {
@@ -136,7 +141,7 @@ div {
     padding: 2vh;
     width: 100%;
     height: 95vh;
-    border-top: solid 3px #efefef;
+    border-top:solid 1px #D2D2D2;    
     display: flex;
     flex-flow: column wrap-reverse;
     justify-content: flex-start;
@@ -150,10 +155,10 @@ div {
     width: 10vh;
     margin-left: 4vh;
     cursor: pointer;
-    transition: opacity 1s cubic-bezier(0.165, 0.84, 0.44, 1),  transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: opacity 1s cubic-bezier(0.165, 0.84, 0.44, 1), transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     opacity: 1;
     margin-bottom: 2vh;
-    transform:scale(1);
+    transform: scale(1);
 }
 
 .icon:hover {
@@ -203,21 +208,28 @@ div {
     min-height: 30vh;
     background-color: var(--shade2);
     border-radius: 1.5vh;
-    transition: opacity 1.8s cubic-bezier(0.215, 0.61, 0.355, 1), transform 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+    transition: opacity 1.4s cubic-bezier(0.215, 0.61, 0.355, 1), transform 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
     overflow: auto;
     z-index: 50;
     display: flex;
+    padding: 0 1vh;
     flex-direction: column;
     transform: scale(1);
+}
+
+
+#window:hover{
+    transition: opacity 1.8s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
 #window:active {
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
     opacity: 0.8;
+    transition: opacity 1.8s cubic-bezier(0.215, 0.61, 0.355, 1);
+
 }
 
 #windowHeader {
-    transition: opacity 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     transition: box-shadow 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     height: 5vh;
     border-radius: 1.5vh 1.5vh 0 0;
@@ -228,7 +240,8 @@ div {
     user-select: none;
     background-color: var(--shade2);
     width: 100%;
-    position: relative;
+    position: absolute;
+    left: 0;
 }
 
 #windowHeaderText {
@@ -252,7 +265,7 @@ div {
 
 #windowContent {
     margin-bottom: 1vh;
-    padding: 5vh 3vh;
+    padding: 11vh 3vh;
     background: white;
     z-index: 10;
     overflow: scroll;
@@ -262,13 +275,18 @@ div {
     border-radius: 1vh;
 }
 
-
-
 #windowPastebox {
     overflow: scroll;
     height: 100%;
-    padding: 0 1vh;
+    width: 100%;
 
+}
+/* class that gets applied to the window when it is closed */
+.windowClosed {
+    opacity: 0;
+    transform: scale(0) !important;
+    user-select: none;
+    transition: opacity 0.2s cubic-bezier(0.075, 0.82, 0.165, 1), transform 3s cubic-bezier(0.215, 0.61, 0.355, 1) !important;
 }
 
 .close {
@@ -313,13 +331,8 @@ html {
 }
 
 .hide {
-    display: none;
-
-}
-
-.invisible {
-    opacity: 0 !important;
-    transform: scale(0.1)
+    /* display: none; */
+    opacity: 0;
 }
 
 
@@ -327,7 +340,11 @@ html {
 /* animating in the top menu bar by removing margin top */
 .slideIn {
     margin-top: 100px !important;
+}
 
+.invisible {
+    opacity: 0 !important;
+    transform: scale(0.1);
 }
 
 
@@ -346,102 +363,14 @@ html {
 } */
 
 
-/* accordian */
+@media only screen and (max-width: 680px) {
 
-@import url('https://fonts.googleapis.com/css?family=Hind:300,400');
+    :root {
+        --mobile:yes;
+    }
 
-.accordion a {
-    position: relative;
-
-    display: flex;
-
-    flex-direction: column;
-    width: 100%;
-    padding: 1rem 3rem 1rem 1rem;
-    color: #7288a2;
-    font-size: 1.15rem;
-    font-weight: 400;
-    border-bottom: 1px solid #e5e5e5;
-}
-
-.accordion a:hover,
-.accordion a:hover::after {
-    cursor: pointer;
-    color: #03b5d2;
-}
-
-.accordion a:hover::after {
-    border: 1px solid #03b5d2;
-}
-
-.accordion a.active {
-    color: #03b5d2;
-    border-bottom: 1px solid #03b5d2;
-}
-
-.accordion a::after {
-    font-family: 'Ionicons';
-    content: '\f218';
-    position: absolute;
-    float: right;
-    right: 1rem;
-    font-size: 1rem;
-    color: #7288a2;
-    padding: 5px;
-    width: 30px;
-    height: 30px;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    border-radius: 50%;
-    border: 1px solid #7288a2;
-    text-align: center;
-}
-
-.accordion a.active::after {
-    font-family: 'Ionicons';
-    content: '\f209';
-    color: #03b5d2;
-    border: 1px solid #03b5d2;
-}
-
-.accordion .content {
-    opacity: 0;
-    padding: 0 1rem;
-    max-height: 0;
-    border-bottom: 1px solid #e5e5e5;
-    overflow: hidden;
-    clear: both;
-
-    transition: all 0.2s ease 0.15s;
-}
-
-.accordion .content p {
-    font-size: 1rem;
-    font-weight: 300;
-}
-
-.accordion .content.active {
-    opacity: 1;
-    padding: 1rem;
-    max-height: 100%;
-
-    transition: all 0.35s ease 0.15s;
-}
-
-.windowClosed {
-    opacity: 0;
-    transform: scale(0) !important;
-    user-select: none;
-    transition: opacity 0.2s cubic-bezier(0.075, 0.82, 0.165, 1), transform 3s cubic-bezier(0.215, 0.61, 0.355, 1) !important;
-
-}
-
-
-
-
-@media only screen and (max-width: 680px){
     #pageCurl {
-        right: 0.4vh!important;
+        right: 2vh !important;
     }
 
     .iconIllustration {
@@ -456,10 +385,10 @@ html {
         border-radius: 0;
     }
 
-#windowPastebox{
-    padding: 0 0.5vh;
+    #windowPastebox {
+        padding: 0 0.5vh;
 
-}
+    }
 
     .close {
         background-color: #d8b6b6;
@@ -471,7 +400,14 @@ html {
     }
 
     #windowContent {
-        padding: 4vh 2vh;
+        padding: 7.5vh 2vh;
+    }
+
+    section h1 {
+        color: #777777;
+        line-height: 122%;
+        /* font-size: 33px; */
+        font-size:calc(3.8vh + 1vw);
     }
 
 }

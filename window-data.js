@@ -1,3 +1,4 @@
+
 const windowColor = {
     about: {
         main: "#B9DAE4",
@@ -26,10 +27,66 @@ const windowColor = {
     }
 }
 
+
+const caseStudyAccordianContent = [{
+        problem: `Discovery told us that the most valuable part of the consulting program was actually using the consultants as a source of feedback for ideas and goals during in person sessions. `,
+        solution: `This wasn’t easy to hear, as that was probably the hardest part of the process to replicate in a web app. With this learning, we brainstormed ideas on how the software could make users feel confident in setting their growth goals. We ended up with a 3 stage plan - fast track an idea our founder had to set example goals for context, provide written advice throughout the product based on user questions during user testing and record a video explaining how to set growth goals. If the user still felt uncertain on how to set their goal, we would encourage them to guess what their goals should be and get back in touch with us to talk them through it at a later date. 
+        `
+    },
+    {
+        problem: `The tool required the user to enter raw data about their properties and market. This was time consuming for some offices to get, and sometimes couldn’t be done in one sitting. 
+    `,
+        solution: `Tell the user what data they would need before they started. Re prioritise a software feature to auto save and resume a user's progress. This solved the issue in further testing. 
+        `,
+    },
+    {
+        problem: `User testing revealed users were not sure if they could close the window without losing what they had entered on that screen.
+        `,
+        solution: `Reassure the user that they can close the window and return without losing data via a banner on two screens where this concern occured.
+        `,
+    }, {
+        problem: `Users sometimes didn’t know how to track down the data we needed from them
+        `,
+        solution: `We found some tutorials on the internet and linked them into the tool itself. 
+        `,
+    }, {
+        problem: `Users sometimes wanted to see the goal setting functionality of the tool, but couldn’t get to it without completing steps 1-4 first
+        `,
+        solution: `We added in an overview of the tool on the first screen and an example of some of the results. 
+        `,
+    }, {
+        problem: `Users didn’t trust our algorithms  
+        `,
+        solution: `Including details about how the results from the tool are calculated solved this problem in further tests. 
+        `,
+    }, {
+        problem: `“How long is this thing going to take me?” 
+        `,
+        solution: `Estimated time for completion added.
+        `,
+    }, {
+        problem: `People didn’t know how to use the slider controls we implemented to set their goals
+        `,
+        solution: `Did some interaction design prototyping internally. Adding ‘grip’ to the slider handle and an animation on entry to the page solved the issue. 
+        `,
+    },
+]
+
+
+function generateAccordianHtml(accordianItem){
+return `<li><input type="checkbox" checked=""><i></i>
+                <p><span class="emph">Problem: </span><br / >${accordianItem.problem}</p>
+                <br /><p><a class="seeSolution">See Solution</a></p>
+                <div class="solution">
+                <div class="solution_content"><p><span class="emph">Solution:<br /> </span>${accordianItem.solution}</p></div>
+                </div>
+            </li>`
+}
+
+
 const windowData = {
     casestudies: {
-        windowHTML: `
-        <div id="windowContent">
+        windowHTML: `<div id="windowContent">
         <div id="pageCurl"></div>
         <section>
 
@@ -178,107 +235,12 @@ const windowData = {
         <section>
         <h2>Problems and solutions </h2>
 
-        <table>
-            <tbody>
-                <tr>
-                    <td>
-                        <p>Problem or assumption</p>
-                    </td>
-                    <td>
-                        <p>SOLUTION</p>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <p>Discovery told us that the most valuable part of the consulting program was
-                            actually using the consultants as a source of feedback for ideas and goals
-                            during in person sessions.&nbsp;</p>
-                    </td>
-                    <td>
-                        <p>This wasn&rsquo;t easy to hear, as that was probably the hardest part of the
-                            process to replicate in a web app. With this learning, we brainstormed ideas on
-                            how the software could make users feel confident in setting their growth goals.
-                            We ended up with a 3 stage plan - fast track an idea our founder had to set
-                            example goals for context, provide written advice throughout the product based
-                            on user questions during user testing and record a video explaining how to set
-                            growth goals. If the user still felt uncertain on how to set their goal, we
-                            would encourage them to guess what their goals should be and get back in touch
-                            with us to talk them through it at a later date.&nbsp;</p>
-                        <br /><br />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <p>The tool required the user to enter raw data about their properties and market.
-                            This was time consuming for some offices to get, and sometimes couldn&rsquo;t be
-                            done in one sitting.&nbsp;</p>
-                    </td>
-                    <td>
-                        <p>Tell the user what data they would need before they started. Re prioritise a
-                            software feature to auto save and resume a user's progress. This solved the
-                            issue in further testing.&nbsp;</p>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <p>User testing revealed users were not sure if they could close the window without
-                            losing what they had entered on that screen.</p>
-                    </td>
-                    <td>
-                        <p>Reassure the user that they can close the window and return without losing data
-                            via a banner on two screens where this concern occured.</p>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <p>Users sometimes didn&rsquo;t know how to track down the data we needed from them
-                        </p>
-                    </td>
-                    <td>
-                        <p>We found some tutorials on the internet and linked them into the tool
-                            itself.&nbsp;</p>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <p>Users sometimes wanted to see the goal setting functionality of the tool, but
-                            couldn&rsquo;t get to it without completing steps 1-4 first</p>
-                    </td>
-                    <td>
-                        <p>We added in an overview of the tool on the first screen and an example of some of
-                            the results.&nbsp;</p>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <p>Users didn&rsquo;t trust our algorithms </p>
-                    </td>
-                    <td>
-                        <p>Including details about how the results from the tool are calculated solved this
-                            problem in further tests.&nbsp;</p>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <p>&ldquo;How long is this thing going to take me?&rdquo;&nbsp;</p>
-                    </td>
-                    <td>
-                        <p>Estimated time for completion added.</p>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <p>People didn&rsquo;t know how to use the slider controls we implemented to set
-                            their goals</p>
-                    </td>
-                    <td>
-                        <p>Did some interaction design prototyping internally. Adding &lsquo;grip&rsquo; to
-                            the slider handle and an animation on entry to the page solved the issue.&nbsp;
-                        </p>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="accordian">
+        <ul> ${caseStudyAccordianContent.map(generateAccordianHtml).join(" ")}</ul></div>
+
+
+        
+
         </section>
         <section>
         <h2>Flow, before and after</h2>
@@ -333,7 +295,7 @@ const windowData = {
 
         <h4>
 
-            <span class="emph">UI / UX Designer</span> at The Big Crunch <br />
+            <span class="emph bold">UI / UX Designer</span> at The Big Crunch <br />
             Feb 2019 - Now
         </h4>
         <ul>
@@ -347,14 +309,14 @@ const windowData = {
                 collaborate on
                 designs.</li>
             <li>
-                Swapped hats to design/ growth hacking/ front end development/ customer support as needed.</li>
+                Swapped hats to design/ growth hacking/ helping with front end development/ customer support.</li>
         </ul>
     </section>
 
 
     <section>
         <h4>
-            <span class="emph">CX Designer</span> at Ailo <br />
+            <span class="emph bold">CX Designer</span> at Ailo <br />
             Sep 2018 - Dec 2018
         </h4>
         <ul>
@@ -375,7 +337,7 @@ const windowData = {
 
     <section>
         <h4>
-            <span class="emph">Product Owner</span> at LPMA (Owned by Ailo)<br />
+            <span class="emph bold">Product Owner</span> at LPMA (Owned by Ailo)<br />
             Feb 2018 - Sep 2018
 
         </h4>
@@ -395,7 +357,7 @@ const windowData = {
 
     <section>
         <h4>
-            <span class="emph">Graphic / UX Designer</span> at Apmasphere (also Ailo) <br />Feb 2017 - Feb 2018<br />
+            <span class="emph bold">Graphic / UX Designer</span> at Apmasphere (also Ailo) <br />Feb 2017 - Feb 2018<br />
         </h4>
         <ul>
             <li>
@@ -409,7 +371,7 @@ const windowData = {
 
     <section>
         <h4>
-            <span class="emph">Graphic Designer</span> at I-MANIFEST, Charity<br />
+            <span class="emph bold">Graphic Designer</span> at I-MANIFEST, Charity<br />
             2014 - 2015
         </h4>
         <ul>
@@ -421,7 +383,7 @@ const windowData = {
 
     <section>
         <h4>
-            <span class="emph">Designer and Marketing Coordinator</span> at Apmasphere (Owned by Ailo) <br />
+            <span class="emph bold">Designer and Marketing Coordinator</span> at Apmasphere (Owned by Ailo) <br />
             March 2015 - Feb 2017  
         </h4>
         <ul>
@@ -432,7 +394,7 @@ const windowData = {
 
     <section>
         <h4>
-            <span class="emph">Graphic Designer</span> at Urban Purveyor Group 
+            <span class="emph bold">Graphic Designer</span> at Urban Purveyor Group 
             <br />
             2013 - 2015   (Saké, Barvarian Beir Cafe, Löwenbräu, The Argyle)
         </h4>
@@ -440,7 +402,7 @@ const windowData = {
 
     <section>
         <h4>
-            <span class="emph">Assistant Teacher at UTS Sydney
+            <span class="emph bold">Assistant Teacher</span> at UTS Sydney
             <br />
             Feb - May 2014 
         </h4>
