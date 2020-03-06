@@ -6,6 +6,7 @@ let windows = {
         // The file that the contents of the window will be loaded from
         contentUrl: `about.html`,
         data: windowData.about.windowHTML,
+        classString: 'about',
         // each window has a color scheme that matches it's icon:
         colors: {
             main: "#918FDE",
@@ -16,16 +17,18 @@ let windows = {
     portfolio: {
         titleBar: "Portfolio",
         contentUrl: `portfolio.html`,
+        classString: 'portfolio',
         data: windowData.portfolio.windowHTML,
         colors: {
-            main: "#96ABF8",
-            dark: "#96ABF8",
-            light: "#F1F4FE",
+            main: "#8AA1F0",
+            dark: "#8AA1F0",
+            light: "#485686",
         }
     },
     resume: {
         titleBar: "Resume",
         contentUrl: `resume.html`,
+        classString: 'resume',
         data: windowData.resume.windowHTML,
         colors: {
             main: "#99C1E8",
@@ -36,6 +39,7 @@ let windows = {
     casestudies: {
         titleBar: "Case Study",
         contentUrl: `casestudies.html`,
+        classString: 'casestudies',
         data: windowData.casestudies.windowHTML,
         colors: {
             main: "#A6C9D4",
@@ -47,6 +51,7 @@ let windows = {
     contact: {
         titleBar: "Contact",
         contentUrl: `contact.html`,
+        classString: 'contact',
         data: windowData.contact.windowHTML,
         colors: {
             main: "#B5DCDA",
@@ -155,12 +160,19 @@ const desktopIcons = [{
 function preloadImage(url) {
     var img = new Image();
     img.src = url;
+    console.log("image " + url + " loaded");
 }
 
 // preload every desktop icon for smooth(er) animation on fadein
 function preloadDesktopIcons() {
     desktopIcons.forEach(function (iconObject) {
         preloadImage(iconObject.img);
+    })
+}
+
+function preloadFolioImages() {
+    folioContent.forEach(function (imageToLoad) {
+        preloadImage(imageToLoad.imgUrl);
     })
 }
 
@@ -249,16 +261,17 @@ function dropdownMenuTemplate(parentMenu) {
 
 // 📦 📦 Window Draw
 function animateInWindow(windowToAnimateIn) {
-    document.getElementById('window').classList.remove('windowClosed');
+    // remove windowClosed class and any other window classes 
+    document.getElementById('window').classList = 'resize-drag closeDropdownMouseOver';
+    document.getElementById('window').classList.add(windowToAnimateIn.classString);
     writeWindow(windowToAnimateIn);
     swapCssColorVariablesForWindow(windowToAnimateIn);
     addShadowOnScroll();
 };
 
 function animateOutWindow() {
-    document.getElementById('window').classList.add('windowClosed');
+    document.getElementById('window').classList = 'windowClosed resize-drag closeDropdownMouseOver';
 };
-
 
 function writeWindow(windowName) {
     console.log(windowName);
@@ -337,13 +350,12 @@ function addShadowOnScroll() {
 }
 
 function swapCssColorVariablesForWindow(window) {
-    console.log(window.colors.dark);
-    console.log(window.colors.main);
-    console.log(window.colors.light);
     document.documentElement.style.setProperty('--windowColorMain', window.colors.main);
     document.documentElement.style.setProperty('--windowColorDark', window.colors.dark);
     document.documentElement.style.setProperty('--windowColorLight', window.colors.light);
-
+    if (window.classString == "portfolio"){
+        
+    };
 
 }
 
@@ -409,6 +421,7 @@ function dragMoveListener(event) {
     }
 }
 
+preloadDesktopIcons();
 
 window.onload = function () {
     drawTopMenu();
@@ -416,4 +429,7 @@ window.onload = function () {
     clickedOnDropdownListener();
     drawDesktop();
     document.getElementById('menuBarInner').classList.remove('slideIn');
+    setTimeout(function(){ preloadFolioImages(); }, 3000);
+
+    
 };

@@ -1,4 +1,3 @@
-
 const windowColor = {
     about: {
         main: "#B9DAE4",
@@ -73,8 +72,87 @@ const caseStudyAccordianContent = [{
 ]
 
 
-function generateAccordianHtml(accordianItem){
-return `<li><input type="checkbox" checked=""><i></i>
+const folioContent = [{
+    folioItemName: 'crunchUi',
+    imgUrl: './images/folio/crunchUi.png',
+    title: `UI - Online Chart Building Tool `,
+    subtitle: `The Big Crunch`,
+    description: `UI, UX and interaction design for a chart and graph tool. Using prototyping, usertests and analytics I worked with the team at Big Crunch to design and iterate on a web and mobile interface that allowed users to quickly create online data visualisations. `,
+}, {
+    folioItemName: 'healthWeb',
+    imgUrl: './images/folio/healthWeb.png',
+    title: `“The First 40 Years” book website`,
+    subtitle: `NSW Health`,
+    description: `"The first 40 years" is a book created by the NSW Government and UTS Publishing to record the history of interpreters in the health care service. 
+    I used existing brand photography and styleguide to design and build a website where people could download the book for free, and press could read through a timeline of the events in the book for reference. `,
+    externalLink: 'http://34.205.8.88/',
+}, {
+    folioItemName: 'riverboatsPrint',
+    imgUrl: './images/folio/riverboatsPrint.png',
+    title: `Hawksbury Riverboats`,
+    subtitle: `Author Jean Purtell`,
+    description: `Part one in a series of local nautical history books for the Hawkesbury Area. My role was to restore the old photography, design and page layout.`,
+},{
+    folioItemName: 'ananasPrint',
+    imgUrl: './images/folio/ananasPrint.png',
+    title: `Restaurant Menu - Ananas`,
+    subtitle: `The Rocks, Sydney`,
+    description: `Menu design for a french restaurant in The Rocks, Sydney.`,
+},{
+    folioItemName: 'jagerPrint',
+    imgUrl: './images/folio/jagerPrint.png',
+    title: `Events posters and branding`,
+    subtitle: `Jägermeister and Bavarian Bier Cafe`,
+    description: `Styling and rollout for a series of events in partnership between Jagermeister and Bavarian Beir Cafe.`,
+},
+{
+    folioItemName: 'conferenceWeb',
+    imgUrl: './images/folio/conferenceWeb.png',
+    title: `Conference Website`,
+    subtitle: `Property Management Conference`,
+},{
+    folioItemName: 'trainingWeb',
+    imgUrl: './images/folio/trainingWeb.png',
+    title: `Staff Training Service`,
+    subtitle: `Paid online webinars`,
+}, 
+{
+    folioItemName: 'fluidPrint',
+    imgUrl: './images/folio/fluidPrint.png',
+    title: `Magazine Layout`,
+    subtitle: `Studnet Project`,
+},]
+
+
+function generatePortfolioButtonHtml(folioItem) {
+    return `<a class="miniButton" target=”_blank” href="${folioItem.externalLink}">VIEW</a>`
+}
+
+function generatePortfolioItemHtml(folioItem) {
+    return `<div class="folioItem ${folioItem.folioItemName}">
+    <img src="${folioItem.imgUrl}">
+    <div class="folioDetailsContainer">
+        <div class="accordian">
+            <ul>
+                <li><input type="checkbox" checked="">
+                    <p>${folioItem.title}</br>
+                        <span class="emph">${folioItem.subtitle}</span>
+                    </p>
+                    ${folioItem.externalLink ? generatePortfolioButtonHtml(folioItem.externalLink) : ""}
+                    <div class="solution">
+                    <div class="solution_content">
+                        <p>${folioItem.description}
+                        </p>
+                    </div>
+                    </div>
+        </div>
+        </li>
+    </div>
+</div>`
+}
+
+function generateAccordianHtml(accordianItem) {
+    return `<li><input type="checkbox" checked=""><i></i>
                 <p><span class="emph">Problem: </span><br / >${accordianItem.problem}</p>
                 <br /><p><a class="seeSolution">See Solution</a></p>
                 <div class="solution">
@@ -82,7 +160,6 @@ return `<li><input type="checkbox" checked=""><i></i>
                 </div>
             </li>`
 }
-
 
 const windowData = {
     casestudies: {
@@ -238,8 +315,6 @@ const windowData = {
         <div class="accordian">
         <ul> ${caseStudyAccordianContent.map(generateAccordianHtml).join(" ")}</ul></div>
 
-
-        
 
         </section>
         <section>
@@ -431,13 +506,27 @@ const windowData = {
         <section><h2>Coming soon</h2>
         </section>`
     },
-    portfolio: {
-        windowHTML: `<div id="windowContent">
-        <img class="iconIllustration" src="images/portfolio-icon.png">
 
-        <section><h2>Coming soon</h2>
-        </section>`
+    portfolio: {
+        windowHTML: `
+        <div id="windowContent">
+        
+            <section>
+                <h1>Visual Design<br />Portfolio</h1>
+                <div class="buttonContainer">
+                    <a target=”_blank” href="/casestudies.html">OPEN IN NEW TAB</a> 
+                    <a onClick="downloadResume()">DOWNLOAD</a>
+                </div>
+            </section>
+
+            <section>
+                <div class="folioItemContainer">
+                ${folioContent.map(generatePortfolioItemHtml).join("")}
+                </div>
+            </section>
+        </div>`
     },
+
     contact: {
         windowHTML: `<div id="windowContent">
         <img class="iconIllustration" src="images/contact-icon.png">
