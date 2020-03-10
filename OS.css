@@ -552,3 +552,12 @@ pointer-events:none;
     transition: opacity 0.2s cubic-bezier(0.215, 0.61, 0.355, 1), transform 0.7s cubic-bezier(0.215, 0.61, 0.355, 1);
 
 }
+
+.swipeArea{
+    width: 100vw;
+    height:100vh;
+    position:absolute;
+    top:0;
+    left: 0;
+    
+}

@@ -217,10 +217,30 @@ function dropdownMenuClicked(object) {
 }
 // add event listener for swiping on lightbox screen
 function lightBoxSwipeListener() {
-    var elm = document.getElementsByClassName('lightboxOpen');
-    var el = elm[0];
-    console.log(el);
+    var parent = document.getElementsByClassName('lightboxOpen')[0];
+    console.log("parent " + parent);
+    var childCollection = parent.getElementsByClassName(".swipeArea"); 
+    var el = childCollection[0] 
+
+    console.log("this one " + el);
     swipedetect(el, function (swipedir) {
+        let leftButton = (document.getElementsByClassName('lightboxPrev'))[0];
+        let rightButton = (document.getElementsByClassName('lightboxNext'))[0];
+        let closeButton = (document.getElementsByClassName('lightboxClose'))[0];
+        if (swipedir == 'left'){
+            rightButton.click();
+            console.log(" leftButton.click;")
+        }
+        if (swipedir == 'right'){
+            leftButton.click();
+            console.log(" rightButton.click;")
+
+        }
+        if (swipedir == 'up'){
+            closeButton.click();
+            console.log("closeButton.click;")
+
+        }
         // swipedir contains either "none", "left", "right", "top", or "down"
         console.log(`Swiped  ${swipedir} `);
     });
@@ -343,11 +363,12 @@ function createFolioLightBoxImageArray() {
 function createIndividualLightBoxContainers(folioItemObject, next, prev) {
     let template = `<div class="lightbox lightboxClosed" id="${folioItemObject.id}">
             <a class="lightboxClose" onClick="closeLightboxes()">close</a>
-            <a class="lightboxPrev" style="background-image:url(${prev.img});" onTap="turnOnLightbox('${prev.id}')"><img src="images/arrowLeft.svg"></a>
-            <a class="lightboxNext" style="background-image:url(${next.img});" onTap="turnOnLightbox('${next.id}')"><img src="images/arrowRight.svg"></a>
+            <a class="lightboxPrev" style="background-image:url(${prev.img});" onClick="turnOnLightbox('${prev.id}')"><img src="images/arrowLeft.svg"></a>
+            <a class="lightboxNext" style="background-image:url(${next.img});" onClick="turnOnLightbox('${next.id}')"><img src="images/arrowRight.svg"></a>
             <a href="#${folioItemObject.url ? folioItemObject.url : ''}">
                 <img class="folio" src="${folioItemObject.img}" />
             </a>
+            <div class="swipeArea"> </div>
         </div>
 </div>`
     return template;
