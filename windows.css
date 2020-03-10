@@ -11,8 +11,8 @@
 :root {
     /* this is modified through javascript on resize. This allows the vh inside of the object window act like the vh outside of the object window.  */
 
-    --headingFont: aktiv-grotesk, helvetica, arial, sans-serif;
-    --bodyFont: noto-sans, helvetica, arial, sans-serif;
+    --headingFont: nimbus-sans-extended, helvetica, arial, sans-serif;
+    --bodyFont: nimbus-sans, helvetica, arial, sans-serif;
 
     --windowPColor: #B7B7B7;
     --windowHeadColor: #8C8C8C;
@@ -63,7 +63,7 @@ li, li *, section p, section p * {
 
 h1, h1 * {
     font-family: var(--headingFont);
-    color: var(--windowHeadColor);
+    color: #414141;
     font-weight: bold;
     line-height: 110%;
     font-size: var(--fontSizeH1);
@@ -84,14 +84,12 @@ h2, h2 * {
 
 
 h3, h3 * {
-    font-family: var(--bodyFont);
-    font-style: italic;
-    font-weight: 500;
+  font-family: var(--headingFont);
     font-size: var(--fontSizeH3);
-    line-height: 170%;
+    line-height: 145%;
     max-width: 90%;
     margin-top: var(--space2) !important;
-    color: #D3D3D3;
+    color: #a8a8a8;
     margin-bottom: var(--space2) !important;
 }
 
@@ -101,6 +99,7 @@ h4, h4 * {
     color: var(--windowHeadColor);
     margin-bottom: var(--space1) !important;
     font-weight: 500;
+    font-family: var(--headingFont);
     font-size: var(--fontSizeP);
     line-height: 165%;
 
@@ -109,6 +108,7 @@ h4, h4 * {
 
 h5, h5 * {
     font-style: italic;
+    font-family: var(--headingFont);
     font-weight: 500;
     font-size: var(--fontSizeP);
     line-height: 110%;
@@ -143,7 +143,7 @@ ul li::before {
 section {
     padding-bottom: var(--space2);
     display: block;
-    max-width: calc(350px + 45%);
+    max-width: calc(540px + 40%);
     margin: 0 auto;
 }
 
@@ -164,10 +164,12 @@ section {
     background-size: contain;
     position: absolute;
     right: 1vh;
+
     top: 4.9vh;
     width: 100%;
     height: 5vh;
     opacity: 1;
+    display: none;
 }
 
 .buttonContainer {
@@ -376,6 +378,11 @@ ul li i:after {
     transition: var(--quickOpacityTransition);
 
     opacity: 1;
+}
+
+.folioDetailsContainer p{
+  /* overriding width setting from casestudies accordian */
+  width:100%;
 }
 
 a.miniButton{

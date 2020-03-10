@@ -176,6 +176,15 @@ function preloadFolioImages() {
     })
 }
 
+function preloadFolioLightboxImages() {
+
+    folioContent.forEach(function (folioItem) {
+        folioItem.lightbox.forEach(function (imageToLoad) {
+            preloadImage(imageToLoad.img);
+        })
+    })
+}
+
 
 // 👂 listeners
 
@@ -206,6 +215,16 @@ function dropdownMenuClicked(object) {
         };
     };
 }
+// add event listener for swiping on lightbox screen
+function lightBoxSwipeListener() {
+    var elm = document.getElementsByClassName('lightboxOpen');
+    var el = elm[0];
+    console.log(el);
+    swipedetect(el, function (swipedir) {
+        // swipedir contains either "none", "left", "right", "top", or "down"
+        console.log(`Swiped  ${swipedir} `);
+    });
+}
 
 
 // 🎩 Handy actions to add and remove classes
@@ -231,7 +250,7 @@ function closeAllDropdowns() {
 
 function areWeOnMobile() {
     let areWe = getComputedStyle(document.documentElement).getPropertyValue('--mobile');
-    if (areWe == "yes" ) {
+    if (areWe == "yes") {
         return true
     } else {
         return false
@@ -306,7 +325,82 @@ function drawDesktop() {
     });
 }
 
+// 📦 📦 Portfolio Lightbox Draw
 
+// PORTFOLIO LIGHTBOX GENERATOR
+// array to be filled up with the full size lightbox images from each portfolio item
+let folioLightBoxImageArray = [];
+
+// filling that array with the img and ids of each object
+function createFolioLightBoxImageArray() {
+    folioContent.forEach(function (folioItem) {
+        folioLightBoxImageArray = folioLightBoxImageArray.concat(folioItem.lightbox);
+    });
+    console.log("createFolioLightBoxImageArray has made folioLightBoxImageArray: ");
+    console.log(folioLightBoxImageArray);
+}
+
+function createIndividualLightBoxContainers(folioItemObject, next, prev) {
+    let template = `<div class="lightbox lightboxClosed" id="${folioItemObject.id}">
+            <a class="lightboxClose" onClick="closeLightboxes()">close</a>
+            <a class="lightboxPrev" style="background-image:url(${prev.img});" onTap="turnOnLightbox('${prev.id}')"><img src="images/arrowLeft.svg"></a>
+            <a class="lightboxNext" style="background-image:url(${next.img});" onTap="turnOnLightbox('${next.id}')"><img src="images/arrowRight.svg"></a>
+            <a href="#${folioItemObject.url ? folioItemObject.url : ''}">
+                <img class="folio" src="${folioItemObject.img}" />
+            </a>
+        </div>
+</div>`
+    return template;
+}
+
+function createLightboxes() {
+    var lightboxHtml = '';
+    let next;
+    let prev;
+    let folioItemObject;
+    for (var i = 0; i < folioLightBoxImageArray.length; i++) {
+        folioItemObject = folioLightBoxImageArray[i];
+        if (i < folioLightBoxImageArray.length - 1) {
+            next = folioLightBoxImageArray[i + 1];
+        } else {
+            next = folioLightBoxImageArray[0]
+        };
+        if (i > 0) {
+            prev = folioLightBoxImageArray[i - 1];
+        } else {
+            prev = folioLightBoxImageArray[folioLightBoxImageArray.length - 1]
+        };
+        console.log("createLightboxes spat out " + folioItemObject + next + prev + " on it's " + i + " run.");
+        lightboxHtml += (createIndividualLightBoxContainers(folioItemObject, next, prev));
+    }
+    return lightboxHtml;
+}
+
+
+
+
+
+// 📦 OPEN AND CLOSE LIGHTBOXES 
+
+function closeLightboxes() {
+    openLightboxes = document.querySelectorAll('.lightboxOpen');
+    openLightboxes.forEach(function (div) {
+        div.className = "lightbox lightboxClosed"
+    });
+    // document.getElementById('lightBoxContainer').getElementsByTagName('div').className = "lightbox animate windowClosed";;
+    // document.querySelectorAll('.lightbox').className = "lightbox animate windowClosed"
+}
+
+function turnOnLightbox(porfolioLightbox) {
+    console.log(porfolioLightbox);
+    var div = document.getElementById(porfolioLightbox);
+    console.log(div);
+    closeLightboxes();
+    div.classList.remove("lightboxClosed");
+    div.classList.add("lightboxOpen");
+    // start listening for swipes to change slides
+    lightBoxSwipeListener();
+}
 
 
 // 🔝 Menu Bar functions 
@@ -337,14 +431,14 @@ function linkedIn() {
 function addShadowOnScroll() {
     let windowContainer = document.querySelector('#windowPastebox');
     let windowHeader = document.querySelector('#windowHeader');
-    let pageCurl = document.getElementById('pageCurl');
+    // let pageCurl = document.getElementById('pageCurl');
     windowContainer.onscroll = function addShadow() {
         if (windowContainer.scrollTop > 2) {
             windowHeader.classList.add('scrolled');
-            pageCurl.classList.add('hide');
+            // pageCurl.classList.add('hide');
         } else {
             windowHeader.classList.remove('scrolled');
-            pageCurl.classList.remove('hide');
+            // pageCurl.classList.remove('hide');
         }
     }
 }
@@ -353,8 +447,8 @@ function swapCssColorVariablesForWindow(window) {
     document.documentElement.style.setProperty('--windowColorMain', window.colors.main);
     document.documentElement.style.setProperty('--windowColorDark', window.colors.dark);
     document.documentElement.style.setProperty('--windowColorLight', window.colors.light);
-    if (window.classString == "portfolio"){
-        
+    if (window.classString == "portfolio") {
+
     };
 
 }
@@ -420,6 +514,58 @@ function dragMoveListener(event) {
         target.setAttribute('data-y', y);
     }
 }
+// swipe detection for lightbox viewer
+//  http://www.javascriptkit.com/javatutors/touchevents2.shtml
+function swipedetect(el, callback) {
+
+    var touchsurface = el,
+        swipedir,
+        startX,
+        startY,
+        distX,
+        distY,
+        threshold = 150, //required min distance traveled to be considered swipe
+        restraint = 100, // maximum distance allowed at the same time in perpendicular direction
+        allowedTime = 300, // maximum time allowed to travel that distance
+        elapsedTime,
+        startTime,
+        handleswipe = callback || function (swipedir) {}
+
+    touchsurface.addEventListener('touchstart', function (e) {
+        var touchobj = e.changedTouches[0]
+        swipedir = 'none'
+        dist = 0
+        startX = touchobj.pageX
+        startY = touchobj.pageY
+        startTime = new Date().getTime() // record time when finger first makes contact with surface
+        e.preventDefault()
+    }, false)
+
+    touchsurface.addEventListener('touchmove', function (e) {
+        e.preventDefault() // prevent scrolling when inside DIV
+    }, false)
+
+    touchsurface.addEventListener('touchend', function (e) {
+        var touchobj = e.changedTouches[0]
+        distX = touchobj.pageX - startX // get horizontal dist traveled by finger while in contact with surface
+        distY = touchobj.pageY - startY // get vertical dist traveled by finger while in contact with surface
+        elapsedTime = new Date().getTime() - startTime // get time elapsed
+        if (elapsedTime <= allowedTime) { // first condition for awipe met
+            if (Math.abs(distX) >= threshold && Math.abs(distY) <= restraint) { // 2nd condition for horizontal swipe met
+                swipedir = (distX < 0) ? 'left' : 'right' // if dist traveled is negative, it indicates left swipe
+            } else if (Math.abs(distY) >= threshold && Math.abs(distX) <= restraint) { // 2nd condition for vertical swipe met
+                swipedir = (distY < 0) ? 'up' : 'down' // if dist traveled is negative, it indicates up swipe
+            }
+        }
+        handleswipe(swipedir)
+        e.preventDefault()
+    }, false)
+}
+
+//USAGE:
+
+
+
 
 preloadDesktopIcons();
 
@@ -429,7 +575,14 @@ window.onload = function () {
     clickedOnDropdownListener();
     drawDesktop();
     document.getElementById('menuBarInner').classList.remove('slideIn');
-    setTimeout(function(){ preloadFolioImages(); }, 3000);
+    createFolioLightBoxImageArray();
+    setTimeout(function () {
+        preloadFolioImages();
+    }, 2500);
+    setTimeout(function () {
+        preloadFolioLightboxImages();
+        document.querySelector('#lightBoxContainer').innerHTML = createLightboxes();
+    }, 3000);
 
-    
+
 };
