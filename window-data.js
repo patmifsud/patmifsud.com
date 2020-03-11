@@ -54,10 +54,13 @@ const folioContent = [{
         description: `UI, UX and interaction design for a chart and graph tool. Using prototyping, usertests and analytics I worked with the team at Big Crunch to design and iterate on a web and mobile interface that allowed users to quickly create online data visualisations. `,
         lightbox: [{
             img: './images/folio/lightBox/crunchUi1.png',
-            id: 'crunchUi1'
+            id: 'crunchUi1',
+            desc: 'UI, UX and interaction design for a chart and graph tool.',
         }, {
             img: './images/folio/lightBox/crunchUi2.png',
-            id: 'crunchUi2'
+            id: 'crunchUi2',
+            desc: 'Icon library created for each type of chart the tool offered.',
+
         }]
     }, {
         folioItemName: 'healthWeb',
@@ -69,7 +72,8 @@ const folioContent = [{
         lightbox: [{
             img: './images/folio/lightBox/healthWeb1.png',
             id: 'healthWeb1',
-            link: 'http://34.205.8.88/'
+            link: 'http://34.205.8.88/',
+            desc: '"The first 40 years" is a book created by the NSW Government and UTS Publishing. A website was created to facilitate media enquiries and book downloads.'
         }]
 
     }, {
@@ -80,10 +84,13 @@ const folioContent = [{
         description: `Part one in a series of local nautical history books for the Hawkesbury Area. My role was to restore the old photography, design and page layout.`,
         lightbox: [{
             img: './images/folio/lightBox/riverboatsPrint1.png',
-            id: 'riverboatsPrint1'
+            id: 'riverboatsPrint1',
+            desc: 'Part one in a series of local nautical history books for the Hawkesbury Area.',
         }, {
             img: './images/folio/lightBox/riverboatsPrint2.png',
-            id: 'riverboatsPrint2'
+            id: 'riverboatsPrint2',
+            desc: 'My role was to restore the old photography, design and page layout.',
+
         }]
 
     }, {
@@ -91,10 +98,12 @@ const folioContent = [{
         imgUrl: './images/folio/ananasPrint.png',
         title: `Restaurant Menu - Ananas`,
         subtitle: `The Rocks, Sydney`,
-        description: `Menu design for a french restaurant in The Rocks, Sydney.`,
+        description: `Menu design for a French restaurant in The Rocks, Sydney.`,
         lightbox: [{
             img: './images/folio/lightBox/ananasPrint1.png',
-            id: 'ananasPrint1'
+            id: 'ananasPrint1',
+            desc: 'Menu design for a French restaurant in The Rocks, Sydney.',
+
         }]
 
     }, {
@@ -105,7 +114,9 @@ const folioContent = [{
         description: `Styling and rollout for a series of events in partnership between Jagermeister and Bavarian Beir Cafe.`,
         lightbox: [{
             img: './images/folio/lightBox/jagerPrint1.png',
-            id: 'jagerPrint1'
+            id: 'jagerPrint1',
+            desc: 'Styling and rollout for a series of events in partnership between Jagermeister and Bavarian Beir Cafe.',
+
         }]
 
     },
@@ -116,7 +127,8 @@ const folioContent = [{
         subtitle: `Property Management Conference`,
         lightbox: [{
             img: './images/folio/lightBox/conferenceWeb1.png',
-            id: 'conferenceWeb1'
+            id: 'conferenceWeb1',
+            desc: `Website and EDM marketing for Australia's largest property management conference. Role included design, coding and maintenance.`,
         }]
 
     }, {
@@ -126,7 +138,9 @@ const folioContent = [{
         subtitle: `Paid online webinars`,
         lightbox: [{
             img: './images/folio/lightBox/trainingWeb1.png',
-            id: 'trainingWeb1'
+            id: 'trainingWeb1',
+            desc: `Web Design, filming, production and payment system implementation for an online training webinar subscription service.`,
+
         }]
 
     },
@@ -137,10 +151,14 @@ const folioContent = [{
         subtitle: `Studnet Project`,
         lightbox: [{
             img: './images/folio/lightBox/fluidPrint1.png',
-            id: 'fluidPrint1'
+            id: 'fluidPrint1',
+            desc: `Experimentation using a randomly generated grid for type layout.`,
+
         }, {
             img: './images/folio/lightBox/fluidPrint2.png',
-            id: 'fluidPrint2'
+            id: 'fluidPrint2',
+            desc: `I used random computer generation and blindfolded drawing to create unusual and interesting layouts.`,
+
         }]
     },
 ]
@@ -182,23 +200,10 @@ function generatePortfolioItemHtml(folioItem) {
     <a onClick="turnOnLightbox('${folioItem.folioItemName + '1'}')">
     <img src="${folioItem.imgUrl}">
     </a>
-    <div class="folioDetailsContainer">
-        <div class="accordian">
-            <ul>
-                <li><input type="checkbox" checked="">
-                    <p>${folioItem.title}</br>
-                        <span class="emph">${folioItem.subtitle}</span>
-                    </p>
-                    <div class="solution">
-                    <div class="solution_content">
-                        <p class="emph">
-                        <br />
-                        ${folioItem.description}
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </li>
+    <div onClick="turnOnLightbox('${folioItem.folioItemName + '1'}' class="folioDetailsContainer">
+        <p>${folioItem.title}</br>
+        <span class="emph">${folioItem.subtitle}</span>
+        </p>
     </div>
 </div>`
 }
@@ -555,9 +560,7 @@ const windowData = {
             <section>
                 <h1>Visual Design<br />Portfolio</h1>
                 <div class="buttonContainer">
-                    <a target=”_blank” href="/casestudies.html">OPEN IN NEW TAB</a> 
-                    <a onClick="downloadResume()">DOWNLOAD</a>
-                </div>
+                    <a onClick="turnOnLightbox()">VIEW FULL SCREEN</a>  </div>
             </section>
 
             <section>

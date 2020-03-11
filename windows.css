@@ -376,27 +376,12 @@ ul li i:after {
 }
 .folioDetailsContainer:hover{
     transition: var(--quickOpacityTransition);
-
     opacity: 1;
 }
 
 .folioDetailsContainer p{
   /* overriding width setting from casestudies accordian */
   width:100%;
+  cursor: pointer;
 }
 
-a.miniButton{
-    position: absolute;
-    top: 2.5vw;
-    right: 0;
-    float: right;
-    cursor: pointer;
-    padding: calc(0.3vh + 0.1vw) calc(0.5vh + 0.2vw);
-    color: var(--windowColorDark);
-    background: var(--windowColorLight);
-    text-decoration: none;
-    font-weight: bold;
-    font-size: calc(1vh + 0.3vw);
-    transition: all 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-
-}
