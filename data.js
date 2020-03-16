@@ -235,7 +235,7 @@ const windowData = {
 
         <h1>A business consulting product for LPMA</h1>
         <div class="buttonContainer">
-        <a target=”_blank” href="/casestudies.html" >OPEN IN NEW TAB</a> <a onClick="downloadResume()"> DOWNLOAD</a></div>
+        <!-- <a target=”_blank” href="/casestudies.html" >OPEN IN NEW TAB</a> --> <a onClick="downloadResume()"> DOWNLOAD</a></div>
         </section><section>
         <p><span class="emph">My role:</span> Product Owner / UX</p>
         <p><span class="emph">Goal:</span> To provide an easy way for real estate agency owners to see how
@@ -411,11 +411,11 @@ const windowData = {
         <h1>Resume</h1>
 
         <div class="buttonContainer">
-            <a target=”_blank” href="/casestudies.html">OPEN IN NEW TAB</a> <a onClick="downloadResume()">
+        <!--  <a target=”_blank” href="/casestudies.html">OPEN IN NEW TAB</a> --> <a onClick="downloadResume()">
                 DOWNLOAD</a><a target="_blank" href="https://www.linkedin.com/in/patmifsud">
                 LINKEDIN</a></div>
 <br/>
-        <h4><span class="emph">I’m a passionate, results orientated UI / UX Designer.</span> I enjoy using creative methods to get concrete results in usability, retention and user acquisition.
+        <h4><span class="emph">I’m a passionate, results orientated Graphic and UI / UX Designer.</span> I enjoy using creative methods to get concrete results in usability, retention and user acquisition.
         </h4>
         <p> My background in startups and small teams has given me an adaptable mindset, strong work ethic and
             valuable understanding of Product, Engineering, Marketing and CX support roles from firsthand
@@ -545,7 +545,12 @@ const windowData = {
         windowHTML: `<div id="windowContent">
         <img class="iconIllustration" src="images/about-icon.png">
 
-        <section><h2>Coming soon</h2>
+        <section><h1>Hello!</h1>
+        <h3>Thanks for stoping by my W.I.P portfolio site.</h3>
+        </section><section>
+        <p>I'm currently building this out so please forgive the rough edges, typos and missing features.</p>
+        <p>Please drop me a line at <a mailto="patmifsud@me.com" > patmifsud@me.com</a> with any enquiries.</p>
+
         </section>`
     },
 
@@ -577,13 +582,15 @@ const windowData = {
 
     contact: {
         windowHTML: `<div id="windowContent">
+<section><h1>Let's chat</h1>
+<section>
 
-        <!-- thumbnail images wrapped in a link -->
-        <a class="thumbnail" href="#img1"><img src="http://placehold.it/240x101" /></a>
-        <a class="thumbnail" href="#img2"><img src="http://placehold.it/240x102" /></a>
-        <a class="thumbnail" href="#img3"><img src="http://placehold.it/240x103" /></a>
+<div class="buttonContainer">
+                    <a onClick="turnOnLightbox()">EMAIL</a> <a onClick="turnOnLightbox()">LINKEDIN</a> <a onClick="turnOnLightbox()">TWITTER</a> <a onClick="turnOnLightbox()">CALL</a>  </div>
+<p>Or give me a buzz on 0448742570</p> 
+        </section>
         
-        </section>`
+        `
     }
 }
 
@@ -685,14 +692,15 @@ const topMenu = [{
     {
         named: "Download",
         id: "downloadMenu",
-        contents: [{
+        contents: [
+            {
                 named: "Download PDF Resume",
                 ifClicked: "downloadResume('pdf')",
             },
-            {
-                named: "Download Word Resume",
-                ifClicked: "downloadResume('word')",
-            }
+            // {
+            //     named: "Download Word Resume",
+            //     ifClicked: "downloadResume('word')",
+            // }
         ],
     },
     {
@@ -732,12 +740,14 @@ const desktopIcons = [{
     id: "resume",
     img: "images/resume-icon.png",
     whenClicked: "animateInWindow(windows.resume)",
-}, {
-    named: "Case Study",
-    id: "casestudies",
-    img: "images/casestudies-icon.png",
-    whenClicked: "animateInWindow(windows.casestudies)",
-}, {
+}, 
+// {
+//     named: "Case Study",
+//     id: "casestudies",
+//     img: "images/casestudies-icon.png",
+//     whenClicked: "animateInWindow(windows.casestudies)",
+// },
+ {
     named: "Contact",
     id: "contact",
     img: "images/contact-icon.png",

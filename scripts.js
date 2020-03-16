@@ -24,7 +24,6 @@
     }
 
     function preloadFolioLightboxImages() {
-
         folioContent.forEach(function (folioItem) {
             folioItem.lightbox.forEach(function (imageToLoad) {
                 preloadImage(imageToLoad.img);
