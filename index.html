@@ -6,8 +6,7 @@
     <meta name="description" content="Pat Mifsud - UI, UX, Product Designer">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pat Mifsud</title>
-    <link href="os.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.typekit.net/flp6boc.css">
+    <link href="desktop.css" rel="stylesheet">
 </head>
 
 <body>
@@ -15,9 +14,9 @@
         <div id="menuBar">
             <div id="menuBarInner" class="slideIn"></div>
             <div>
-                <div class="menuItem" id="clock">
+                <!-- <div class="menuItem" id="clock">
                     12:00
-                </div>
+                </div> -->
             </div>
         </div>
         <div id="window" class="windowClosed resize-drag closeDropdownMouseOver">
@@ -29,9 +28,8 @@
         </div>
         <div id="desktop" class="closeDropdownMouseOver">
         </div>
+        <img class="lightboxClose" id="lightboxClose" onClick="closeLightboxes()" src="./images/close.svg">
         <div id="lightBoxContainer" class="closed" >
-                <a class="lightboxClose" onClick="closeLightboxes()">close</a>
-                <div class="closeTrigger" onClick="closeLightboxes()"></div>
         </div>
     </div>
 
@@ -39,10 +37,11 @@
     <a href="files/Pat%20Mifsud%20Resume.pdf" download id="downloadResume" style="visibility: hidden"></a>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
-<script src="window-data.js"></script> <!-- data for the other windows loaded -->
-<script src="the.js"></script> <!-- JS: I'm fairly self taught, but actively learning -->
+<script src="data.js"></script> 
+<script src="scripts.js"></script> <!-- JS: I'm fairly self taught, but actively learning -->
+<script src="interactionObserver.js"></script>
+<link rel="stylesheet" href="https://use.typekit.net/flp6boc.css">
 <link href="windows.css" rel="stylesheet">
-
 </html>
 
 

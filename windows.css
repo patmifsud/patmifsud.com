@@ -1,11 +1,15 @@
 /* setup */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: aktiv-grotesk, helvetica, arial, sans-serif;
-}
+  margin: 0;
+  outline: none;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: var(--fontSizeInterface);
+  line-height: var(--fontSizeInterface);
+  font-family: aktiv-grotesk, helvetica, arial, sans-serif;
+  -webkit-tap-highlight-color: transparent;
 
+}
 
 /* variables */
 :root {
@@ -29,9 +33,7 @@
     --windowColorDark: #918FDE;
     --windowColorLight: #EAEDFF;
 
---quickOpacityTransition:    transition: opacity 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-
-
+    --quickOpacityTransition:    transition: opacity 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 
@@ -68,6 +70,8 @@ h1, h1 * {
     line-height: 110%;
     font-size: var(--fontSizeH1);
     margin-bottom: var(--space3) !important;
+    max-width: 75vh;
+
 
 }
 
@@ -79,6 +83,8 @@ h2, h2 * {
     color: var(--windowColorMain);
     margin-bottom: var(--space2);
     font-size: var(--fontSizeH2);
+    max-width: 75vh;
+
 
 }
 
@@ -143,7 +149,7 @@ ul li::before {
 section {
     padding-bottom: var(--space2);
     display: block;
-    max-width: calc(540px + 40%);
+    max-width: calc(540px + 30%);
     margin: 0 auto;
 }
 
@@ -234,8 +240,8 @@ p a {
   display: block;
   margin: 0;
   cursor: pointer;
-  width:calc(100% - (4vh + 3vw));
-  margin-bottom:0;
+  width: calc((4vh + 3vw) + 84%);
+    margin-bottom:0;
 }
 
 .accordian p:active{}

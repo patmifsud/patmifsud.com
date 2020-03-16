@@ -5,7 +5,6 @@ https://interactjs.io/docs/
 
 desktop icons, animate in using a for each 
 
-
 https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API 
 use this for the carosel, amazing
 

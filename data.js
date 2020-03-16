@@ -235,7 +235,7 @@ const windowData = {
 
         <h1>A business consulting product for LPMA</h1>
         <div class="buttonContainer">
-        \<a target=”_blank” href="/casestudies.html" >OPEN IN NEW TAB</a> <a onClick="downloadResume()"> DOWNLOAD</a></div>
+        <a target=”_blank” href="/casestudies.html" >OPEN IN NEW TAB</a> <a onClick="downloadResume()"> DOWNLOAD</a></div>
         </section><section>
         <p><span class="emph">My role:</span> Product Owner / UX</p>
         <p><span class="emph">Goal:</span> To provide an easy way for real estate agency owners to see how
@@ -259,20 +259,19 @@ const windowData = {
         </p>
         </section>
         <section>
-
         <h2>My core task at LPMA was to design an app that did this:
         </h2>
         </section>
         <section>
-        <div style="width:100%; height:15vh; background:#642f2f;"></div>
+        <img src="./images/casestudy/caseStudy1.png" style="width:100%; max-width: 70vh;">
         </section>
         <section>
         <p>In the past when the company helped real estate agencies understand their market and set goals,
             they used a consulting process called ‘5 Channels of Growth’. Here’s how that worked: </p>
             </section>
             <section>
-        <div style="width:100%; height:15vh; background:#eeeeee;"></div>
-        </section>
+            <img src="./images/casestudy/caseStudy2.png" style="width:100%; max-width: 70vh;">
+            </section>
         <section>
         <p>Agency owners wanted to know how much market share they had in each of the suburbs they managed
             properties in, but it was a pain to calculate. An insular industry meant it was also hard to
@@ -587,3 +586,160 @@ const windowData = {
         </section>`
     }
 }
+
+
+
+let windows = {
+    about: {
+        // Text that appears in the title bar of the window
+        titleBar: "About",
+        // The file that the contents of the window will be loaded from
+        contentUrl: `about.html`,
+        data: windowData.about.windowHTML,
+        classString: 'about',
+        // each window has a color scheme that matches it's icon:
+        colors: {
+            main: "#918FDE",
+            dark: "#918FDE",
+            light: "#EAEDFF",
+        }
+    },
+    portfolio: {
+        titleBar: "Portfolio",
+        contentUrl: `portfolio.html`,
+        classString: 'portfolio',
+        data: windowData.portfolio.windowHTML,
+        colors: {
+            main: "#8AA1F0",
+            dark: "#8AA1F0",
+            light: "#485686",
+        }
+    },
+    resume: {
+        titleBar: "Resume",
+        contentUrl: `resume.html`,
+        classString: 'resume',
+        data: windowData.resume.windowHTML,
+        colors: {
+            main: "#99C1E8",
+            dark: "#99C1E8",
+            light: "#F1F8FE",
+        }
+    },
+    casestudies: {
+        titleBar: "Case Study",
+        contentUrl: `casestudies.html`,
+        classString: 'casestudies',
+        data: windowData.casestudies.windowHTML,
+        colors: {
+            main: "#A6C9D4",
+            dark: "#A6C9D4",
+            light: "#F4FBFD",
+        }
+    },
+
+    contact: {
+        titleBar: "Contact",
+        contentUrl: `contact.html`,
+        classString: 'contact',
+        data: windowData.contact.windowHTML,
+        colors: {
+            main: "#B5DCDA",
+            dark: "#B5DCDA",
+            light: "#F3FCFC",
+        }
+    },
+}
+
+// top menu bar
+const topMenu = [{
+        // Menu bar details
+        named: "File",
+        id: "fileMenu",
+
+        // Define the menu that drops down here
+        contents: [{
+            named: "About",
+            // Function to perform when the dropdown is clicked
+            ifClicked: "animateInWindow(windows.about)"
+        }, ],
+        // for now, margins need to manually be set on these dropdown menus via css to center them under the parent menu. Working on automating.
+    },
+    {
+        named: "View",
+        id: "viewMenu",
+        contents: [{
+                named: "View Resume",
+                ifClicked: "animateInWindow(windows.resume)"
+            },
+            {
+                named: "View Casestudies",
+                ifClicked: "animateInWindow(windows.casestudies)"
+            },
+            {
+                named: "View Folio",
+                ifClicked: "animateInWindow(windows.portfolio)"
+            }
+        ],
+    },
+    {
+        named: "Download",
+        id: "downloadMenu",
+        contents: [{
+                named: "Download PDF Resume",
+                ifClicked: "downloadResume('pdf')",
+            },
+            {
+                named: "Download Word Resume",
+                ifClicked: "downloadResume('word')",
+            }
+        ],
+    },
+    {
+        named: "Contact",
+        id: "contactMenu",
+        contents: [{
+            named: "Email",
+            ifClicked: "email()",
+        }, {
+            named: "Phone",
+            ifClicked: "phone()",
+        }, {
+            named: "Twitter",
+            ifClicked: "twitter()",
+        }, {
+            named: "linkedIn",
+            ifClicked: "linkedIn()",
+        }],
+    },
+
+]
+
+const desktopIcons = [{
+    named: "About",
+    id: "about",
+    // icon for each desktop object:
+    img: "images/about-icon.png",
+    // funciton to perform when icon is clicked:
+    whenClicked: "animateInWindow(windows.about)",
+}, {
+    named: "Portfolio",
+    id: "portfolio",
+    img: "images/portfolio-icon.png",
+    whenClicked: "animateInWindow(windows.portfolio)",
+}, {
+    named: "Resume",
+    id: "resume",
+    img: "images/resume-icon.png",
+    whenClicked: "animateInWindow(windows.resume)",
+}, {
+    named: "Case Study",
+    id: "casestudies",
+    img: "images/casestudies-icon.png",
+    whenClicked: "animateInWindow(windows.casestudies)",
+}, {
+    named: "Contact",
+    id: "contact",
+    img: "images/contact-icon.png",
+    whenClicked: "animateInWindow(windows.contact)",
+}]
