@@ -227,7 +227,7 @@ function generateAccordianHtml(accordianItem) {
 const windowData = {
     // CASE STUDY WINDOW
     casestudies: {
-        windowHTML: `<div id="windowContent">
+        windowHTML: `<div id="windowContent"> <div id="📓"></div>
         <div id="pageCurl"></div>
         <section>
 
@@ -402,7 +402,7 @@ const windowData = {
     // RESUME WINDOW
     resume: {
         windowHTML: `
-
+        <div id="📄"></div>
     <div id="windowContent">
     <div id="pageCurl"></div>
 
@@ -542,7 +542,7 @@ const windowData = {
 
     // ABOUT WINDOW
     about: {
-        windowHTML: `<div id="windowContent">
+        windowHTML: `<div id="windowContent"><div id="ℹ️"></div>
         <img class="iconIllustration" src="images/about-icon.png">
 
         <section><h1>Hello!</h1>
@@ -559,7 +559,7 @@ const windowData = {
     // PORTFOLIO WINDOW
     portfolio: {
         windowHTML: `
-        <div id="windowContent">
+        <div id="windowContent"><div id="🧳"></div>
         
             <section>
                 <h1>Visual Design<br />Portfolio</h1>
@@ -581,12 +581,12 @@ const windowData = {
     // CONTACT WINDOW
 
     contact: {
-        windowHTML: `<div id="windowContent">
+        windowHTML: `<div id="windowContent"><div id="☎️"></div>
 <section><h1>Let's chat</h1>
 <section>
 
 <div class="buttonContainer">
-                    <a onClick="turnOnLightbox()">EMAIL</a> <a onClick="turnOnLightbox()">LINKEDIN</a> <a onClick="turnOnLightbox()">TWITTER</a> <a onClick="turnOnLightbox()">CALL</a>  </div>
+                    <a onClick="email()">EMAIL</a> <a onClick="linkedIn()">LINKEDIN</a> <a onClick="twitter()">TWITTER</a> <a onClick="createCallAlert()">CALL</a>  </div>
 <p>Or give me a buzz on 0448742570</p> 
         </section>
         
@@ -604,6 +604,7 @@ let windows = {
         contentUrl: `about.html`,
         data: windowData.about.windowHTML,
         classString: 'about',
+        emoji: '👋',
         // each window has a color scheme that matches it's icon:
         colors: {
             main: "#918FDE",
@@ -616,6 +617,7 @@ let windows = {
         contentUrl: `portfolio.html`,
         classString: 'portfolio',
         data: windowData.portfolio.windowHTML,
+        emoji: '💼',
         colors: {
             main: "#8AA1F0",
             dark: "#8AA1F0",
@@ -626,6 +628,7 @@ let windows = {
         titleBar: "Resume",
         contentUrl: `resume.html`,
         classString: 'resume',
+        emoji: '📄',
         data: windowData.resume.windowHTML,
         colors: {
             main: "#99C1E8",
@@ -637,6 +640,7 @@ let windows = {
         titleBar: "Case Study",
         contentUrl: `casestudies.html`,
         classString: 'casestudies',
+        emoji: '📓',
         data: windowData.casestudies.windowHTML,
         colors: {
             main: "#A6C9D4",
@@ -650,6 +654,7 @@ let windows = {
         contentUrl: `contact.html`,
         classString: 'contact',
         data: windowData.contact.windowHTML,
+        emoji: '📞',
         colors: {
             main: "#B5DCDA",
             dark: "#B5DCDA",

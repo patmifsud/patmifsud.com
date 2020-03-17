@@ -99,6 +99,9 @@
         };
     }
 
+    function scrollToTopOfWindow(windowToScroll){
+        window.location.href = ('#' + windowToScroll.emoji);
+    }
 
     // 📦 Template Literals
 
@@ -122,12 +125,16 @@
 
     // 📦 📦 Window Draw
     function animateInWindow(windowToAnimateIn) {
+        closeAllDropdowns();
         // remove windowClosed class and any other window classes 
         document.getElementById('window').classList = 'resize-drag closeDropdownMouseOver';
         document.getElementById('window').classList.add(windowToAnimateIn.classString);
         writeWindow(windowToAnimateIn);
         swapCssColorVariablesForWindow(windowToAnimateIn);
         addShadowOnScroll();
+        console.log(windowToAnimateIn);
+        scrollToTopOfWindow(windowToAnimateIn);
+
     };
 
     function animateOutWindow(){
@@ -242,7 +249,6 @@
 
     function createCallAlert(){
         closeAllDropdowns();
-
         screen.innerHTML += callAlert;
     }
 
@@ -392,3 +398,4 @@
         console.log("observer is running");
         startInteractionObserver() }, 2000);
 };
+

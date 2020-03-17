@@ -106,11 +106,13 @@ div {
 }
 
 .dropDown#downloadMenu {
-    left: 15vh;
+    left: 26vh;
+
 }
 
 .dropDown#contactMenu {
-    left: 28vh;
+    left: 15vh;
+
 }
 
 .dropDown a {
