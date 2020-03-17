@@ -1,7 +1,5 @@
     // Windows
     
-
-
     // 📷 Preload Images
     // via https://stackoverflow.com/questions/3646036/preloading-images-with-javascript
     function preloadImage(url) {
@@ -140,7 +138,6 @@
         console.log(windowName);
         document.getElementById("windowHeaderText").innerHTML = `${windowName.titleBar}`
         document.getElementById("windowPastebox").innerHTML = `${windowName.data}`;
-
     }
 
 
@@ -151,8 +148,7 @@
     function writeDesktopIcon(icon) {
         return ` <div id="${icon.id}" class="icon invisible" onclick="${icon.whenClicked}">
 <div class="iconImg" style="background: url(${icon.img}) bottom center/contain no-repeat;"></div>
-<div class="iconLabel">${icon.named}</div></div>
-`
+<div class="iconLabel">${icon.named}</div></div>`
     }
 
     function drawDesktop() {
@@ -193,9 +189,7 @@
                 <div class="lightboxNavArrows">
                     <a class="lightboxPrev" href="#${prev.id}"><img src="images/arrowLeft.svg"></a><a class="lightboxNext" href="#${next.id}"><img src="images/arrowRight.svg"></a>
                 </div>
-        </div>
-
-</div>`
+        </div></div>`
         // <a href="#${folioItemObject.url ? folioItemObject.url : ''}">
         //  <a class="lightboxPrev" href="#${prev.id}"><img src="images/arrowLeft.svg"></a><a class="lightboxNext" href="#${next.id}"><img src="images/arrowRight.svg"></a>
         return template;
@@ -243,7 +237,29 @@
 
     }
 
+    // 📦 Call Alert Modal
+    let screen = document.getElementById('screen');
 
+    function createCallAlert(){
+        closeAllDropdowns();
+
+        screen.innerHTML += callAlert;
+    }
+
+    function closeCallAlert(){
+        screen.removeChild(document.getElementById('callAlert'));
+    }
+
+    function copyNumber(){
+        document.getElementById('foneNarmber').select();
+        document.execCommand('copy');
+        let callButton = document.getElementById('copyTextCall');
+        callButton.classList.add("yes")
+        callButton.innerHTML = "Copied";
+        setTimeout(function () {
+            closeCallAlert();}, 1300);
+        
+    }
 
 
     // 🔝 Menu Bar functions 
@@ -253,19 +269,15 @@
     }
 
     function email() {
-        window.open.href = 'mailto:patmifsud@me.org';
-    }
-
-    function phone() {
-        window.open.href = "tel:+1800229933";
+        document.getElementById('emailMe').click();
     }
 
     function twitter() {
-        window.open.href = 'https://twitter.com/patmifsud';
+        window.open('https://twitter.com/patmifsud');
     }
 
     function linkedIn() {
-        window.open.href = 'mailto:patmifsud@me.org';
+        window.open('https://www.linkedin.com/in/patmifsud/');
     }
 
 
@@ -374,6 +386,9 @@
     }, 1500);
     setTimeout(function () {
         preloadFolioLightboxImages();
-    }, 2500);
-      
+    }, 3000);
+
+    setTimeout(function () {
+        console.log("observer is running");
+        startInteractionObserver() }, 2000);
 };

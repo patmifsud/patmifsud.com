@@ -690,6 +690,23 @@ const topMenu = [{
         ],
     },
     {
+        named: "Contact",
+        id: "contactMenu",
+        contents: [{
+            named: "Email",
+            ifClicked: "email()",
+        }, {
+            named: "Phone",
+            ifClicked: "createCallAlert()",
+        }, {
+            named: "Twitter",
+            ifClicked: "twitter()",
+        }, {
+            named: "linkedIn",
+            ifClicked: "linkedIn()",
+        }],
+    },
+    {
         named: "Download",
         id: "downloadMenu",
         contents: [
@@ -703,24 +720,6 @@ const topMenu = [{
             // }
         ],
     },
-    {
-        named: "Contact",
-        id: "contactMenu",
-        contents: [{
-            named: "Email",
-            ifClicked: "email()",
-        }, {
-            named: "Phone",
-            ifClicked: "phone()",
-        }, {
-            named: "Twitter",
-            ifClicked: "twitter()",
-        }, {
-            named: "linkedIn",
-            ifClicked: "linkedIn()",
-        }],
-    },
-
 ]
 
 const desktopIcons = [{
@@ -753,3 +752,19 @@ const desktopIcons = [{
     img: "images/contact-icon.png",
     whenClicked: "animateInWindow(windows.contact)",
 }]
+
+const callAlert = `
+<div id="callAlert" class="alertBg">
+    <div class="alert">
+        <div id="windowHeader">
+            <div id="windowHeaderText">Call</div> <a class="close" onclick="closeCallAlert();"></a>
+        </div>
+        <div class="alertContent">
+            <textarea readonly="readonly" id="foneNarmber">(+61) 48 742 570</textarea>
+        </div>
+        <div class="alertButtonContainer">
+                <a href="tel:+61448742570" onClick="closeCallAlert()">Call Now</a><a id="copyTextCall" onclick="copyNumber();">Copy Number</a> 
+        </div>
+    </div>
+</div>`;
+

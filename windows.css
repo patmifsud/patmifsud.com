@@ -385,9 +385,19 @@ ul li i:after {
     opacity: 1;
 }
 
+.folioItem:hover {
+  transform: scale(1.01);
+  filter: drop-shadow(0 20px 30px #00000055);
+}
+
+.folioItem:active {
+  transform: scale(0.99);
+  filter: drop-shadow(0 3px 3px #00000055);
+}
+
+
 .folioDetailsContainer p{
   /* overriding width setting from casestudies accordian */
   width:100%;
   cursor: pointer;
 }
-
