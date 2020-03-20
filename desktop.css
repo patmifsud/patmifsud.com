@@ -25,6 +25,7 @@ body {
     margin: 0;
     height: 100%;
     overflow: hidden;
+    position: fixed;
 }
 
 
@@ -384,14 +385,11 @@ html {
     }
 
     #window {
+        top:auto;
         left: 0;
         bottom: 0;
-    /* bottom: -1vh; */
-    /* transform: translate(0, 0)!important; */
         width: 100vw;
         height: 95%;
-        left: 0;
-        /* transform: translate(0, 0)!important; */
         border-radius: 0;
     }
 

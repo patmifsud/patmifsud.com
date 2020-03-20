@@ -228,7 +228,6 @@ const windowData = {
     // CASE STUDY WINDOW
     casestudies: {
         windowHTML: `<div id="windowContent"> <div id="📓"></div>
-        <div id="pageCurl"></div>
         <section>
 
         <p>UX / UI / Product Case Study:</span></p>
@@ -404,7 +403,6 @@ const windowData = {
         windowHTML: `
         <div id="📄"></div>
     <div id="windowContent">
-    <div id="pageCurl"></div>
 
     <section>
         <p>Pat Mifsud 2020</p>
