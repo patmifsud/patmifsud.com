@@ -92,7 +92,7 @@
 
     function areWeOnMobile() {
         let areWe = getComputedStyle(document.documentElement).getPropertyValue('--mobile');
-        if (areWe == "yes") {
+        if (areWe == " yes") {
             return true
         } else {
             return false
@@ -373,7 +373,7 @@
             // update the posiion attributes
             target.setAttribute('data-x', x);
             target.setAttribute('data-y', y);
-        }
+        } 
     }
 
     window.onload = function () {
@@ -395,7 +395,6 @@
     }, 3000);
 
     setTimeout(function () {
-        console.log("observer is running");
         startInteractionObserver() }, 2000);
 };
 

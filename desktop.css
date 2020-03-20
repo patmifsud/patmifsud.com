@@ -386,7 +386,7 @@ html {
         top: 5vh;
         /* transform: translate(0, 0)!important; */
         width: 100vw;
-        height: 90vh !important;
+        height: 94vh !important;
         border-radius: 0;
     }
 
@@ -453,9 +453,9 @@ html {
 #window.portfolio span {
     font-size: 1.6vh;
     margin-top: var(--space1);
-    margin-bottom:var(--space3);
+    margin-bottom: var(--space3);
     color: #8c8b8b;
-    
+
 
 }
 
@@ -638,11 +638,12 @@ html {
     right: 0;
     margin: auto;
 }
-.alert #windowHeader{
+
+.alert #windowHeader {
     background: white;
 }
 
-.alert #windowHeaderText{
+.alert #windowHeaderText {
     color: black;
 }
 
@@ -686,15 +687,16 @@ html {
     border-top: solid 1px #e7e7e7;
     transition: all 0.3s cubic-bezier(0.77, 0, 0.175, 1);
     color: #8c8c8c;
-text-decoration: none;
+    text-decoration: none;
 }
 
-.alertButtonContainer a.yes,  .alertButtonContainer a.yes:hover{
+.alertButtonContainer a.yes,
+.alertButtonContainer a.yes:hover {
     background-color: #e9f3e9;
 }
 
-.alertButtonContainer a:nth-child(1){
-border-right: solid 1px #e7e7e7;
+.alertButtonContainer a:nth-child(1) {
+    border-right: solid 1px #e7e7e7;
 }
 
 .alertButtonContainer a:hover {
