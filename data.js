@@ -227,7 +227,7 @@ function generateAccordianHtml(accordianItem) {
 const windowData = {
     // CASE STUDY WINDOW
     casestudies: {
-        windowHTML: `<div id="windowContent"> <div id="📓"></div>
+        windowHTML: `<div id="windowContent"> 
         <section>
 
         <p>UX / UI / Product Case Study:</span></p>
@@ -401,7 +401,7 @@ const windowData = {
     // RESUME WINDOW
     resume: {
         windowHTML: `
-        <div id="📄"></div>
+       
     <div id="windowContent">
 
     <section>
@@ -540,7 +540,7 @@ const windowData = {
 
     // ABOUT WINDOW
     about: {
-        windowHTML: `<div id="windowContent"><div id="ℹ️"></div>
+        windowHTML: `<div id="windowContent">
         <img class="iconIllustration" src="images/about-icon.png">
 
         <section><h1>Hello!</h1>
@@ -557,7 +557,7 @@ const windowData = {
     // PORTFOLIO WINDOW
     portfolio: {
         windowHTML: `
-        <div id="windowContent"><div id="🧳"></div>
+        <div id="windowContent">
         
             <section>
                 <h1>Visual Design<br />Portfolio</h1>

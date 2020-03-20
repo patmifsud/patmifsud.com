@@ -99,8 +99,8 @@
         };
     }
 
-    function scrollToTopOfWindow(windowToScroll){
-        window.location.href = ('#' + windowToScroll.emoji);
+    function scrollToTopOfWindow(){
+        document.getElementById('windowPastebox').scrollTop = 0;
     }
 
     // 📦 Template Literals
@@ -132,13 +132,13 @@
         writeWindow(windowToAnimateIn);
         swapCssColorVariablesForWindow(windowToAnimateIn);
         addShadowOnScroll();
-        console.log(windowToAnimateIn);
         scrollToTopOfWindow(windowToAnimateIn);
-
+        document.title = ("Pat Mifsud " + windowToAnimateIn.emoji)
     };
 
     function animateOutWindow(){
         document.getElementById('window').classList = 'windowClosed resize-drag closeDropdownMouseOver';
+        document.title = ("Pat Mifsud")
     };
 
     function writeWindow(windowName) {
