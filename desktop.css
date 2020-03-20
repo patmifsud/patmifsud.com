@@ -385,10 +385,13 @@ html {
 
     #window {
         left: 0;
-        top: 5vh;
-        /* transform: translate(0, 0)!important; */
+        bottom: 0;
+    /* bottom: -1vh; */
+    /* transform: translate(0, 0)!important; */
         width: 100vw;
-        height: 94vh !important;
+        height: 95%;
+        left: 0;
+        /* transform: translate(0, 0)!important; */
         border-radius: 0;
     }
 
