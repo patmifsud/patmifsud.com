@@ -314,6 +314,14 @@
 
     }
 
+    function turnOffPreloader(){
+        document.getElementById('preloader').style.opacity = "0";
+        setTimeout(function () {
+            document.getElementById('preloader').style.display = "none";
+        }, 1500);
+
+    }
+
     // 🚚
     // Window move and resizing 
     // using interactjs.io
@@ -377,7 +385,7 @@
     }
 
     window.onload = function () {
-    // actions
+    turnOffPreloader();
     preloadDesktopIcons();
     drawTopMenu();
     topMenuDesktopMouseoverListener();
@@ -386,14 +394,12 @@
     document.getElementById('menuBarInner').classList.remove('slideIn');
     createFolioLightBoxImageArray();
     document.querySelector('#lightBoxContainer').innerHTML += createLightboxes();
-
     setTimeout(function () {
         preloadFolioImages();
     }, 1500);
     setTimeout(function () {
         preloadFolioLightboxImages();
     }, 3000);
-
     setTimeout(function () {
         startInteractionObserver() }, 2000);
 };
