@@ -400,139 +400,134 @@ const windowData = {
 
     // RESUME WINDOW
     resume: {
-        windowHTML: `
-       
-    <div id="windowContent">
+        windowHTML: `<div id="windowContent">
 
-    <section>
-        <p>Pat Mifsud 2020</p>
-        <h1>Resume</h1>
+<section>
+    <p>Pat Mifsud 2020</p>
+    <h1>Resume</h1>
 
-        <div class="buttonContainer">
-        <!--  <a target=”_blank” href="/casestudies.html">OPEN IN NEW TAB</a> --> <a onClick="downloadResume()">
-                DOWNLOAD</a><a target="_blank" href="https://www.linkedin.com/in/patmifsud">
-                LINKEDIN</a></div>
-<br/>
-        <h4><span class="emph">I’m a passionate, results orientated Graphic and UI / UX Designer.</span> I enjoy using creative methods to get concrete results in usability, retention and user acquisition.
-        </h4>
-        <p> My background in startups and small teams has given me an adaptable mindset, strong work ethic and
-            valuable understanding of Product, Engineering, Marketing and CX support roles from firsthand
-            experience. I have strong HTML/CSS knowledge, a wide skill set and have worked on Saas, B2B and B2C
-            products.</p>
-    </section>
-
-
-    <section>
-        <h2>Experience</h2>
-
-        <h4>
-
-            <span class="emph bold">UI / UX Designer</span> at The Big Crunch <br />
-            Feb 2019 - Now
-        </h4>
-        <ul>
-            <li><span class="emph">Designed interfaces for web and mobile productivity tools,</span> testing both
-                prototypes and mvp builds. Ran over 40 user tests and interviews for less then $300.<br />We grew our userbase from two to four figures. I
-                created a basic design system for the company in Figma where stakeholders and developers could directly collaborate on designs.</li>
-            <li>Swapped hats to design/ growth hacking/ helping with front end development/ customer support.</li>
-        </ul>
-    </section>
-
-
-    <section>
-        <h4><span class="emph bold">CX Designer</span> at Ailo <br />
-            Sep 2018 - Dec 2018
-        </h4>
-        <ul>
-            <li>Worked across disciplines and teams to design and build scalable systems to <span class="emph">convert trials to subscriptions and decrease churn.</span></li>
-            <li><span class="emph">Designed and built onboarding campaigns</span> and landing pages with the CX team, managing the backend systems (Mailchimp/ Vero) that drove them.</li>
-            <li>Designed dashboards and reports to keep sales and engineering teams in touch with their impact on the
-                customer experience through Salesforce and external tools.</li>
-        </ul>
-    </section>
-
-
-    <section>
-        <h4>
-            <span class="emph bold">Product Owner</span> at LPMA (Owned by Ailo)<br />
-            Feb 2018 - Sep 2018
-
-        </h4>
-        <ul>
-            <li>Worked with domain experts, stakeholders, internal and external engineering and design teams to <span class="emph">own and design a business
-                    consulting product.</span> <a target="_blank" href="/casestudies.html">Read the Case Study here</a>
-            </li>
-            <li>Worked with an external development company to build consulting products and client resources. </li>
-            <li>Designed dashboards and reports to keep sales and engineering teams in touch with their impact on the
-                customer experience through Salesforce and external tools.</li>
-        </ul>
-    </section>
-
-
-    <section>
-        <h4>
-            <span class="emph bold">Graphic / UX Designer</span> at Apmasphere (also Ailo) <br />Feb 2017 - Feb 2018<br />
-        </h4>
-        <ul>
-            <li>Created prototypes and ran usability testing sessions, presenting results to design team, developers and
-                stakeholders. </span></li>
-            <li>Learnt Framer.js to allow us to prototype complex interactions and animations, validated and iterated on
-                these designs through user feedback. </li>
-        </ul>
-    </section>
-
-
-    <section>
-        <h4>
-            <span class="emph bold">Graphic Designer</span> at I-MANIFEST, Charity<br />
-            2014 - 2015
-        </h4>
-        <ul>
-            <li>Graphic and web designer, probono.
-            </li>
-        </ul>
-    </section>
-
-
-    <section>
-        <h4>
-            <span class="emph bold">Designer and Marketing Coordinator</span> at Apmasphere (Owned by Ailo) <br />
-            March 2015 - Feb 2017  
-        </h4>
-        <ul>
-            <li>Worked on branding, print and digital design work, video and animation projects, email marketing, physical spaces - designing conference booths, signage and branding.</li>
-        </ul>
-    </section>
-
-    <section>
-        <h4>
-            <span class="emph bold">Graphic Designer</span> at Urban Purveyor Group 
-            <br />
-            2013 - 2015   (Saké, Barvarian Beir Cafe, Löwenbräu, The Argyle)
-        </h4>
-    </section>
-
-    <section>
-        <h4>
-            <span class="emph bold">Assistant Teacher</span> at UTS Sydney
-            <br />
-            Feb - May 2014 
-        </h4>
-    </section>
-    <section>
-    <h2>Education</h2>
-    <h4>
-        <span class="emph">Bachelor of Design in Visual Communication - <br/>University of Technology Sydney  </h4><ul>
-    <li>Distinction Av. Took additional classes in UX, animation and frontend programming. </li></ul>
-    </section> <section></section>
-    <section><p>Referees on request. <a onClick="email();">Send me an Email</a></p></section>
-    <section>
     <div class="buttonContainer">
-            <a target=”_blank” href="/casestudies.html">OPEN IN NEW TAB</a> <a onClick="downloadResume()">
-                DOWNLOAD</a><a target="_blank" href="https://www.linkedin.com/in/patmifsud">
-                LINKEDIN</a></div>
-                </section>
-    </div>`
+    <!--  <a target=”_blank” href="/casestudies.html">OPEN IN NEW TAB</a> --> <a onClick="downloadResume()">
+            DOWNLOAD</a><a target="_blank" href="https://www.linkedin.com/in/patmifsud">
+            LINKEDIN</a></div>
+<br/>
+    <h4><span class="emph"> I’m a passionate designer specialising in user interfaces and user experience research.
+    </h4>
+    <p>I believe that great design is visually appealing, solves the right problem for the right person, and is feasible to build.</p>
+</section>
+
+
+<section>
+    <h2>Experience</h2>
+
+    <h4>
+
+        <span class="emph bold">UI / UX Designer</span> at The Big Crunch <br />
+        Feb 2019 - Now
+    </h4>
+    <ul>
+        <li><span class="emph">Designed interfaces for web and mobile productivity tools,</span> testing both
+            prototypes and mvp builds. Ran over 40 user tests and interviews for less then $300.<br />We grew our userbase from two to four figures. I
+            created a basic design system for the company in Figma where stakeholders and developers could directly collaborate on designs.</li>
+        <li>Swapped hats to design/ growth hacking/ helping with front end development/ customer support.</li>
+    </ul>
+</section>
+
+
+<section>
+    <h4><span class="emph bold">CX Designer</span> at Ailo <br />
+        Sep 2018 - Dec 2018
+    </h4>
+    <ul>
+        <li>Worked across disciplines and teams to design and build scalable systems to <span class="emph">convert trials to subscriptions and decrease churn.</span></li>
+        <li><span class="emph">Designed and built onboarding campaigns</span> and landing pages with the CX team, managing the backend systems (Mailchimp/ Vero) that drove them.</li>
+        <li>Designed dashboards and reports to keep sales and engineering teams in touch with their impact on the
+            customer experience through Salesforce and external tools.</li>
+    </ul>
+</section>
+
+
+<section>
+    <h4>
+        <span class="emph bold">Product Owner</span> at LPMA (Owned by Ailo)<br />
+        Feb 2018 - Sep 2018
+
+    </h4>
+    <ul>
+        <li>Worked with domain experts, stakeholders, internal and external engineering and design teams to <span class="emph">own and design a business
+                consulting product.</span> <a target="_blank" href="/casestudies.html">Read the Case Study here</a>
+        </li>
+        <li>Worked with an external development company to build consulting products and client resources. </li>
+        <li>Designed dashboards and reports to keep sales and engineering teams in touch with their impact on the
+            customer experience through Salesforce and external tools.</li>
+    </ul>
+</section>
+
+
+<section>
+    <h4>
+        <span class="emph bold">Graphic / UX Designer</span> at Apmasphere (also Ailo) <br />Feb 2017 - Feb 2018<br />
+    </h4>
+    <ul>
+        <li>Created prototypes and ran usability testing sessions, presenting results to design team, developers and
+            stakeholders. </span></li>
+        <li>Learnt Framer.js to allow us to prototype complex interactions and animations, validated and iterated on
+            these designs through user feedback. </li>
+    </ul>
+</section>
+
+
+<section>
+    <h4>
+        <span class="emph bold">Graphic Designer</span> at I-MANIFEST, Charity<br />
+        2014 - 2015
+    </h4>
+    <ul>
+        <li>Graphic and web designer, probono.
+        </li>
+    </ul>
+</section>
+
+
+<section>
+    <h4>
+        <span class="emph bold">Designer and Marketing Coordinator</span> at Apmasphere (Owned by Ailo) <br />
+        March 2015 - Feb 2017  
+    </h4>
+    <ul>
+        <li>Worked on branding, print and digital design work, video and animation projects, email marketing, physical spaces - designing conference booths, signage and branding.</li>
+    </ul>
+</section>
+
+<section>
+    <h4>
+        <span class="emph bold">Graphic Designer</span> at Urban Purveyor Group 
+        <br />
+        2013 - 2015   (Saké, Barvarian Beir Cafe, Löwenbräu, The Argyle)
+    </h4>
+</section>
+
+<section>
+    <h4>
+        <span class="emph bold">Assistant Teacher</span> at UTS Sydney
+        <br />
+        Feb - May 2014 
+    </h4>
+</section>
+<section>
+<h2>Education</h2>
+<h4>
+    <span class="emph">Bachelor of Design in Visual Communication - <br/>University of Technology Sydney  </h4><ul>
+<li>Distinction Av. Took additional classes in UX, animation and frontend programming. </li></ul>
+</section> <section></section>
+<section><p>Referees on request. <a onClick="email();">Send me an Email</a></p></section>
+<section>
+<div class="buttonContainer">
+        <a target=”_blank” href="/casestudies.html">OPEN IN NEW TAB</a> <a onClick="downloadResume()">
+            DOWNLOAD</a><a target="_blank" href="https://www.linkedin.com/in/patmifsud">
+            LINKEDIN</a></div>
+            </section>
+</div>`
     },
 
 
