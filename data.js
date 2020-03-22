@@ -451,11 +451,11 @@ const windowData = {
     <h4>
         <span class="emph bold">Product Owner</span> at LPMA (Owned by Ailo)<br />
         Feb 2018 - Sep 2018
-
+r
     </h4>
     <ul>
         <li>Worked with domain experts, stakeholders, internal and external engineering and design teams to <span class="emph">own and design a business
-                consulting product.</span> <a target="_blank" href="/casestudies.html">Read the Case Study here</a>
+                consulting product.</span> <a onClick="animateInWindow(windows.casestudies)">Read the Case Study here</a>
         </li>
         <li>Worked with an external development company to build consulting products and client resources. </li>
         <li>Designed dashboards and reports to keep sales and engineering teams in touch with their impact on the

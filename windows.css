@@ -162,22 +162,6 @@ section {
     font-weight: 700;
 }
 
-#pageCurl {
-    background-image: url(./images/pagecurl.png);
-    transition: var(--quickOpacityTransition);
-    background-position: right top;
-    background-repeat: no-repeat;
-    background-size: contain;
-    position: absolute;
-    right: 1vh;
-
-    top: 4.9vh;
-    width: 100%;
-    height: 5vh;
-    opacity: 1;
-    display: none;
-}
-
 .buttonContainer {
     margin: 0 -1vh;
     display: flex;

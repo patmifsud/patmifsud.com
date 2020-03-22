@@ -488,6 +488,7 @@ html {
     top: 0;
     position: absolute;
     overflow: scroll;
+    
 }
 
 #lightBoxContainer.closed {
@@ -517,13 +518,14 @@ html {
 .lightboxDesc {
     max-height: 20vh;
     height: auto;
-    align-self: center;
     text-align: center;
     margin: 0 auto;
     display: block;
     overflow: scroll;
-    padding: 6vh 3vw 0 3vw;
+    margin-top: var(--space2);
     max-width: calc(25vh + 40vw);
+    padding: 0 3vh;
+
 }
 
 
@@ -591,7 +593,7 @@ html {
     margin: 0 auto;
     width: auto;
     height: auto;
-    max-width: 100%;
+    max-width: 90vw;
     max-height: calc(62vh + 5vw);
     display: block;
     opacity: 0.5;
