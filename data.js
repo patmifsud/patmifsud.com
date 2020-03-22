@@ -541,14 +541,13 @@ const windowData = {
     // ABOUT WINDOW
     about: {
         windowHTML: `<div id="windowContent">
-        <img class="iconIllustration" src="images/about-icon.png">
 
-        <section><h1>Hello!</h1>
-        <h3>Thanks for stoping by my W.I.P portfolio site.</h3>
-        </section><section>
-        <p>I'm currently building this out so please forgive the rough edges, typos and missing features.</p>
+        <section><p class="emph">Hi, I'm Pat</p>
+        <p>I’m a passionate designer specialising in user interfaces and user experience research. I believe that great design
+        is visually appealing, solves the right problem for the right person, and is feasible to build.
+        </p>
+        <p>I'm in the middle of building this website out so please forgive the rough edges, typos and missing features 🙇‍♂️.</p> <p>But check back often!</p>
         <p>Please drop me a line at <a mailto="patmifsud@me.com" > patmifsud@me.com</a> with any enquiries.</p>
-
         </section>`
     },
 
@@ -579,7 +578,7 @@ const windowData = {
     // CONTACT WINDOW
 
     contact: {
-        windowHTML: `<div id="windowContent"><div id="☎️"></div>
+        windowHTML: `<div id="windowContent">
 <section><h1>Let's chat</h1>
 <section>
 
