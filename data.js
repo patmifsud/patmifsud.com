@@ -55,11 +55,11 @@ const folioContent = [{
         lightbox: [{
             img: './images/folio/lightBox/crunchUi1.png',
             id: 'crunchUi1',
-            desc: 'UI, UX and interaction design for a chart and graph tool.',
+            desc: '<span class="emph">Big Crunch: </span> UI and UX design for a desktop and mobile tool that allowed users to quickly create data visualisations, such as bar and pie charts. <a target="_blank" href="http://34.205.8.88/">View Website</a>',
         }, {
             img: './images/folio/lightBox/crunchUi2.png',
             id: 'crunchUi2',
-            desc: 'Icon library created for each type of chart the tool offered.',
+            desc: '<span class="emph">Big Crunch: </span> An icon library to represent each type of chart a user can create on The Big Crunch tool.',
 
         }]
     }, {
@@ -73,7 +73,7 @@ const folioContent = [{
             img: './images/folio/lightBox/healthWeb1.png',
             id: 'healthWeb1',
             link: 'http://34.205.8.88/',
-            desc: '"The first 40 years" is a book created by the NSW Government and UTS Publishing. A website was created to facilitate media enquiries and book downloads.'
+            desc: '<span class="emph">"The first 40 years" </span> is a book created by the NSW Government and UTS Publishing. I designed and built a website to facilitate media enquiries and book downloads.'
         }]
 
     }, {
@@ -85,11 +85,11 @@ const folioContent = [{
         lightbox: [{
             img: './images/folio/lightBox/riverboatsPrint1.png',
             id: 'riverboatsPrint1',
-            desc: 'Part one in a series of local nautical history books for the Hawkesbury Area.',
+            desc: '<span class="emph">Hawksbury Riverboats: </span> Part one in a series of local history books for the Hawkesbury Area. My role was to restore the old photography and page layout design.',
         }, {
             img: './images/folio/lightBox/riverboatsPrint2.png',
             id: 'riverboatsPrint2',
-            desc: 'My role was to restore the old photography, design and page layout.',
+            desc: '<span class="emph">Hawksbury Riverboats: </span> Part one in a series of local history books for the Hawkesbury Area. My role was to restore the old photography and page layout design.',
 
         }]
 
@@ -102,7 +102,7 @@ const folioContent = [{
         lightbox: [{
             img: './images/folio/lightBox/ananasPrint1.png',
             id: 'ananasPrint1',
-            desc: 'Menu design for a French restaurant in The Rocks, Sydney.',
+            desc: '<span class="emph">Ananas: </span> Menu design for a French restaurant in The Rocks, Sydney.',
 
         }]
 
@@ -115,7 +115,7 @@ const folioContent = [{
         lightbox: [{
             img: './images/folio/lightBox/jagerPrint1.png',
             id: 'jagerPrint1',
-            desc: 'Styling and rollout for a series of events in partnership between Jagermeister and Bavarian Beir Cafe.',
+            desc: '<span class="emph">Ananas: </span> Styling and rollout for a series of events in partnership between Jagermeister and Bavarian Beir Cafe.',
 
         }]
 
@@ -128,7 +128,7 @@ const folioContent = [{
         lightbox: [{
             img: './images/folio/lightBox/conferenceWeb1.png',
             id: 'conferenceWeb1',
-            desc: `Website and EDM marketing for Australia's largest property management conference. Role included design, coding and maintenance.`,
+            desc: `<span class="emph">PMC2017: </span> Website and EDM marketing for an Australian property management conference. Role included design, coding and maintenance.`,
         }]
 
     }, {
@@ -139,7 +139,7 @@ const folioContent = [{
         lightbox: [{
             img: './images/folio/lightBox/trainingWeb1.png',
             id: 'trainingWeb1',
-            desc: `Web Design, filming, production and payment system implementation for an online training webinar subscription service.`,
+            desc: `<span class="emph">Apmasphere Training: </span>  Web Design, filming, production and payment system implementation for an online training webinar subscription service.`,
 
         }]
 
@@ -152,12 +152,12 @@ const folioContent = [{
         lightbox: [{
             img: './images/folio/lightBox/fluidPrint1.png',
             id: 'fluidPrint1',
-            desc: `Experimentation using a randomly generated grid for type layout.`,
+            desc: `<span class="emph">Fluid Print: </span> Experimentation using a randomly generated grid for type layout.`,
 
         }, {
             img: './images/folio/lightBox/fluidPrint2.png',
             id: 'fluidPrint2',
-            desc: `I used random computer generation and blindfolded drawing to create unusual and interesting layouts.`,
+            desc: `<span class="emph">Fluid Print </span> I used random computer generation and blindfolded drawing to create unusual and interesting layouts.`,
 
         }]
     },
