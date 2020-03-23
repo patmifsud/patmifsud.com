@@ -55,7 +55,7 @@ const folioContent = [{
         lightbox: [{
             img: './images/folio/lightBox/crunchUi1.png',
             id: 'crunchUi1',
-            desc: '<span class="emph">Big Crunch: </span> UI and UX design for a desktop and mobile tool that allowed users to quickly create data visualisations, such as bar and pie charts. <a target="_blank" href="http://34.205.8.88/">View Website</a>',
+            desc: '<span class="emph">Big Crunch: </span> UI and UX design for a desktop and mobile tool that allowed users to quickly create data visualisations, such as bar and pie charts.',
         }, {
             img: './images/folio/lightBox/crunchUi2.png',
             id: 'crunchUi2',
@@ -73,7 +73,7 @@ const folioContent = [{
             img: './images/folio/lightBox/healthWeb1.png',
             id: 'healthWeb1',
             link: 'http://34.205.8.88/',
-            desc: '<span class="emph">"The first 40 years" </span> is a book created by the NSW Government and UTS Publishing. I designed and built a website to facilitate media enquiries and book downloads.'
+            desc: '<span class="emph">"The first 40 years" </span> is a book created by the NSW Government and UTS Publishing. I designed and built a website to facilitate media enquiries and book downloads. <a target="_blank" href="http://34.205.8.88/">View it here.</a>'
         }]
 
     }, {
