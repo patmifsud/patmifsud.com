@@ -1,5 +1,5 @@
     // Windows
-    
+
     // 📷 Preload Images
     // via https://stackoverflow.com/questions/3646036/preloading-images-with-javascript
     function preloadImage(url) {
@@ -31,7 +31,6 @@
 
 
     // 👂 listeners
-
     // close dropdown menus when the mouse enters desktop or window
     function topMenuDesktopMouseoverListener() {
         document.querySelectorAll('.closeDropdownMouseOver').forEach(item => {
@@ -48,7 +47,6 @@
             })
         })
     }
-
     // close dropdown menus when clicked on a dropdown item
     function dropdownMenuClicked(object) {
         toggleVisibility(object)
@@ -59,14 +57,8 @@
             };
         };
     }
-
     // Fade in and out lightboxes in portfolio depending on % visible 
     // src http://www.deanhume.com/lazy-loading-images-using-intersection-observer/
-
-
-
-
-
 
 
     // 🎩 Handy actions to add and remove classes
@@ -74,22 +66,18 @@
     function hide(object) {
         object.classList.add('hide');
     }
-
     function show(object) {
         object.classList.remove('hide');
     }
-
     function toggleVisibility(object) {
         object.classList.toggle('hide');
     }
-
     function closeAllDropdowns() {
         for (var i = 0; i < topMenu.length; i++) {
             let divToHide = document.getElementById(topMenu[i].id);
             hide(divToHide);
         }
     }
-
     function areWeOnMobile() {
         let areWe = getComputedStyle(document.documentElement).getPropertyValue('--mobile');
         if (areWe == " yes") {
@@ -99,27 +87,24 @@
         };
     }
 
-    function scrollToTopOfWindow(){
+    function scrollToTopOfWindow() {
         document.getElementById('windowPastebox').scrollTop = 0;
     }
 
     // 📦 Template Literals
-
     // 📦 📦 Top Menu Draw
     function drawTopMenu() {
         document.getElementById("menuBarInner").innerHTML = `
-        ${topMenu.map(menuTemplate).join("")}`
+        ${topMenu.map(makeMenuTemplateHtml).join("")}`
     };
 
-
-    function menuTemplate(menuItem) {
+    function makeMenuTemplateHtml(menuItem) {
         return `<div class="menuItem" onclick="dropdownMenuClicked(${menuItem.id})">${menuItem.named}</div>
-        <div class="dropDown hide" id="${menuItem.id}">${menuItem.contents.map(dropdownMenuTemplate).join("")}
-    </div>
-    `
+        <div class="dropDown hide" id="${menuItem.id}">${menuItem.contents.map(makeDropdownMenuHtmlTemplate).join("")}
+    </div>`
     };
 
-    function dropdownMenuTemplate(parentMenu) {
+    function makeDropdownMenuHtmlTemplate(parentMenu) {
         return `<a class="drop" onclick="${parentMenu.ifClicked}">${parentMenu.named}</a>`
     }
 
@@ -129,23 +114,21 @@
         // remove windowClosed class and any other window classes 
         document.getElementById('window').classList = 'resize-drag closeDropdownMouseOver';
         document.getElementById('window').classList.add(windowToAnimateIn.classString);
-        writeWindow(windowToAnimateIn);
-        swapCssColorVariablesForWindow(windowToAnimateIn);
-        addShadowOnScroll();
+        writeWindowToPage(windowToAnimateIn);
+        swapCssColorVariablesForWindowColors(windowToAnimateIn);
+        addShadowOnScrollListener();
         scrollToTopOfWindow(windowToAnimateIn);
         document.title = ("Pat Mifsud " + windowToAnimateIn.emoji)
         changeDesktopColorOnMobile('white');
-
     };
 
-    function animateOutWindow(){
+    function animateOutWindow() {
         document.getElementById('window').classList = 'windowClosed resize-drag closeDropdownMouseOver';
         document.title = ("Pat Mifsud");
         changeDesktopColorOnMobile('#F5F5F5');
-
     };
 
-    function writeWindow(windowName) {
+    function writeWindowToPage(windowName) {
         document.getElementById("windowHeaderText").innerHTML = `${windowName.titleBar}`
         document.getElementById("windowPastebox").innerHTML = `${windowName.data}`;
     }
@@ -250,24 +233,25 @@
     // 📦 Call Alert Modal
     let screen = document.getElementById('screen');
 
-    function createCallAlert(){
+    function createCallAlert() {
         closeAllDropdowns();
         screen.innerHTML += callAlert;
     }
 
-    function closeCallAlert(){
+    function closeCallAlert() {
         screen.removeChild(document.getElementById('callAlert'));
     }
 
-    function copyNumber(){
+    function copyNumber() {
         document.getElementById('foneNarmber').select();
         document.execCommand('copy');
         let callButton = document.getElementById('copyTextCall');
         callButton.classList.add("yes")
         callButton.innerHTML = "Copied";
         setTimeout(function () {
-            closeCallAlert();}, 1300);
-        
+            closeCallAlert();
+        }, 1300);
+
     }
 
 
@@ -292,7 +276,7 @@
 
     // 🏂 Visuals and animations
     // when the user scrolls a window we add a shadow to the title bar of the window
-    function addShadowOnScroll() {
+    function addShadowOnScrollListener() {
         let windowContainer = document.querySelector('#windowPastebox');
         let windowHeader = document.querySelector('#windowHeader');
         // let pageCurl = document.getElementById('pageCurl');
@@ -307,13 +291,14 @@
         }
     }
 
-    function swapCssColorVariablesForWindow(window) {
+    function swapCssColorVariablesForWindowColors(window) {
         document.documentElement.style.setProperty('--windowColorTitle', window.colors.title);
         document.documentElement.style.setProperty('--windowColorBg', window.colors.bg);
         document.documentElement.style.setProperty('--windowColorText', window.colors.text);
     }
 
-    function turnOffPreloader(){
+    function turnOffPreloader() {
+        // set opacity to zero first to give it a nice fade out
         document.getElementById('preloader').style.opacity = "0";
         setTimeout(function () {
             document.getElementById('preloader').style.display = "none";
@@ -321,12 +306,16 @@
 
     }
 
-    function changeDesktopColorOnMobile(bgColor){
+    function changeDesktopColorOnMobile(bgColor) {
         if ((areWeOnMobile() == true)) {
             let desktop = document.getElementById("desktop");
             desktop.style.background = bgColor;
-        } else{desktop.style.background = '#F5F5F5'};
+        } else {
+            desktop.style.background = '#F5F5F5'
+        };
     }
+
+
     // 🚚
     // Window move and resizing 
     // using interactjs.io
@@ -386,26 +375,26 @@
             // update the posiion attributes
             target.setAttribute('data-x', x);
             target.setAttribute('data-y', y);
-        } 
+        }
     }
 
     window.onload = function () {
-    turnOffPreloader();
-    preloadDesktopIcons();
-    drawTopMenu();
-    topMenuDesktopMouseoverListener();
-    clickedOnDropdownListener();
-    drawDesktop();
-    document.getElementById('menuBarInner').classList.remove('slideIn');
-    createFolioLightBoxImageArray();
-    document.querySelector('#lightBoxContainer').innerHTML += createLightboxes();
-    setTimeout(function () {
-        preloadFolioImages();
-    }, 1500);
-    setTimeout(function () {
-        preloadFolioLightboxImages();
-    }, 3000);
-    setTimeout(function () {
-        startInteractionObserver() }, 2000);
-};
-
+        turnOffPreloader();
+        preloadDesktopIcons();
+        drawTopMenu();
+        topMenuDesktopMouseoverListener();
+        clickedOnDropdownListener();
+        drawDesktop();
+        document.getElementById('menuBarInner').classList.remove('slideIn');
+        setTimeout(function () {
+            preloadFolioImages();
+            createFolioLightBoxImageArray();
+            document.querySelector('#lightBoxContainer').innerHTML += createLightboxes();
+        }, 1500);
+        setTimeout(function () {
+            preloadFolioLightboxImages();
+        }, 3000);
+        setTimeout(function () {
+            startInteractionObserver()
+        }, 2000);
+    };
