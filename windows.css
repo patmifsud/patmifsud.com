@@ -27,9 +27,9 @@
     --fontSizeH2: calc(2vh + 1vw);
     --fontSizeH1: calc(2.9vh + 1.7vw);
 
-    --windowColorMain: #A4A3D6;
-    --windowColorDark: #918FDE;
-    --windowColorLight: #EAEDFF;
+    --windowColorTitle: #EDEBEB;
+    --windowColorBg: #FFFFFF;
+    --windowColorText: #868686;
 
     --quickOpacityTransition:transition: opacity 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
@@ -55,7 +55,7 @@ li, li *, section p, section p * {
     font-weight: 400;
     font-size: var(--fontSizeP);
     line-height: 165%;
-    color: var(--windowPColor);
+    color: var(--windowColorText);
     margin-bottom: var(--space1);
 }
 
@@ -63,7 +63,7 @@ li, li *, section p, section p * {
 
 h1, h1 * {
     font-family: var(--headingFont);
-    color: #414141;
+    color: var(--windowColorText);
     font-weight: bold;
     line-height: 110%;
     font-size: var(--fontSizeH1);
@@ -75,10 +75,12 @@ h1, h1 * {
 
 h2, h2 * {
     font-family: var(--headingFont);
+    color: var(--windowColorText);
+
     font-style: normal;
     font-weight: bold;
     line-height: 120%;
-    color: var(--windowColorMain);
+    color: var(--windowColorText);
     margin-bottom: var(--space2);
     font-size: var(--fontSizeH2);
     max-width: 75vh;
@@ -89,19 +91,20 @@ h2, h2 * {
 
 h3, h3 * {
   font-family: var(--headingFont);
+
     font-size: var(--fontSizeH3);
     line-height: 145%;
     max-width: 90%;
     margin-top: var(--space2) !important;
-    color: #a8a8a8;
+    color: var(--windowColorText);
     margin-bottom: var(--space2) !important;
 }
 
 
 
 h4, h4 * {
-    color: var(--windowHeadColor);
-    margin-bottom: var(--space1) !important;
+  color: var(--windowColorText);
+  margin-bottom: var(--space1) !important;
     font-weight: 500;
     font-family: var(--headingFont);
     font-size: var(--fontSizeP);
@@ -116,7 +119,7 @@ h5, h5 * {
     font-weight: 500;
     font-size: var(--fontSizeP);
     line-height: 110%;
-    color: #D2D2D2;
+    color: var(--windowColorText);
     margin-bottom: var(--space2) !important;
     letter-spacing: 0.25em;
     
@@ -124,6 +127,8 @@ h5, h5 * {
 
 li {
     margin-left: 3vh;
+    color: var(--windowColorText);
+
     margin-bottom:1vh!important;
 }
 
@@ -172,9 +177,8 @@ section {
     margin: 0 calc(0.5vh + 0.4vw) calc(0.1vh + 0.9vw) calc(0.5vh + 0.4vw);
     cursor: pointer;
     padding: calc(0.9vh + 0.3vw);
-    color: var(--windowColorDark);
-    background: var(--windowColorLight);
-    text-decoration: none;
+    color: var(--windowColorText);
+    text-decoration: underline;
     font-weight: bold;
     font-size: calc(1.2vh + 0.5vw);
     line-height: 110%;
@@ -183,25 +187,13 @@ section {
 }
 
 .buttonContainer a:hover{
-    background: var(--windowColorDark);
-    color: var(--windowColorLight);
     transform: scale(0.95);
 }
 
 section a,
 p a {
-    color: var(--windowColorMain);
+  color: var(--windowColorText);
 }
-
-.iconIllustration {
-    float: right;
-    width: 10vh;
-    max-width: 18%;
-    margin-top: 1vh;
-    margin-left: 2vh;
-}
-
-
 
 
 /* 🎹 accordian based on https://codepen.io/AustenHolland/pen/LRVqAE */
@@ -226,7 +218,6 @@ p a {
     margin-bottom:0;
 }
 
-.accordian p:active{}
 
 .accordian .solution {
   position: relative;
@@ -385,7 +376,6 @@ ul li i:after {
 }
 
 
-
 /* pre loader */
 #preloader{
   position: absolute;
@@ -472,6 +462,6 @@ ul li i:after {
     opacity: 1;
   }
   100% {
-    opacity: 0;
+    opacity: 0.3;
   }
 }

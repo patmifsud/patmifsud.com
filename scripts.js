@@ -134,15 +134,18 @@
         addShadowOnScroll();
         scrollToTopOfWindow(windowToAnimateIn);
         document.title = ("Pat Mifsud " + windowToAnimateIn.emoji)
+        changeDesktopColorOnMobile('white');
+
     };
 
     function animateOutWindow(){
         document.getElementById('window').classList = 'windowClosed resize-drag closeDropdownMouseOver';
-        document.title = ("Pat Mifsud")
+        document.title = ("Pat Mifsud");
+        changeDesktopColorOnMobile('#F5F5F5');
+
     };
 
     function writeWindow(windowName) {
-        console.log(windowName);
         document.getElementById("windowHeaderText").innerHTML = `${windowName.titleBar}`
         document.getElementById("windowPastebox").innerHTML = `${windowName.data}`;
     }
@@ -288,7 +291,7 @@
 
 
     // 🏂 Visuals and animations
-
+    // when the user scrolls a window we add a shadow to the title bar of the window
     function addShadowOnScroll() {
         let windowContainer = document.querySelector('#windowPastebox');
         let windowHeader = document.querySelector('#windowHeader');
@@ -305,13 +308,9 @@
     }
 
     function swapCssColorVariablesForWindow(window) {
-        document.documentElement.style.setProperty('--windowColorMain', window.colors.main);
-        document.documentElement.style.setProperty('--windowColorDark', window.colors.dark);
-        document.documentElement.style.setProperty('--windowColorLight', window.colors.light);
-        if (window.classString == "portfolio") {
-
-        };
-
+        document.documentElement.style.setProperty('--windowColorTitle', window.colors.title);
+        document.documentElement.style.setProperty('--windowColorBg', window.colors.bg);
+        document.documentElement.style.setProperty('--windowColorText', window.colors.text);
     }
 
     function turnOffPreloader(){
@@ -322,6 +321,12 @@
 
     }
 
+    function changeDesktopColorOnMobile(bgColor){
+        if ((areWeOnMobile() == true)) {
+            let desktop = document.getElementById("desktop");
+            desktop.style.background = bgColor;
+        };
+    }
     // 🚚
     // Window move and resizing 
     // using interactjs.io

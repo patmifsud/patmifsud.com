@@ -164,35 +164,6 @@ const folioContent = [{
 ]
 
 
-const windowColor = {
-    about: {
-        main: "#B9DAE4",
-        dark: "#7BCEE7",
-        light: "#D0F4FF",
-    },
-    resume: {
-        main: "#B4C4FF;",
-        dark: "#708EF9",
-        light: "#DCE4FE",
-    },
-    casestudies: {
-        main: "#A4A3D6;",
-        dark: "#918FDE",
-        light: "#EAEDFF",
-    },
-    portfolio: {
-        main: "#C1DBEA",
-        dark: "#6FB7E1",
-        light: "#EAF7FF",
-    },
-    contact: {
-        main: "#C5E8E6",
-        dark: "#73E5DD",
-        light: "#CFFCF9",
-    }
-}
-
-
 // PORTFOLIO TEMPLATE LITERAL GENERATOR
 
 function generatePortfolioItemHtml(folioItem) {
@@ -557,10 +528,10 @@ r
         windowHTML: `
         <div id="windowContent">
         
-            <section>
+            <!-- <section>
                 <div class="buttonContainer">
                     <a onClick="turnOnLightbox()">VIEW FULL SCREEN</a>  </div>
-            </section>
+            </section> -->
 
             <section>
                 <div class="folioItemContainer">
@@ -602,9 +573,9 @@ let windows = {
         emoji: '👋',
         // each window has a color scheme that matches it's icon:
         colors: {
-            main: "#918FDE",
-            dark: "#918FDE",
-            light: "#EAEDFF",
+            title: "#FFE49F",
+            bg: "#FFF7E1",
+            text: "#A68C44",
         }
     },
     portfolio: {
@@ -614,9 +585,9 @@ let windows = {
         data: windowData.portfolio.windowHTML,
         emoji: '💼',
         colors: {
-            main: "#8AA1F0",
-            dark: "#8AA1F0",
-            light: "#485686",
+            title: "#3a3a3a",
+            bg: "#484848",
+            text: "#ffffff",
         }
     },
     resume: {
@@ -626,9 +597,9 @@ let windows = {
         emoji: '📄',
         data: windowData.resume.windowHTML,
         colors: {
-            main: "#99C1E8",
-            dark: "#99C1E8",
-            light: "#F1F8FE",
+            title: "#CDDAFF",
+            bg: "#E9EDFB",
+            text: "#4B5885",
         }
     },
     casestudies: {
@@ -638,9 +609,9 @@ let windows = {
         emoji: '📓',
         data: windowData.casestudies.windowHTML,
         colors: {
-            main: "#A6C9D4",
-            dark: "#A6C9D4",
-            light: "#F4FBFD",
+            title: "#FFC3BA",
+            bg: "#FFEEEB",
+            text: "#A06056",
         }
     },
 
@@ -651,9 +622,9 @@ let windows = {
         data: windowData.contact.windowHTML,
         emoji: '📞',
         colors: {
-            main: "#B5DCDA",
-            dark: "#B5DCDA",
-            light: "#F3FCFC",
+            title: "#CBF9F3",
+            bg: "#DAF5F2",
+            text: "#52958D",
         }
     },
 }

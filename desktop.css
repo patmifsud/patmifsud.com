@@ -49,7 +49,6 @@ div {
 
 }
 
-
 #menuBarInner {
     margin-top: 0;
     display: flex;
@@ -93,8 +92,6 @@ div {
     background: white;
     opacity: 1;
     transition: opacity 0.2s cubic-bezier(0.165, 0.84, 0.44, 1), transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-
-
 }
 
 .dropDown#fileMenu {
@@ -107,12 +104,10 @@ div {
 
 .dropDown#downloadMenu {
     left: 26vh;
-
 }
 
 .dropDown#contactMenu {
     left: 15vh;
-
 }
 
 .dropDown a {
@@ -145,6 +140,8 @@ div {
     background: #F5F5F5;
     align-content: flex-start;
     margin-top: -2px;
+    transition: background-color 1s;
+
 }
 
 .icon {
@@ -161,16 +158,12 @@ div {
     filter: saturate(1.4) drop-shadow(4px 5px 12px rgba(217, 217, 217, 0.468));
     transform: scale(1.025);
     transition: all 0.1s cubic-bezier(0.445, 0.05, 0.55, 0.95);
-
-
 }
 
 .icon:active {
     filter: brightness(97%) saturate(2);
     transform: scale(0.97);
     transition: all 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
-
-
 }
 
 .iconImg {
@@ -182,6 +175,7 @@ div {
 
 .iconLabel {
     text-align: center;
+    color:var(--interfaceTextColor);
     width: 100%;
     /* overflow: hidden; */
     /* text-overflow: ellipsis; */
@@ -203,7 +197,7 @@ div {
     top: 6vh;
     transform: scale(1);
     min-height: 30vh;
-    background-color: #FCFCFC;
+    background-color:var(--windowColorBg);
     border-radius: 1.25vh;
     transition: opacity 1.4s cubic-bezier(0.215, 0.61, 0.355, 1), transform 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
     overflow: auto;
@@ -221,27 +215,25 @@ div {
 #window:active {
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
     transition: opacity 1.8s cubic-bezier(0.215, 0.61, 0.355, 1);
-
 }
 
 #windowHeader {
     transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     height: 5vh;
-
     border-radius: 1.25vh 1.25vh 0 0;
     padding: 1.5vh;
     z-index: 15;
     display: flex;
     justify-content: space-between;
     user-select: none;
-    background-color: var(--shade3);
+    background-color: var(--windowColorTitle);
     width: 100%;
     position: absolute;
     left: 0;
 }
 
 #windowHeaderText {
-    color: #dcdcdc;
+    color: rgba(0, 0, 0, 0.4);
     font-weight: 400;
 }
 
@@ -262,7 +254,7 @@ div {
 #windowContent {
     margin-bottom: 1vh;
     padding: 7.5vh 4vh;
-    background: white;
+    background: var(--windowColorBg);
     z-index: 10;
     user-select: text;
     width: 100%;
@@ -271,12 +263,10 @@ div {
 }
 
 #windowPastebox {
-    box-shadow: 0px 20px 6px rgba(192, 192, 192, 0.4);
     overflow: scroll;
     height: 100%;
     width: 100%;
     margin-top: 5vh;
-
 }
 
 /* class that gets applied to the window when it is closed */
@@ -291,7 +281,7 @@ div {
     height: 2vh;
     width: 2vh;
     border-radius: 100%;
-    background-color: #C4C4C4;
+    background-color: rgb(255, 255, 255);
     transition: background-color 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     transform: scale(1)
 }
@@ -381,12 +371,12 @@ html {
 
 
     #window {
-        top:auto;
-        left: 0;
-        bottom: 0;
-        width: 100vw;
-        height: 95%;
-        border-radius: 0;
+        box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.20);
+        top: auto;
+        left: 2vw;
+        bottom: 2vw;
+        width: 96vw;
+        height: 94%;
     }
 
     #windowPastebox {
@@ -395,7 +385,7 @@ html {
     }
 
     .close {
-        background-color: #d8b6b6;
+        background-color: #e66d6d;
     }
 
     #windowHeader {
@@ -412,7 +402,6 @@ html {
     }
 
     section h1 {
-        color: #777777;
         line-height: 122%;
         /* font-size: 33px; */
         font-size: calc(3.0vh + 1vw);
@@ -424,28 +413,8 @@ html {
 }
 
 
-/* dark mode - portfolio*/
-
-
-
-#window.portfolio {
-    background: #434343;
-}
-
-#window.portfolio #windowPastebox {
-    box-shadow: none;
-}
-
-#window.portfolio h1 {
-    color: #BCBCBC;
-    font-weight: 300;
-}
-
-#window.portfolio #windowHeader {
-    background: #393939;
-    /* background: #393939 url(./images/folioHandle.png) no-repeat center center; */
-    background-size: contain;
-
+#window.portfolio #windowHeaderText{
+    color:#ffffffc4;
 }
 
 #window.portfolio p,
@@ -453,15 +422,7 @@ html {
     font-size: 1.6vh;
     margin-top: var(--space1);
     margin-bottom: var(--space3);
-    color: #8c8b8b;
-
-
 }
-
-#window.portfolio #windowContent {
-    background: #434343;
-}
-
 
 #window.portfolio #windowPastebox #windowContent section {
     max-width: calc(500px + 55%);
@@ -646,6 +607,10 @@ opacity: 0.5;
     bottom: 10vh;
     right: 0;
     margin: auto;
+}
+
+.alert .close{
+    background: rgb(255, 88, 88);
 }
 
 .alert #windowHeader {
