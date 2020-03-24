@@ -498,7 +498,7 @@ r
 <section><p>Referees on request. <a onClick="email();">Send me an Email</a></p></section>
 <section>
 <div class="buttonContainer">
-        <a target=”_blank” href="/casestudies.html">OPEN IN NEW TAB</a> <a onClick="downloadResume()">
+    <a onClick="downloadResume()">
             DOWNLOAD</a><a target="_blank" href="https://www.linkedin.com/in/patmifsud">
             LINKEDIN</a></div>
             </section>
@@ -559,9 +559,6 @@ r
         `
     }
 }
-
-
-
 let windows = {
     about: {
         // Text that appears in the title bar of the window
@@ -573,9 +570,10 @@ let windows = {
         emoji: '👋',
         // each window has a color scheme that matches it's icon:
         colors: {
-            title: "#FFE49F",
-            bg: "#FFF7E1",
-            text: "#A68C44",
+            title: "#FAE7B7",
+            bg: "#FFF9EA",
+            text: "#9F9780",
+            link: "#B8973A",
         }
     },
     portfolio: {
@@ -585,9 +583,11 @@ let windows = {
         data: windowData.portfolio.windowHTML,
         emoji: '💼',
         colors: {
-            title: "#3a3a3a",
-            bg: "#484848",
-            text: "#ffffff",
+            title: "#6C6C6C",
+            bg: "#7B7B7B",
+            text: "#E7E7E7",
+            link: "#FFFFFF",
+
         }
     },
     resume: {
@@ -597,9 +597,11 @@ let windows = {
         emoji: '📄',
         data: windowData.resume.windowHTML,
         colors: {
-            title: "#CDDAFF",
-            bg: "#E9EDFB",
-            text: "#4B5885",
+            title: "#D7E0F9",
+            bg: "#EEF2FF",
+            text: "#566AA5",
+            link: "#4C6EDD",
+
         }
     },
     casestudies: {
@@ -609,9 +611,10 @@ let windows = {
         emoji: '📓',
         data: windowData.casestudies.windowHTML,
         colors: {
-            title: "#FFC3BA",
-            bg: "#FFEEEB",
-            text: "#A06056",
+            title: "#F6E3E0",
+            bg: "#FFF7F5",
+            text: "#968481",
+            link: "#833F34",
         }
     },
 
@@ -622,9 +625,11 @@ let windows = {
         data: windowData.contact.windowHTML,
         emoji: '📞',
         colors: {
-            title: "#CBF9F3",
-            bg: "#DAF5F2",
-            text: "#52958D",
+            title: "#DEE9E7",
+            bg: "#F6FAF9",
+            text: "#6B9590",
+            link: "#40A095",
+
         }
     },
 }

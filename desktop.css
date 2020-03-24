@@ -622,6 +622,7 @@ opacity: 0.5;
 
 .alert .close{
     background: rgb(255, 88, 88);
+    border-color: white;
 }
 
 .alert #windowHeader {
