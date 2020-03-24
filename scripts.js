@@ -325,7 +325,7 @@
         if ((areWeOnMobile() == true)) {
             let desktop = document.getElementById("desktop");
             desktop.style.background = bgColor;
-        };
+        } else{desktop.style.background = '#F5F5F5'};
     }
     // 🚚
     // Window move and resizing 
