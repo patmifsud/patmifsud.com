@@ -374,6 +374,7 @@ html {
         box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.20);
         top: auto;
         left: 2vw;
+        top:5vh;
         bottom: 2vh;
         width: 96vw;
         /* must be in % due to chrome mobile nav menu bug thing */
