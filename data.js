@@ -554,7 +554,6 @@ r
         <div id="windowContent">
         
             <section>
-                <h1>Visual Design<br />Portfolio</h1>
                 <div class="buttonContainer">
                     <a onClick="turnOnLightbox()">VIEW FULL SCREEN</a>  </div>
             </section>
@@ -719,14 +718,14 @@ const topMenu = [{
     },
 ]
 
-const desktopIcons = [{
+const desktopIcons = [ {
     named: "About",
     id: "about",
     // icon for each desktop object:
     img: "images/about-icon.png",
     // funciton to perform when icon is clicked:
     whenClicked: "animateInWindow(windows.about)",
-}, {
+},{
     named: "Portfolio",
     id: "portfolio",
     img: "images/portfolio-icon.png",
@@ -737,18 +736,20 @@ const desktopIcons = [{
     img: "images/resume-icon.png",
     whenClicked: "animateInWindow(windows.resume)",
 }, 
-// {
-//     named: "Case Study",
-//     id: "casestudies",
-//     img: "images/casestudies-icon.png",
-//     whenClicked: "animateInWindow(windows.casestudies)",
-// },
+{
+     named: "Case Study",
+    id: "casestudies",
+   img: "images/casestudies-icon.png",
+  whenClicked: "animateInWindow(windows.casestudies)",
+},
  {
     named: "Contact",
     id: "contact",
     img: "images/contact-icon.png",
     whenClicked: "animateInWindow(windows.contact)",
-}]
+},
+
+]
 
 const callAlert = `
 <div id="callAlert" class="alertBg">

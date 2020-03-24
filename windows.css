@@ -18,8 +18,6 @@
     --headingFont: nimbus-sans-extended, helvetica, arial, sans-serif;
     --bodyFont: nimbus-sans, helvetica, arial, sans-serif;
 
-    --windowPColor: #B7B7B7;
-    --windowHeadColor: #8C8C8C;
     --space1: calc(1.5vh + 1vw);
     --space2: calc(2.5vh + 1.25vw);
     --space3: calc(3.75vh + 1.8vw);
@@ -33,7 +31,7 @@
     --windowColorDark: #918FDE;
     --windowColorLight: #EAEDFF;
 
-    --quickOpacityTransition:    transition: opacity 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --quickOpacityTransition:transition: opacity 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 
