@@ -376,7 +376,8 @@ html {
         left: 2vw;
         bottom: 2vh;
         width: 96vw;
-        height: 93vh;
+        /* must be in % due to chrome mobile nav menu bug thing */
+        height: 93%;
     }
 
     #windowPastebox {
