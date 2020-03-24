@@ -374,9 +374,9 @@ html {
         box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.20);
         top: auto;
         left: 2vw;
-        bottom: 2vw;
+        bottom: 2vh;
         width: 96vw;
-        height: 94%;
+        height: 93vh;
     }
 
     #windowPastebox {
