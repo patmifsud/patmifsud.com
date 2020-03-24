@@ -234,8 +234,12 @@ const windowData = {
 
         <h1>A business consulting product for LPMA</h1>
         <div class="buttonContainer">
-        <!-- <a target=”_blank” href="/casestudies.html" >OPEN IN NEW TAB</a> --> <a onClick="downloadResume()"> DOWNLOAD</a></div>
+        <!-- <a target=”_blank” href="/casestudies.html" >OPEN IN NEW TAB</a>  <a onClick="downloadResume()"> DOWNLOAD</a> --> </div>
         </section><section>
+
+<h3>This is a work in progress. Most of the text is here, but a final pass is needed as well as some more images. Feedback in the interim would be much appreciated.🙇‍♂️</h3>
+
+
         <p><span class="emph">My role:</span> Product Owner / UX</p>
         <p><span class="emph">Goal:</span> To provide an easy way for real estate agency owners to see how
             much of the rental market they have today, and set goals on how much of the market they want to
@@ -736,12 +740,12 @@ const desktopIcons = [ {
     img: "images/resume-icon.png",
     whenClicked: "animateInWindow(windows.resume)",
 }, 
-{
-     named: "Case Study",
-    id: "casestudies",
-   img: "images/casestudies-icon.png",
-  whenClicked: "animateInWindow(windows.casestudies)",
-},
+// {
+//      named: "Case Study",
+//     id: "casestudies",
+//    img: "images/casestudies-icon.png",
+//   whenClicked: "animateInWindow(windows.casestudies)",
+// },
  {
     named: "Contact",
     id: "contact",
