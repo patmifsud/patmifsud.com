@@ -8,6 +8,8 @@
   line-height: var(--fontSizeInterface);
   font-family: aktiv-grotesk, helvetica, arial, sans-serif;
   -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 
 }
 
@@ -15,7 +17,6 @@
 :root {
     /* this is modified through javascript on resize. This allows the vh inside of the object window act like the vh outside of the object window.  */
 
-    --headingFont: nimbus-sans-extended, helvetica, arial, sans-serif;
     --bodyFont: nimbus-sans, helvetica, arial, sans-serif;
 
     --space1: calc(1.5vh + 1vw);
@@ -23,15 +24,14 @@
     --space3: calc(3.75vh + 1.8vw);
 
     --fontSizeP: calc(1.5vh + 0.5vw);
-    --fontSizeH3: calc(1.7vh + 0.7vw);
-    --fontSizeH2: calc(2vh + 1vw);
-    --fontSizeH1: calc(2.9vh + 1.7vw);
+    --fontSizeH3: calc(1.5vh + 0.5vw);
+   --fontSizeH2: calc(1.8vh + 0.9vw);
+    --fontSizeH1: calc(2.4vh + 1.5vw);
 
     --windowColorTitle: #EDEBEB;
     --windowColorBg: #FFFFFF;
     --windowColorText: #868686;
     --windowColorLink: #575757;
-
 
     --quickOpacityTransition:transition: opacity 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
@@ -50,37 +50,31 @@ div {
 }
 
 
+#window p, #window h1, #window h2, #window h3, #window h4, #window h5, #window li, #window span{
+  color: var(--windowColorText);
+  font-family: var(--bodyFont);
+  font-weight: 400;
+
+}
+
 p,
 p *,
 li, li *, section p, section p * {
-    font-family: var(--bodyFont);
     font-weight: 400;
     font-size: var(--fontSizeP);
     line-height: 165%;
-    color: var(--windowColorText);
     margin-bottom: var(--space1);
 }
 
 
 
 h1, h1 * {
-    font-family: var(--headingFont);
-    color: var(--windowColorText);
-    font-weight: bold;
     line-height: 110%;
     font-size: var(--fontSizeH1);
-    margin-bottom: var(--space3) !important;
-    max-width: 75vh;
-
-
+    margin-bottom: var(--space2) !important;
 }
 
 h2, h2 * {
-    font-family: var(--headingFont);
-    color: var(--windowColorText);
-
-    font-style: normal;
-    font-weight: bold;
     line-height: 120%;
     color: var(--windowColorText);
     margin-bottom: var(--space2);
@@ -92,45 +86,16 @@ h2, h2 * {
 
 
 h3, h3 * {
-  font-family: var(--headingFont);
-
     font-size: var(--fontSizeH3);
     line-height: 145%;
     max-width: 90%;
-    margin-top: var(--space2) !important;
-    color: var(--windowColorText);
     margin-bottom: var(--space2) !important;
 }
 
 
-
-h4, h4 * {
-  color: var(--windowColorText);
-  margin-bottom: var(--space1) !important;
-    font-weight: 500;
-    font-family: var(--headingFont);
-    font-size: var(--fontSizeP);
-    line-height: 165%;
-
-}
-
-
-h5, h5 * {
-    font-style: italic;
-    font-family: var(--headingFont);
-    font-weight: 500;
-    font-size: var(--fontSizeP);
-    line-height: 110%;
-    color: var(--windowColorText);
-    margin-bottom: var(--space2) !important;
-    letter-spacing: 0.25em;
-    
-}
 
 li {
     margin-left: 3vh;
-    color: var(--windowColorText);
-
     margin-bottom:1vh!important;
 }
 
@@ -147,9 +112,7 @@ ul li::before {
     width: 1vh;
     margin-left: -2vh;
     margin-right: 0.5vh;
-
 }
-
 
 section {
     padding-bottom: var(--space2);
@@ -163,38 +126,19 @@ section {
     filter: brightness(0.85);
 }
 
-.bold{
-    font-weight: 700;
+a:hover{
+    opacity: 0.8;
 }
 
-.buttonContainer {
-    margin: 0 -1vh;
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    margin-bottom: 2vh;
-}
-
-.buttonContainer a {
-    margin: 0 calc(0.5vh + 0.4vw) calc(0.1vh + 0.9vw) calc(0.5vh + 0.4vw);
-    cursor: pointer;
-    padding: calc(0.9vh + 0.3vw);
-    color: var(--windowColorText);
-    text-decoration: underline;
-    font-weight: bold;
-    font-size: calc(1.2vh + 0.5vw);
-    line-height: 110%;
-    transition: all 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-
-}
-
-.buttonContainer a:hover{
-    transform: scale(0.95);
-}
-
-section a,
+#window a,
 p a {
   color: var(--windowColorText);
+  cursor: pointer;
+  text-decoration: underline;
+  font-weight: 400;
+  font-size: var(--fontSizeP);
+  line-height: 165%;
+  margin-bottom: var(--space1);
 }
 
 

@@ -60,7 +60,7 @@ div {
 .menuItem {
     padding: 1.5vh;
     height: 5vh;
-    font-weight: 400;
+    font-weight: 500;
     border-radius: var(--borderRadiusSmall);
     transition: all 0.1s cubic-bezier(0.445, 0.05, 0.55, 0.95);
 }
@@ -233,9 +233,9 @@ div {
 }
 
 #windowHeaderText {
-    color:var(--windowColorText);
+    color: var(--windowColorText);
     transition: color 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
-    font-weight: 400;
+    font-weight: 500;
 }
 
 #windowHeader.scrolled {
@@ -402,13 +402,6 @@ html {
 
     #windowHeader {
         background-image: none !important;
-    }
-
-
-
-    #windowHeaderText {
-        margin-left: 1vh;
-
     }
 
     #windowContent {

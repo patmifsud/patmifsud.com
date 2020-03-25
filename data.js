@@ -218,7 +218,7 @@ const windowData = {
         <p><span class="emph">Company:</span> Leading Property Managers Association (LPMA)
             Lpma.com.au</p>
         </section><section>
-        <h4>BACKGROUND</h4>
+        <p>BACKGROUND</p>
         <p>LPMA is an industry association for rental property managers, kind of like AGDA for Graphic
             Designers, or CPA for Accountants.
 
@@ -250,9 +250,9 @@ const windowData = {
         <p>Agency owners wanted to know how much market share they had in each of the suburbs they managed
             properties in, but it was a pain to calculate. An insular industry meant it was also hard to
             find advice on planning for growth and setting goals. With this process LPMA did that for them.
-            </p><h4>The brief from stakeholders was something like this: Take the above process for ‘5 Channels of
+            </p><p>The brief from stakeholders was something like this: Take the above process for ‘5 Channels of
             Growth’, and digitize it so that:
-</h4>
+</p>
         </section>
         <section>
         <div style="width:100%; height:15vh; background:#eeeeee;"></div>
@@ -292,7 +292,7 @@ const windowData = {
         </section>
         <section>
 
-        <h4>01 Research and discovery </h4>
+        <p>01 Research and discovery </p>
         <ul>
             <li>Reviewed existing company personas for Principals and Property management directors.</li>
             <li>Interviewed 2 consultants that ran the previous 5 Channels of Growth program.</li>
@@ -313,10 +313,10 @@ const windowData = {
             department without having to invest too much ongoing time into it. They want answers on
             where to focus their limited time and effort, so they could set it up to gain profits and go
             back to focusing on their Sales department. </p>
-        <h4>The Agency owners wanted to know how much market share they had in each of the suburbs
+        <p>The Agency owners wanted to know how much market share they had in each of the suburbs
             they managed properties in, but it was a pain to calculate. An insular industry meant it was
             also hard to find advice on planning for growth and setting goals. With this process LPMA did
-            that for them.</h4>
+            that for them.</p>
         </br>
 
         <p><span class="emph">For the Department Director, </span> they were all about efficiency and
@@ -377,132 +377,120 @@ const windowData = {
     resume: {
         windowHTML: `<div id="windowContent">
 
-<section>
-    <p>Pat Mifsud 2020</p>
-    <h1>Resume</h1>
-
-    <div class="buttonContainer">
-    <!--  <a target=”_blank” href="/casestudies.html">OPEN IN NEW TAB</a> --> <a onClick="downloadResume()">
-            DOWNLOAD</a><a target="_blank" href="https://www.linkedin.com/in/patmifsud">
-            LINKEDIN</a></div>
-<br/>
-    <h4><span class="emph"> I’m a passionate designer specialising in user interfaces and user experience research.
-    </h4>
-    <p>I believe that great design is visually appealing, solves the right problem for the right person, and is feasible to build.</p>
-</section>
-
-
-<section>
-    <h2>Experience</h2>
-
-    <h4>
-
-        <span class="emph bold">UI / UX Designer</span> at The Big Crunch <br />
-        Feb 2019 - Now
-    </h4>
-    <ul>
-        <li><span class="emph">Designed interfaces for web and mobile productivity tools,</span> testing both
-            prototypes and mvp builds. Ran over 40 user tests and interviews for less then $300.<br />We grew our userbase from two to four figures. I
-            created a basic design system for the company in Figma where stakeholders and developers could directly collaborate on designs.</li>
-        <li>Swapped hats to design/ growth hacking/ helping with front end development/ customer support.</li>
-    </ul>
-</section>
-
-
-<section>
-    <h4><span class="emph bold">CX Designer</span> at Ailo <br />
-        Sep 2018 - Dec 2018
-    </h4>
-    <ul>
-        <li>Worked across disciplines and teams to design and build scalable systems to <span class="emph">convert trials to subscriptions and decrease churn.</span></li>
-        <li><span class="emph">Designed and built onboarding campaigns</span> and landing pages with the CX team, managing the backend systems (Mailchimp/ Vero) that drove them.</li>
-        <li>Designed dashboards and reports to keep sales and engineering teams in touch with their impact on the
-            customer experience through Salesforce and external tools.</li>
-    </ul>
-</section>
-
-
-<section>
-    <h4>
-        <span class="emph bold">Product Owner</span> at LPMA (Owned by Ailo)<br />
-        Feb 2018 - Sep 2018
-r
-    </h4>
-    <ul>
-        <li>Worked with domain experts, stakeholders, internal and external engineering and design teams to <span class="emph">own and design a business
-                consulting product.</span> <a onClick="animateInWindow(windows.casestudies)">Read the Case Study here</a>
-        </li>
-        <li>Worked with an external development company to build consulting products and client resources. </li>
-        <li>Designed dashboards and reports to keep sales and engineering teams in touch with their impact on the
-            customer experience through Salesforce and external tools.</li>
-    </ul>
-</section>
-
-
-<section>
-    <h4>
-        <span class="emph bold">Graphic / UX Designer</span> at Apmasphere (also Ailo) <br />Feb 2017 - Feb 2018<br />
-    </h4>
-    <ul>
-        <li>Created prototypes and ran usability testing sessions, presenting results to design team, developers and
-            stakeholders. </span></li>
-        <li>Learnt Framer.js to allow us to prototype complex interactions and animations, validated and iterated on
-            these designs through user feedback. </li>
-    </ul>
-</section>
-
-
-<section>
-    <h4>
-        <span class="emph bold">Graphic Designer</span> at I-MANIFEST, Charity<br />
-        2014 - 2015
-    </h4>
-    <ul>
-        <li>Graphic and web designer, probono.
-        </li>
-    </ul>
-</section>
-
-
-<section>
-    <h4>
-        <span class="emph bold">Designer and Marketing Coordinator</span> at Apmasphere (Owned by Ailo) <br />
-        March 2015 - Feb 2017  
-    </h4>
-    <ul>
-        <li>Worked on branding, print and digital design work, video and animation projects, email marketing, physical spaces - designing conference booths, signage and branding.</li>
-    </ul>
-</section>
-
-<section>
-    <h4>
-        <span class="emph bold">Graphic Designer</span> at Urban Purveyor Group 
-        <br />
-        2013 - 2015   (Saké, Barvarian Beir Cafe, Löwenbräu, The Argyle)
-    </h4>
-</section>
-
-<section>
-    <h4>
-        <span class="emph bold">Assistant Teacher</span> at UTS Sydney
-        <br />
-        Feb - May 2014 
-    </h4>
-</section>
-<section>
-<h2>Education</h2>
-<h4>
-    <span class="emph">Bachelor of Design in Visual Communication - <br/>University of Technology Sydney  </h4><ul>
-<li>Distinction Av. Took additional classes in UX, animation and frontend programming. </li></ul>
-</section> <section></section>
-<section><p>Referees on request. <a onClick="email();">Send me an Email</a></p></section>
-<section>
-<div class="buttonContainer">
-    <a onClick="downloadResume()">
-            DOWNLOAD</a><a target="_blank" href="https://www.linkedin.com/in/patmifsud">
-            LINKEDIN</a></div>
+        <section>
+            <h1>Resume</h1>
+            <p>Hi, I'm Pat. I’m a passionate designer specialising in user interfaces and user experience research.
+                I believe that great design is visually appealing, solves the right problem for the right person, and is
+                feasible to build.</p>
+            <a onClick="downloadResume()">Download PDF Resume</a> &nbsp; <a target="_blank"
+                href="https://www.linkedin.com/in/patmifsud"> LinkedIn</a>
+        </section>
+    
+        <section>
+            <h2>Experience</h2>
+    
+            <p><span class="resumeEmph">UI / UX Designer at The Big Crunch.</span> <span class="resumeDate">Feb 2019 -
+                    Now</span></p>
+            <ul>
+                <li><span class="resumeEmph">I designed interfaces for web and mobile productivity tools, while creating a
+                        basic design system for the company in Figma where stakeholders and developers could directly
+                        collaborate on designs. </li>
+                <li>I ran over 30 user tests and interviews for less then $300. </li>
+                <li>I swapped hats to design/ growth hacking/front end development/ customer support as needed as we grew
+                    our userbase from two to four figures.</li>
+            </ul>
+            </seection>
+    
+            <section>
+                <p><span class="resumeEmph">CX Designer at Ailo.</span> <span class="resumeDate">Sep 2018 - Dec 2018</span>
+                </p>
+                <ul>
+                    <li>I worked across disciplines and teams to design and build scalable systems to convert trials to
+                        subscriptions and decrease churn.</span></li>
+                    <li><span class="resumeEmph"></span>I designed and built onboarding campaigns and landing pages with the
+                        CX team, working with the backend systems (Mailchimp/ Vero) that
+                        drove them.</li>
+                    <li>I designed dashboards and reports to keep the sales and engineering teams in touch with their impact
+                        on the customer experience through Salesforce and external tools.</li>
+                </ul>
+    
             </section>
-</div>`
+    
+    
+            <section>
+                <p><span class="resumeEmph">Product Owner at LPMA (Owned by Ailo).</span> <span class="resumeDate">Feb 2018
+                        - Sep 2018</span>
+                </p>
+                <ul>
+                    <li>I worked with domain experts, stakeholders, internal and external engineering and design teams to
+                        own and design a business consulting product. </li>
+                    <li>I worked with an external development company to build consulting products and client resources.
+                    </li>
+                </ul>
+            </section>
+    
+    
+            <section>
+                <p>
+                    <span class="resumeEmph">Graphic / UX Designer</span> at Apmasphere (also Ailo). Feb 2017 - Feb
+                    2018<br />
+                </p>
+                <ul>
+                    <li>I created prototypes and ran usability testing sessions, presenting results to design team,
+                        developers and stakeholders. </li>
+                    <li>I learned Framer.js to allow us to prototype complex interactions and animations, validated and
+                        iterated on these designs through user feedback. </li>
+                </ul>
+            </section>
+    
+    
+            <section>
+                <p>
+                    <span class="resumeEmph">Graphic Designer</span> at I-MANIFEST, Charity. 2014 - 2015
+                </p>
+                <p>Graphic and web designer, probono.</p>
+            </section>
+    
+    
+            <section>
+                <p>
+                    <span class="resumeEmph">Designer and Marketing Coordinator</span> at Apmasphere (Owned by Ailo). March
+                    2015 - Feb 2017
+                </p>
+                <ul>
+                    <li>Worked on branding, print and digital design work, video and animation projects, email marketing.
+                    </li>
+                </ul>
+            </section>
+    
+            <section>
+                <p>
+                    <span class="resumeEmph ">Graphic Designer</span> at Urban Purveyor Group. 2013 - 2015 (Saké, Barvarian
+                    Beir Cafe, Löwenbräu, The Argyle)
+                </p>
+            </section>
+    
+            <section>
+                <p>
+                    <span class="resumeEmph ">Assistant Teacher</span> at UTS Sydney. Feb - May 2014
+                </p>
+            </section>
+    
+            <section>
+                <h2>Education</h2>
+                <p>
+                    <span class="resumeEmph">Bachelor of Design in Visual Communication - <br />University of Technology
+                        Sydney </p>
+                <ul>
+                    <li>Distinction Av. Took additional classes in UX, animation and frontend programming. </li>
+                </ul>
+            </section>
+            <section>
+                <p>Referees on request. <a onClick="email();">Send me an Email</a></p>
+                <a onClick="downloadResume()">Download PDF Resume</a> &nbsp; <a target="_blank"
+                    href="https://www.linkedin.com/in/patmifsud"> LinkedIn</a>
+            </section>
+    </div>`
     },
 
 
