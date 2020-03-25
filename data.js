@@ -500,7 +500,8 @@ const windowData = {
     about: {
         windowHTML: `<div id="windowContent">
 
-        <section><p class="emph">Hi, I'm Pat</p>
+        <section>
+        <h1>Hi, I'm Pat</h1>
         <p>I’m a passionate designer specialising in user interfaces and user experience research. I believe that great design
         is visually appealing, solves the right problem for the right person, and is feasible to build.
         </p>
@@ -536,15 +537,12 @@ const windowData = {
 
     contact: {
         windowHTML: `<div id="windowContent">
-<section><h1>Let's chat</h1>
-<section>
-
-<div class="buttonContainer">
-                    <a onClick="email()">EMAIL</a> <a onClick="linkedIn()">LINKEDIN</a> <a onClick="twitter()">TWITTER</a> <a onClick="createCallAlert()">CALL</a>  </div>
-<p>Or give me a buzz on 0448742570</p> 
-        </section>
-        
-        `
+        <section><h1>Let's chat</h1><ul>
+        <li> <a onClick="email()">Send me an Email</a></li>
+        <li> <a onClick="linkedIn()">Visit my LinkedIn</a></li>
+        <li> <a onClick="twitter()">Visit my Twitter</a></li>
+        <li> <a onClick="createCallAlert()">Give me a call on 0448742570</a></li></ul>
+        </section>`
     }
 }
 let windows = {
