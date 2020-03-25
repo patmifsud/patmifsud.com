@@ -23,10 +23,10 @@
     --space2: calc(2.5vh + 1.25vw);
     --space3: calc(3.75vh + 1.8vw);
 
-    --fontSizeP: calc(1.5vh + 0.5vw);
+    --fontSizeP: calc(1.4vh + 0.6vw);
     --fontSizeH3: calc(1.5vh + 0.5vw);
    --fontSizeH2: calc(1.8vh + 0.9vw);
-    --fontSizeH1: calc(2.4vh + 1.5vw);
+    --fontSizeH1: calc(2.1vh + 1.6vw);
 
     --windowColorTitle: #EDEBEB;
     --windowColorBg: #FFFFFF;

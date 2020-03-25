@@ -240,6 +240,9 @@
 
     function closeCallAlert() {
         screen.removeChild(document.getElementById('callAlert'));
+        // for some reason this 👆 stops the interaction observer for the folio lightbox. 
+        // No idea why. So we have to boot it up again
+        startInteractionObserver();
     }
 
     function copyNumber() {
@@ -397,6 +400,6 @@
             preloadFolioLightboxImages();
         }, 3000);
         setTimeout(function () {
-            startInteractionObserver()
+            startInteractionObserver();
         }, 2000);
     };
