@@ -501,7 +501,7 @@ const windowData = {
         windowHTML: `<div id="windowContent">
 
         <section>
-        <h1>Hi, I'm Pat</h1>
+        <p>Hi, I'm Pat</p>
         <p>I’m a passionate designer specialising in user interfaces and user experience research. I believe that great design
         is visually appealing, solves the right problem for the right person, and is feasible to build.
         </p>

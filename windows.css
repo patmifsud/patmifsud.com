@@ -113,6 +113,10 @@ ul li::before {
     margin-left: -2vh;
     margin-right: 0.5vh;
 }
+::selection {
+  background:var(--windowColorText);
+  color:var(--windowColorBg);
+}
 
 section {
     padding-bottom: var(--space2);
