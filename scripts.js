@@ -295,6 +295,7 @@
         document.documentElement.style.setProperty('--windowColorTitle', window.colors.title);
         document.documentElement.style.setProperty('--windowColorBg', window.colors.bg);
         document.documentElement.style.setProperty('--windowColorText', window.colors.text);
+        document.documentElement.style.setProperty('--windowColorLink', window.colors.link);
     }
 
     function turnOffPreloader() {

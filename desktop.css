@@ -254,7 +254,7 @@ div {
 
 #windowContent {
     margin-bottom: 1vh;
-    padding: 7.5vh 4vh;
+    padding: 5vh 4vh;
     transition: background-color 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
     z-index: 10;
     user-select: text;
@@ -268,6 +268,11 @@ div {
     height: 100%;
     width: 100%;
     margin-top: 5vh;
+}
+
+#window a{
+    color: var(--windowColorLink);
+    transition: color 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
 /* class that gets applied to the window when it is closed */
@@ -300,6 +305,8 @@ div {
     transition: background-color 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
 }
+
+
 
 /* typography */
 a {
@@ -379,7 +386,6 @@ html {
 
 
     #window {
-        box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.20);
         top: auto;
         left: 2vw;
         top:5vh;
@@ -406,7 +412,7 @@ html {
     }
 
     #windowContent {
-        padding: 7.5vh 2vh;
+        padding: 5vh 2vh;
     }
 
     section h1 {
