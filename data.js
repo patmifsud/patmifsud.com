@@ -506,7 +506,7 @@ const windowData = {
         is visually appealing, solves the right problem for the right person, and is feasible to build.
         </p>
         <p>I'm in the middle of building this website out so please forgive the rough edges, typos and missing features 🙇‍♂️.</p> <p>But check back often!</p>
-        <p>Please drop me a line at <a mailto="patmifsud@me.com" > patmifsud@me.com</a> with any enquiries.</p>
+        <p>Please drop me a line at <a href="mailto:patmifsud@me.com > patmifsud@me.com</a> with any enquiries.</p>
         </section>`
     },
 
