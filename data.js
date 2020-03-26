@@ -379,7 +379,7 @@ const windowData = {
 
         <section>
             <h1>Resume</h1>
-            <p>Hi, I'm Pat. I’m a passionate designer specialising in user interfaces and user experience research.
+            <p>Hi, I'm Pat. I’m a designer specialising in user interfaces and user experience research.
                 I believe that great design is visually appealing, solves the right problem for the right person, and is
                 feasible to build.</p>
             <a onClick="downloadResume()">Download PDF Resume</a> &nbsp;&nbsp; <a target="_blank"

@@ -78,7 +78,15 @@ section p * {
   margin-bottom: var(--space1);
 }
 
+section a{
+  border-bottom: solid 2px;
+  text-decoration: none;
+}
 
+section a:hover{
+    filter: saturate(3);
+    background:#00000005;
+}
 
 h1,
 h1 * {

@@ -113,7 +113,6 @@ div {
 .dropDown a {
     width: 100%;
     padding: 1.5vh;
-    border-bottom:0;
 }
 
 
@@ -124,6 +123,10 @@ div {
 .dropDown a:active {
     background: rgb(63, 63, 63);
     color: white;
+}
+
+.menuItem, .drop{
+    user-select: none;
 }
 
 
@@ -309,12 +312,6 @@ div {
 /* typography */
 a {
     cursor: pointer;
-    border-bottom: solid 2px;
-    text-decoration: none;
-}
-
-a:hover {
-    filter: saturate(3);
 }
 
 /* Misc */
