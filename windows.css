@@ -22,9 +22,11 @@
     --space1: calc(1.5vh + 1vw);
     --space2: calc(2.5vh + 1.25vw);
     --space3: calc(3.75vh + 1.8vw);
+    --space4: calc(4.25vh + 2.55vw);
+
 
     --fontSizeP: calc(1.4vh + 0.6vw);
-    --fontSizeH3: calc(1.5vh + 0.5vw);
+    --fontSizeH3: calc(1.6vh + 0.7vw);
    --fontSizeH2: calc(1.8vh + 0.9vw);
     --fontSizeH1: calc(2.1vh + 1.6vw);
 
@@ -88,15 +90,16 @@ h2, h2 * {
 h3, h3 * {
     font-size: var(--fontSizeH3);
     line-height: 145%;
+    text-transform: uppercase;
     max-width: 90%;
-    margin-bottom: var(--space2) !important;
+    margin-bottom: var(--space1) !important;
 }
 
 
 
 li {
-    margin-left: 3vh;
-    margin-bottom:1vh!important;
+  margin-left: 1.8vh;
+  margin-bottom: 1vh!important;
 }
 
 ul {
@@ -111,7 +114,7 @@ ul li::before {
     display: inline-block;
     width: 1vh;
     margin-left: -2vh;
-    margin-right: 0.5vh;
+    margin-right: 1vh;
 }
 ::selection {
   background:var(--windowColorText);
@@ -130,16 +133,14 @@ section {
     filter: brightness(0.85);
 }
 
-a:hover{
-    opacity: 0.8;
-}
 
 #window a,
 p a {
-  color: var(--windowColorText);
+  display: inline-block;
   cursor: pointer;
-  text-decoration: underline;
-  font-weight: 400;
+  color: var(--windowColorLink);
+  font-family: var(--bodyFont);
+  transition: color 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
   font-size: var(--fontSizeP);
   line-height: 165%;
   margin-bottom: var(--space1);
@@ -324,6 +325,28 @@ ul li i:after {
   width:100%;
   cursor: pointer;
 }
+
+
+.resumePositionTitle{
+  margin-bottom:0;
+}
+
+.resumeDate{
+  opacity: 0.7;
+  word-wrap: break-word;
+  display: inline-block;
+  margin-bottom: 0;
+}
+
+.marginBottomSpace1{margin-bottom:var(--space1);}
+.marginBottomSpace2{margin-bottom:var(--space2);}
+.marginBottomSpace3{margin-bottom:var(--space3);}
+.marginBottomSpace4{margin-bottom:var(--space4);}
+
+.paddingBottomSpace1{padding-bottom:var(--space1);}
+.paddingBottomSpace2{padding-bottom:var(--space2);}
+.paddingBottomSpace3{padding-bottom:var(--space3);}
+.paddingBottomSpace4{padding-bottom:var(--space4);}
 
 
 /* pre loader */

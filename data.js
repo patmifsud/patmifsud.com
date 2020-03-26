@@ -382,14 +382,14 @@ const windowData = {
             <p>Hi, I'm Pat. I’m a passionate designer specialising in user interfaces and user experience research.
                 I believe that great design is visually appealing, solves the right problem for the right person, and is
                 feasible to build.</p>
-            <a onClick="downloadResume()">Download PDF Resume</a> &nbsp; <a target="_blank"
+            <a onClick="downloadResume()">Download PDF Resume</a> &nbsp;&nbsp; <a target="_blank"
                 href="https://www.linkedin.com/in/patmifsud"> LinkedIn</a>
         </section>
     
-        <section>
-            <h2>Experience</h2>
+        <section class="paddingBottomSpace1">
+            <h3>Experience</h3>
     
-            <p><span class="resumeEmph">UI / UX Designer at The Big Crunch.</span> <span class="resumeDate">Feb 2019 -
+            <p class="resumePositionTitle"><span class="resumeEmph">UI / UX Designer at The Big Crunch.</span> <span class="resumeDate">Feb 2019 -
                     Now</span></p>
             <ul>
                 <li><span class="resumeEmph">I designed interfaces for web and mobile productivity tools, while creating a
@@ -399,10 +399,10 @@ const windowData = {
                 <li>I swapped hats to design/ growth hacking/front end development/ customer support as needed as we grew
                     our userbase from two to four figures.</li>
             </ul>
-            </seection>
+            </section>
     
-            <section>
-                <p><span class="resumeEmph">CX Designer at Ailo.</span> <span class="resumeDate">Sep 2018 - Dec 2018</span>
+            <section class="paddingBottomSpace1">
+                <p class="resumePositionTitle"><span class="resumeEmph">CX Designer at Ailo.</span> <span class="resumeDate">Sep 2018 - Dec 2018</span>
                 </p>
                 <ul>
                     <li>I worked across disciplines and teams to design and build scalable systems to convert trials to
@@ -417,8 +417,8 @@ const windowData = {
             </section>
     
     
-            <section>
-                <p><span class="resumeEmph">Product Owner at LPMA (Owned by Ailo).</span> <span class="resumeDate">Feb 2018
+            <section class="paddingBottomSpace1">
+                <p class="resumePositionTitle"><span class="resumeEmph">Product Owner at LPMA (Owned by Ailo).</span> <span class="resumeDate">Feb 2018
                         - Sep 2018</span>
                 </p>
                 <ul>
@@ -430,10 +430,10 @@ const windowData = {
             </section>
     
     
-            <section>
-                <p>
-                    <span class="resumeEmph">Graphic / UX Designer</span> at Apmasphere (also Ailo). Feb 2017 - Feb
-                    2018<br />
+            <section class="paddingBottomSpace1">
+                <p class="resumePositionTitle">
+                    <span class="resumeEmph">Graphic / UX Designer</span> at Apmasphere (also Ailo). <span class="resumeDate"> Feb 2017 - Feb
+                    2018</span><br />
                 </p>
                 <ul>
                     <li>I created prototypes and ran usability testing sessions, presenting results to design team,
@@ -444,16 +444,18 @@ const windowData = {
             </section>
     
     
-            <section>
-                <p>
-                    <span class="resumeEmph">Graphic Designer</span> at I-MANIFEST, Charity. 2014 - 2015
-                </p>
-                <p>Graphic and web designer, probono.</p>
+            <section class="paddingBottomSpace1">
+                <p class="resumePositionTitle">
+                    <span class="resumeEmph">Graphic Designer</span> at I-MANIFEST, Charity. <span class="resumeDate">2014 - 2015</span>
+                </p>               
+                <ul>
+                    <li>Graphic and web designer, probono.</li>
+                </ul>
             </section>
     
     
-            <section>
-                <p>
+            <section class="paddingBottomSpace1">
+                <p class="resumePositionTitle">
                     <span class="resumeEmph">Designer and Marketing Coordinator</span> at Apmasphere (Owned by Ailo). March
                     2015 - Feb 2017
                 </p>
@@ -463,22 +465,22 @@ const windowData = {
                 </ul>
             </section>
     
-            <section>
-                <p>
-                    <span class="resumeEmph ">Graphic Designer</span> at Urban Purveyor Group. 2013 - 2015 (Saké, Barvarian
-                    Beir Cafe, Löwenbräu, The Argyle)
+            <section class="paddingBottomSpace1">
+                <p class="resumePositionTitle">
+                    <span class="resumeEmph ">Graphic Designer</span> at Urban Purveyor Group. <span class="resumeDate">2013 - 2015 (Saké, Barvarian
+                    Beir Cafe, Löwenbräu, The Argyle)</span>
                 </p>
             </section>
     
-            <section>
-                <p>
-                    <span class="resumeEmph ">Assistant Teacher</span> at UTS Sydney. Feb - May 2014
+            <section class="paddingBottomSpace1">
+                <p class="resumePositionTitle">
+                    <span class="resumeEmph ">Assistant Teacher</span> at UTS Sydney. <span class="resumeDate">Feb - May 2014</span>
                 </p>
             </section>
     
-            <section>
-                <h2>Education</h2>
-                <p>
+            <section></section><section>
+                <h3>Education</h3>
+                <p class="resumePositionTitle">
                     <span class="resumeEmph">Bachelor of Design in Visual Communication - <br />University of Technology
                         Sydney </p>
                 <ul>
@@ -487,7 +489,7 @@ const windowData = {
             </section>
             <section>
                 <p>Referees on request. <a onClick="email();">Send me an Email</a></p>
-                <a onClick="downloadResume()">Download PDF Resume</a> &nbsp; <a target="_blank"
+                <a onClick="downloadResume()">Download PDF Resume</a> &nbsp;&nbsp; <a target="_blank"
                     href="https://www.linkedin.com/in/patmifsud"> LinkedIn</a>
             </section>
     </div>`
@@ -502,7 +504,7 @@ const windowData = {
 
         <section>
         <p>Hi, I'm Pat</p>
-        <p>I’m a passionate designer specialising in user interfaces and user experience research. I believe that great design
+        <p>I’m a passionate designer specialising in user interfaces and user experience. I believe that great design
         is visually appealing, solves the right problem for the right person, and is feasible to build.
         </p>
         <p>I'm in the middle of building this website out so please forgive the rough edges, typos and missing features 🙇‍♂️.</p> <p>But check back often!</p>

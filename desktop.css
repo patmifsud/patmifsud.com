@@ -113,6 +113,7 @@ div {
 .dropDown a {
     width: 100%;
     padding: 1.5vh;
+    border-bottom:0;
 }
 
 
@@ -255,6 +256,7 @@ div {
 #windowContent {
     margin-bottom: 1vh;
     padding: 5vh 4vh;
+    padding-top: var(--space4);
     transition: background-color 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
     z-index: 10;
     user-select: text;
@@ -270,10 +272,6 @@ div {
     margin-top: 5vh;
 }
 
-#window a{
-    color: var(--windowColorLink);
-    transition: color 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
-}
 
 /* class that gets applied to the window when it is closed */
 .windowClosed {
@@ -311,9 +309,13 @@ div {
 /* typography */
 a {
     cursor: pointer;
+    border-bottom: solid 2px;
+    text-decoration: none;
 }
 
-
+a:hover {
+    filter: saturate(3);
+}
 
 /* Misc */
 
@@ -665,6 +667,7 @@ opacity: 0.5;
 
 .alertButtonContainer a {
     width: 100%;
+    border-bottom: 0;
     text-align: center;
     padding-top: 4vh;
     font-size: 2.2vh;

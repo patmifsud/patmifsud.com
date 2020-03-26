@@ -325,7 +325,7 @@
     // using interactjs.io
 
     interact('.resize-drag')
-        .ignoreFrom('p, h1, h2, h3, h4, h5, a, li, textarea')
+        .ignoreFrom('p, h1, h2, h3, h4, h5, a, li, textarea, #windowContent')
         .draggable({
             onmove: window.dragMoveListener
         })
@@ -335,7 +335,7 @@
                 left: true,
                 right: true,
                 bottom: true,
-                top: false
+                top: true,
             }
         })
         .on('resizemove', function (event) {
