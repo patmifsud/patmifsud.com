@@ -524,11 +524,9 @@ const windowData = {
                     <a onClick="turnOnLightbox()">VIEW FULL SCREEN</a>  </div>
             </section> -->
 
-            <section>
                 <div class="folioItemContainer">
                 ${folioContent.map(generatePortfolioItemHtml).join("")}
                 </div>
-            </section>
         </div>`
     },
 
