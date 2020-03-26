@@ -329,7 +329,6 @@ html {
     border-radius: 1.25vh;
     height: 100vh;
     overflow: hidden;
-    position: fixed;
     height: 100%;
 }
 
