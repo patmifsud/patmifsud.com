@@ -500,16 +500,52 @@ const windowData = {
 
     // ABOUT WINDOW
     about: {
-        windowHTML: `<div id="windowContent">
+        windowHTML: `
+        
+            <div id="chatInner">
+                <div id="chatPastebox">
 
-        <section>
-        <p>Hi, I'm Pat</p>
-        <p>I’m a passionate designer specialising in user interfaces and user experience. I believe that great design
-        is visually appealing, solves the right problem for the right person, and is feasible to build.
-        </p>
-        <p>I'm in the middle of building this website out so please forgive the rough edges, typos and missing features 🙇‍♂️.</p> <p>But check back often!</p>
-        <p>Please drop me a line at <a href="mailto:patmifsud@me.com"> patmifsud@me.com</a> with any enquiries.</p>
-        </section>`
+
+                </div>
+            <div class="chatBottom">
+                <textarea data-hj-whitelist placeholder="Leave a message, or some feedback"></textarea>
+                <a onclick=""><?xml version="1.0" encoding="UTF-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24"><path d="M2,21L23,12L2,3V10L17,12L2,14V21Z" /></svg></a>
+            </div>
+            </div>
+        `,
+
+        chatContents: {
+            hello: {
+                name: 'hello',
+                text: `Hi, I'm Pat`,
+                width: '30',
+                typingDotDelay: 1000,
+            },
+            imADesigner: {
+                name: 'imADesigner',
+                text: `I'm a designer specialising in user interfaces and user experience.`,
+                width: '60',
+                typingDotDelay: 2000,
+            },
+            imInTheMiddle: {
+                name: 'imInTheMiddle',
+                text: `I'm in the middle of building this website out so please forgive the rough edges, and missing features 🙇‍`,
+                width: '40',
+                typingDotDelay: 2000,
+            },
+            checkBack: {
+                name: 'checkBack',
+                text: `But check back often!`,
+                width: '30',
+                typingDotDelay: 1000,
+            },
+            currentlyAvailable: {
+                name: 'currentlyAvailable',
+                text: `I’m currently available for work. If you want to get in touch, drop me a line here`,
+                width: '40',
+                typingDotDelay: 1500,
+            }
+        }
     },
 
 
@@ -529,10 +565,6 @@ const windowData = {
                 </div>
         </div>`
     },
-
-
-
-
     // CONTACT WINDOW
 
     contact: {
@@ -545,6 +577,10 @@ const windowData = {
         </section>`
     }
 }
+
+
+
+
 let windows = {
     about: {
         // Text that appears in the title bar of the window
@@ -556,9 +592,9 @@ let windows = {
         emoji: '👋',
         // each window has a color scheme that matches it's icon:
         colors: {
-            title: "#FAE7B7",
-            bg: "#FFF9EA",
-            text: "#9F9780",
+            title: "rgba(255, 255, 255, 0.3)",
+            bg: "#FFFFFF",
+            text: "#9B7508",
             link: "#B8973A",
         }
     },
@@ -671,8 +707,7 @@ const topMenu = [{
     {
         named: "Download",
         id: "downloadMenu",
-        contents: [
-            {
+        contents: [{
                 named: "Download PDF Resume",
                 ifClicked: "downloadResume('pdf')",
             },
@@ -684,36 +719,36 @@ const topMenu = [{
     },
 ]
 
-const desktopIcons = [ {
-    named: "About",
-    id: "about",
-    // icon for each desktop object:
-    img: "images/about-icon.png",
-    // funciton to perform when icon is clicked:
-    whenClicked: "animateInWindow(windows.about)",
-},{
-    named: "Portfolio",
-    id: "portfolio",
-    img: "images/portfolio-icon.png",
-    whenClicked: "animateInWindow(windows.portfolio)",
-}, {
-    named: "Resume",
-    id: "resume",
-    img: "images/resume-icon.png",
-    whenClicked: "animateInWindow(windows.resume)",
-}, 
-// {
-//      named: "Case Study",
-//     id: "casestudies",
-//    img: "images/casestudies-icon.png",
-//   whenClicked: "animateInWindow(windows.casestudies)",
-// },
- {
-    named: "Contact",
-    id: "contact",
-    img: "images/contact-icon.png",
-    whenClicked: "animateInWindow(windows.contact)",
-},
+const desktopIcons = [{
+        named: "About",
+        id: "about",
+        // icon for each desktop object:
+        img: "images/about-icon.png",
+        // funciton to perform when icon is clicked:
+        whenClicked: "animateInWindow(windows.about)",
+    }, {
+        named: "Portfolio",
+        id: "portfolio",
+        img: "images/portfolio-icon.png",
+        whenClicked: "animateInWindow(windows.portfolio)",
+    }, {
+        named: "Resume",
+        id: "resume",
+        img: "images/resume-icon.png",
+        whenClicked: "animateInWindow(windows.resume)",
+    },
+    // {
+    //      named: "Case Study",
+    //     id: "casestudies",
+    //    img: "images/casestudies-icon.png",
+    //   whenClicked: "animateInWindow(windows.casestudies)",
+    // },
+    {
+        named: "Contact",
+        id: "contact",
+        img: "images/contact-icon.png",
+        whenClicked: "animateInWindow(windows.contact)",
+    },
 
 ]
 
@@ -732,3 +767,17 @@ const callAlert = `
     </div>
 </div>`;
 
+function chatBubbleTemplate(chatBubbleData){
+    return `<div id="bubble${chatBubbleData.name}" class="bubbleDolly">
+    <div class="bubble">
+        <div class="dots">
+            <div class="dot one"></div>
+            <div class="dot two"></div>
+            <div class="dot three"></div>
+        </div>
+        <div class="text" style="display:none;">
+        ${chatBubbleData.text}
+        </div>
+    </div>
+</div>`
+};

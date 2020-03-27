@@ -7,14 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pat Mifsud</title>
     <link href="desktop.css" rel="stylesheet">
-
-
-
 </head>
 
 <body>
-
+    <!-- 🖥 -->
     <div id="screen">
+        <!-- 📏 -->
         <div id="menuBar">
             <div id="menuBarInner" class="slideIn"></div>
             <div>
@@ -23,6 +21,8 @@
                 </div> -->
             </div>
         </div>
+
+        <!-- 🖼 -->
         <div id="window" class="windowClosed resize-drag closeDropdownMouseOver">
             <div id="windowHeader">
                 <div id="windowHeaderText">Hello</div> <a class="close" onclick="animateOutWindow();"></a>
@@ -30,11 +30,18 @@
             <div id="windowPastebox">
             </div>
         </div>
+
+
+        <!-- 📂 -->
         <div id="desktop" class="closeDropdownMouseOver">
+        
         </div>
+
+        <!-- 📷 -->
         <img class="lightboxClose hide" id="lightboxClose" onClick="closeLightboxes()" src="./images/close.svg">
         <div id="lightBoxContainer" class="closed">
         </div>
+        
         <div id="preloader" class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
     </div>
 

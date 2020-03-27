@@ -66,18 +66,22 @@
     function hide(object) {
         object.classList.add('hide');
     }
+
     function show(object) {
         object.classList.remove('hide');
     }
+
     function toggleVisibility(object) {
         object.classList.toggle('hide');
     }
+
     function closeAllDropdowns() {
         for (var i = 0; i < topMenu.length; i++) {
             let divToHide = document.getElementById(topMenu[i].id);
             hide(divToHide);
         }
     }
+
     function areWeOnMobile() {
         let areWe = getComputedStyle(document.documentElement).getPropertyValue('--mobile');
         if (areWe == " yes") {
@@ -111,7 +115,6 @@
     // 📦 📦 Window Draw
     function animateInWindow(windowToAnimateIn) {
         closeAllDropdowns();
-        // remove windowClosed class and any other window classes 
         document.getElementById('window').classList = 'resize-drag closeDropdownMouseOver';
         document.getElementById('window').classList.add(windowToAnimateIn.classString);
         writeWindowToPage(windowToAnimateIn);
@@ -120,6 +123,9 @@
         scrollToTopOfWindow(windowToAnimateIn);
         document.title = ("Pat Mifsud " + windowToAnimateIn.emoji)
         changeDesktopColorOnMobile('white');
+        if (windowToAnimateIn.classString == 'about'){
+            drawChat();
+        };
     };
 
     function animateOutWindow() {
@@ -254,9 +260,72 @@
         setTimeout(function () {
             closeCallAlert();
         }, 1300);
-
     }
 
+    var chatKey;
+
+    // 📦 About Chat Box
+    function drawChat() {
+        // I don't want the animation to continue if the window is closed, nor for it to pick up where you left off if the window is reopened. So i passs through a unique number for animations to check back with before executing. 
+        chatKey = Math.random();
+        let chat = windowData.about.chatContents;
+        addChatBubble(chat.hello, 500, chatKey);
+        addChatBubble(chat.imADesigner, 1000, chatKey);
+        addChatBubble(chat.imInTheMiddle, 2000, chatKey);
+        addChatBubble(chat.checkBack, 5000, chatKey);
+        addChatBubble(chat.currentlyAvailable, 6000, chatKey);
+    }
+
+    function addChatBubble(chatBubbleData, delay, uniqueKey) {
+        let template = chatBubbleTemplate(chatBubbleData);
+        var delayToRemoveDots = (delay + chatBubbleData.typingDotDelay);
+
+        setTimeout(function() { 
+            writeHtmlToChatIfWindowIsOpen(template, uniqueKey);       
+        }, delay);
+
+        setTimeout(function() { 
+            if ((uniqueKey = chatKey) && (isChatWindowOpen())) {
+                let divBubble = document.getElementById('bubble' + chatBubbleData.name);
+                console.log('removing bubbles for ' + chatBubbleData.name + divBubble)
+                removeChatBubbleTypingCircles(divBubble);
+                turnOnChatBubbleText(divBubble, chatBubbleData.width);    
+            }    
+        }, delayToRemoveDots);
+    }
+
+    function writeHtmlToChatIfWindowIsOpen(template, uniqueKey){
+        if ((uniqueKey = chatKey) && (isChatWindowOpen())) {
+            let divChatPastebox = document.getElementById('chatPastebox');
+            divChatPastebox.innerHTML += template; 
+        }
+    }
+
+    function removeChatBubbleTypingCircles(divBubble) {
+        divToDelete = divBubble.getElementsByClassName('dots');
+        divToDelete[0].remove();
+    }
+
+    function turnOnChatBubbleText(divBubble, textWidth) {
+        let divText = divBubble.getElementsByClassName('text');
+        let divBubbleInner = divBubble.getElementsByClassName('bubble');
+        divText[0].classList.add('aboutTextReveal');
+        divBubbleInner[0].style.maxWidth = (textWidth + '%');
+    }
+
+
+
+
+    function isChatWindowOpen() {
+        let divWindow = document.getElementById('window');
+        
+        if (divWindow.classList.contains('about') == true) {
+            return true
+        } else {
+            console.log('about window was closed during intro animation');
+            return false
+        };
+    }
 
     // 🔝 Menu Bar functions 
 
