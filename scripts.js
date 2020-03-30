@@ -139,7 +139,11 @@
         document.getElementById("windowPastebox").innerHTML = `${windowName.data}`;
     }
 
-
+    function ifOnDesktopThenOpenAboutWindow(){
+        if ((areWeOnMobile() == false)) {
+            animateInWindow(windows.about);
+        }
+    }
 
     // 📦 📦 Desktop Icon Draw
 
@@ -269,11 +273,11 @@
         // I don't want the animation to continue if the window is closed, nor for it to pick up where you left off if the window is reopened. So i passs through a unique number for animations to check back with before executing. 
         chatKey = Math.random();
         let chat = windowData.about.chatContents;
-        addChatBubble(chat.hello, 500, chatKey);
-        addChatBubble(chat.imADesigner, 1000, chatKey);
-        addChatBubble(chat.imInTheMiddle, 2000, chatKey);
-        addChatBubble(chat.checkBack, 5000, chatKey);
-        addChatBubble(chat.currentlyAvailable, 6000, chatKey);
+        addChatBubble(chat.hello, 1000, chatKey);
+        addChatBubble(chat.imADesigner, 2600, chatKey);
+        addChatBubble(chat.imInTheMiddle, 5300, chatKey);
+        addChatBubble(chat.checkBack, 8300, chatKey);
+        addChatBubble(chat.currentlyAvailable, 10000, chatKey);
     }
 
     function addChatBubble(chatBubbleData, delay, uniqueKey) {
@@ -281,7 +285,7 @@
         var delayToRemoveDots = (delay + chatBubbleData.typingDotDelay);
 
         setTimeout(function() { 
-            writeHtmlToChatIfWindowIsOpen(template, uniqueKey);       
+            writeHtmlToChatIfWindowIsOpen(template, uniqueKey, chatBubbleData);       
         }, delay);
 
         setTimeout(function() { 
@@ -294,10 +298,11 @@
         }, delayToRemoveDots);
     }
 
-    function writeHtmlToChatIfWindowIsOpen(template, uniqueKey){
+    function writeHtmlToChatIfWindowIsOpen(template, uniqueKey, chatBubble){
         if ((uniqueKey = chatKey) && (isChatWindowOpen())) {
             let divChatPastebox = document.getElementById('chatPastebox');
-            divChatPastebox.innerHTML += template; 
+            divChatPastebox.insertAdjacentHTML('beforeend', template);
+            animateScaleOfChatBubble(chatBubble);
         }
     }
 
@@ -308,11 +313,17 @@
 
     function turnOnChatBubbleText(divBubble, textWidth) {
         let divText = divBubble.getElementsByClassName('text');
-        let divBubbleInner = divBubble.getElementsByClassName('bubble');
+        divBubble.style.maxWidth = ('calc( 7vh + ' + textWidth + '%)');
         divText[0].classList.add('aboutTextReveal');
-        divBubbleInner[0].style.maxWidth = (textWidth + '%');
     }
 
+    function animateScaleOfChatBubble(chatBubble){
+        setTimeout(function() { 
+            let divToAnimateIn = document.getElementById('bubble' + chatBubble.name);
+            divToAnimateIn.classList.add('bubbleReveal');
+        }, 10);
+
+    }
 
 
 
@@ -460,15 +471,23 @@
         clickedOnDropdownListener();
         drawDesktop();
         document.getElementById('menuBarInner').classList.remove('slideIn');
-        setTimeout(function () {
+
+        setTimeout(function afterOneSecond() {
+
+            ifOnDesktopThenOpenAboutWindow();
             preloadFolioImages();
             createFolioLightBoxImageArray();
             document.querySelector('#lightBoxContainer').innerHTML += createLightboxes();
         }, 1500);
-        setTimeout(function () {
-            preloadFolioLightboxImages();
-        }, 3000);
-        setTimeout(function () {
+
+        setTimeout(function afterTwoSeconds() {
+
             startInteractionObserver();
         }, 2000);
+
+        setTimeout(function afterThreeSeconds() {
+
+            preloadFolioLightboxImages();
+        }, 3000);
+
     };

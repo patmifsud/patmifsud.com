@@ -389,7 +389,7 @@ const windowData = {
         <section class="paddingBottomSpace1">
             <h3>Experience</h3>
     
-            <p class="resumePositionTitle"><span class="resumeEmph">UI / UX Designer at The Big Crunch.</span> <span class="resumeDate">Feb 2019 -
+            <p class="resumePositionTitle"><span class="resumeEmph">UI / UX Designer at <a target=”_blank” href="https://www.linkedin.com/company/the-big-crunch/people/">The Big Crunch</a>.</span> <span class="resumeDate">Feb 2019 -
                     Now</span></p>
             <ul>
                 <li><span class="resumeEmph">I designed interfaces for web and mobile productivity tools, while creating a
@@ -402,7 +402,7 @@ const windowData = {
             </section>
     
             <section class="paddingBottomSpace1">
-                <p class="resumePositionTitle"><span class="resumeEmph">CX Designer at Ailo.</span> <span class="resumeDate">Sep 2018 - Dec 2018</span>
+                <p class="resumePositionTitle"><span class="resumeEmph">CX Designer at <a target=”_blank” href="https://ailo.io/">Ailo</a>.</span> <span class="resumeDate">Sep 2018 - Dec 2018</span>
                 </p>
                 <ul>
                     <li>I worked across disciplines and teams to design and build scalable systems to convert trials to
@@ -418,7 +418,7 @@ const windowData = {
     
     
             <section class="paddingBottomSpace1">
-                <p class="resumePositionTitle"><span class="resumeEmph">Product Owner at LPMA (Owned by Ailo).</span> <span class="resumeDate">Feb 2018
+                <p class="resumePositionTitle"><span class="resumeEmph">Product Owner at <a target=”_blank” href="https://lpma.com/">LPMA</a> (Owned by Ailo).</span> <span class="resumeDate">Feb 2018
                         - Sep 2018</span>
                 </p>
                 <ul>
@@ -432,7 +432,7 @@ const windowData = {
     
             <section class="paddingBottomSpace1">
                 <p class="resumePositionTitle">
-                    <span class="resumeEmph">Graphic / UX Designer</span> at Apmasphere (also Ailo). <span class="resumeDate"> Feb 2017 - Feb
+                    <span class="resumeEmph">Graphic / UX Designer</span> at <a target=”_blank” href="https://apmasphere.com/">Apmasphere</a> (also Ailo). <span class="resumeDate"> Feb 2017 - Feb
                     2018</span><br />
                 </p>
                 <ul>
@@ -446,7 +446,7 @@ const windowData = {
     
             <section class="paddingBottomSpace1">
                 <p class="resumePositionTitle">
-                    <span class="resumeEmph">Graphic Designer</span> at I-MANIFEST, Charity. <span class="resumeDate">2014 - 2015</span>
+                    <span class="resumeEmph">Graphic Designer</span> at <a target=”_blank” href="http://www.i-manifest.org/">I-MANIFEST</a>, Charity. <span class="resumeDate">2014 - 2015</span>
                 </p>               
                 <ul>
                     <li>Graphic and web designer, probono.</li>
@@ -456,7 +456,7 @@ const windowData = {
     
             <section class="paddingBottomSpace1">
                 <p class="resumePositionTitle">
-                    <span class="resumeEmph">Designer and Marketing Coordinator</span> at Apmasphere (Owned by Ailo). March
+                    <span class="resumeEmph">Designer and Marketing Coordinator</span> at <a target=”_blank” href="https://apmasphere.com/">Apmasphere</a> (Owned by Ailo). March
                     2015 - Feb 2017
                 </p>
                 <ul>
@@ -467,14 +467,14 @@ const windowData = {
     
             <section class="paddingBottomSpace1">
                 <p class="resumePositionTitle">
-                    <span class="resumeEmph ">Graphic Designer</span> at Urban Purveyor Group. <span class="resumeDate">2013 - 2015 (Saké, Barvarian
+                    <span class="resumeEmph ">Graphic Designer</span> at <a target=”_blank” href="https://www.urbanpurveyor.com">Urban Purveyor Group</a>. <span class="resumeDate">2013 - 2015 (Saké, Barvarian
                     Beir Cafe, Löwenbräu, The Argyle)</span>
                 </p>
             </section>
     
             <section class="paddingBottomSpace1">
                 <p class="resumePositionTitle">
-                    <span class="resumeEmph ">Assistant Teacher</span> at UTS Sydney. <span class="resumeDate">Feb - May 2014</span>
+                    <span class="resumeEmph ">Assistant Teacher</span> at <a target=”_blank” href="https://www.uts.edu.au/">UTS Sydney</a>. <span class="resumeDate">Feb - May 2014</span>
                 </p>
             </section>
     
@@ -519,31 +519,31 @@ const windowData = {
                 name: 'hello',
                 text: `Hi, I'm Pat`,
                 width: '30',
-                typingDotDelay: 1000,
+                typingDotDelay: 1400,
             },
             imADesigner: {
                 name: 'imADesigner',
                 text: `I'm a designer specialising in user interfaces and user experience.`,
-                width: '60',
-                typingDotDelay: 2000,
+                width: '40',
+                typingDotDelay: 1300,
             },
             imInTheMiddle: {
                 name: 'imInTheMiddle',
                 text: `I'm in the middle of building this website out so please forgive the rough edges, and missing features 🙇‍`,
-                width: '40',
-                typingDotDelay: 2000,
+                width: '55',
+                typingDotDelay: 2100,
             },
             checkBack: {
                 name: 'checkBack',
                 text: `But check back often!`,
-                width: '30',
-                typingDotDelay: 1000,
+                width: '40',
+                typingDotDelay: 0,
             },
             currentlyAvailable: {
                 name: 'currentlyAvailable',
-                text: `I’m currently available for work. If you want to get in touch, drop me a line here`,
-                width: '40',
-                typingDotDelay: 1500,
+                text: `I’m currently available for work. <br/> <a href="#" onClick="animateInWindow(windows.resume)">📑 View Resume</a> <br/> <a href="#" onClick="animateInWindow(windows.portfolio)">💼 See Portfolio</a>`,
+                width: '55',
+                typingDotDelay: 2800,
             }
         }
     },
@@ -768,16 +768,18 @@ const callAlert = `
 </div>`;
 
 function chatBubbleTemplate(chatBubbleData){
-    return `<div id="bubble${chatBubbleData.name}" class="bubbleDolly">
-    <div class="bubble">
+    return `
+    <div id="bubble${chatBubbleData.name}" class="bubble">
         <div class="dots">
             <div class="dot one"></div>
             <div class="dot two"></div>
             <div class="dot three"></div>
         </div>
+
+        
         <div class="text" style="display:none;">
         ${chatBubbleData.text}
         </div>
     </div>
-</div>`
+`
 };
