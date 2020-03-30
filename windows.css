@@ -304,12 +304,13 @@ ul li i:after {
 
 
 /* folio */
+
 .folioItem {
   width: 100%;
-  margin: 0 5%;
   min-width: 350px;
   max-width: 1000px;
-  flex-grow: 1;
+  flex-grow: 1;  
+  margin: 0 5%!important;
   flex-basis: 40%;
 }
 
@@ -519,6 +520,10 @@ display: inline;
 #window.about{
   max-width: 65vh;
     max-height: 80vh;
+}
+
+.about #windowPastebox::-webkit-scrollbar {
+  display: none;
 }
 
 #window.about #windowPastebox {
