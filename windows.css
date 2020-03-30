@@ -365,6 +365,10 @@ ul li i:after {
   margin-bottom: 0;
 }
 
+#windowPastebox #windowContent .resumePositionTitle a{
+display: inline;
+}
+
 .resumeDate {
   opacity: 0.7;
   word-wrap: break-word;
