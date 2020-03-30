@@ -23,6 +23,8 @@
   --space2: calc(2.5vh + 1.25vw);
   --space3: calc(3.75vh + 1.8vw);
   --space4: calc(4.25vh + 2.55vw);
+  --space5: calc(5vh + 3vw);
+
 
 
   --fontSizeP: calc(1.4vh + 0.6vw);
@@ -78,14 +80,14 @@ section p * {
   margin-bottom: var(--space1);
 }
 
-section a{
+section a {
   border-bottom: solid 2px;
   text-decoration: none;
 }
 
-section a:hover{
-    filter: saturate(3);
-    background:#00000005;
+section a:hover {
+  filter: saturate(3);
+  background: #00000005;
 }
 
 h1,
@@ -314,17 +316,18 @@ ul li i:after {
 
 .folioItemContainer .folioItem a {
   border-bottom: 0;
-  margin-bottom:0!important;
-  margin-left:-5%;
+  margin-bottom: 0 !important;
+  margin-left: -5%;
 }
 
 .folioItem a:hover {
   filter: drop-shadow(0 0 0.3rem rgba(0, 0, 0, 0.2));
 }
-.portfolio #windowContent{
-    padding: var(--space1);
-    padding-top: var(--space2);
-  }
+
+.portfolio #windowContent {
+  padding: var(--space1);
+  padding-top: var(--space2);
+}
 
 .folioItem img {
   width: 100%;
@@ -505,5 +508,317 @@ ul li i:after {
 
   100% {
     opacity: 0.3;
+  }
+}
+
+/* chat message */
+#window.about{
+  max-width: 65vh;
+    max-height: 80vh;
+}
+
+#window.about #windowPastebox {
+  margin-top: 0;
+}
+
+#window.about #windowHeader {
+  backdrop-filter: blur(50px);
+  border-bottom: 2px solid #E7E7E7;
+}
+
+#window.about #windowHeaderText{
+  color:#9C9B97;
+}
+
+#chatPastebox {
+  flex-direction: column;
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+  padding-bottom:13vh;
+}
+
+
+.chatBottom {
+  display:none!important;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  padding: 2.5vh 5vh 5vh 5vh;
+  height: 12.5vh;
+  background: var(--windowColorTitle);
+  backdrop-filter: blur(10px);
+}
+
+.chatBottom a {
+  width: 5vh;
+  height: 5vh;
+}
+
+.chatBottom a svg {
+  width: 3.5vh;
+  margin: 0.5vh 1.25vh;
+  height: auto;
+}
+
+.chatBottom textarea {
+  width: 90%;
+}
+
+.bubble {
+  position: relative;
+  padding: 1.5vh 2.5vh;
+  background: #FFDE86;
+  border-radius: 2vh 2vh 0 2vh;
+  font-weight: 500;
+  margin: 0.75vh 0;
+  width: auto;
+  max-width: 50%;
+  transition: max-width 0.8s cubic-bezier(0.22, 1, 0.36, 1), height 0.5s cubic-bezier(0.22, 1, 0.36, 1), transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform: scale(0.1);
+}
+
+.bubble:nth-child(4){
+  margin-bottom: 4vh;
+}
+
+.bubbleReveal{
+  transform: scale(1);
+}
+
+div.text.aboutTextReveal {
+  display: inline-block !important;
+}
+
+#window div.text a{
+  display: inline!important;
+  color: var(--windowColorText);
+text-decoration: none;
+border-bottom: solid 2px;
+border-color: var(--windowColorText);
+font-size: var(--fontSizeInterface);
+
+}
+
+
+.chatBottom textarea{
+  background: rgba(225, 225, 225, 0.42);
+  border:none;
+  padding: 1.3vh;
+  border-radius: 1.5vh 1.5vh 3vh 3vh;
+}
+
+
+.chatBottom textarea::placeholder{
+  font-weight: 500;
+  color: #A4A4A4;
+}
+
+.bubble .text {
+  color: var(--windowColorText);
+  font-weight: 500;
+  line-height: 140%;
+  text-align: right;
+}
+
+#chatInner {
+  height: 100%;
+  width: 100%;
+  margin-top: var(--space3);
+  padding: var(--space1);
+}
+
+#chatPastebox {
+  height: 100%;
+  width: 100%;
+
+}
+
+
+.dots {
+  display: block;
+  z-index: 5;
+}
+
+.dot {
+  width: 1.5vh;
+  height: 1.5vh;
+  margin: 0 0.2vh;
+  border-radius: 50%;
+  background-color: var(--windowColorText);
+}
+
+
+.dot.one {
+  animation: cycleOne 1s ease-in-out infinite;
+  animation-direction: normal;
+}
+
+.dot.two {
+  animation: cycleTwo 1s ease-in-out infinite;
+  animation-direction: normal;
+}
+
+.dot.three {
+  animation: cycleThree 1s ease-in-out infinite;
+  animation-direction: normal;
+}
+
+.bubble:nth-child(3n+1) {
+  animation: handheld-one 19s infinite;
+  position: relative;
+}
+
+.bubble:nth-child(3n+2) {
+  animation: handheld-one 22s infinite;
+  position: relative;
+
+}
+
+.bubble:nth-child(3n+3) {
+  animation: handheld-one 25s infinite;
+  position: relative;
+}
+
+
+/* handheld camera css animation i made for another project */
+@-webkit-keyframes handheld-one {
+  1% {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  10% {
+    top: 3px;
+    right: 0;
+    bottom: 0;
+    left: 3px;
+  }
+
+  20% {
+    top: 4px;
+    right: 0;
+    bottom: 0;
+    left: 0px;
+  }
+
+  30% {
+    top: 1px;
+    right: 3px;
+    bottom: 0;
+    left: 0px;
+  }
+
+  40% {
+    top: 0px;
+    right: 1px;
+    bottom: 3px;
+    left: 0px;
+  }
+
+  50% {
+    top: 0px;
+    right: 0px;
+    bottom: 5px;
+    left: 2px;
+  }
+
+  60% {
+    top: 0px;
+    right: 0px;
+    bottom: 3px;
+    left: 5px;
+  }
+
+  70% {
+    top: 1px;
+    right: 0px;
+    bottom: 0px;
+    left: 4px;
+  }
+
+  80% {
+    top: 4px;
+    right: 0px;
+    bottom: 3px;
+    left: 4px;
+  }
+
+  90% {
+    top: 2px;
+    right: 0px;
+    bottom: 3px;
+    left: 2px;
+  }
+
+  99% {
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+  }
+}
+
+
+/**
+ * dot animation keyframes by michaellee over at
+ * https://codepen.io/michaellee/pen/jknyw *
+ */
+
+@-webkit-keyframes cycleOne {
+  0% {
+    opacity: 0.2;
+  }
+
+  33.333% {
+    opacity: 0.2;
+  }
+
+  66.6667% {
+    opacity: 0.4;
+  }
+
+  100% {
+    opacity: 0.2;
+  }
+}
+
+@-webkit-keyframes cycleTwo {
+  0% {
+    opacity: 0.2;
+  }
+
+  33.333% {
+    opacity: 0.2;
+  }
+
+  66.6667% {
+    opacity: 0.4;
+  }
+
+  100% {
+    opacity: 0.2;
+  }
+}
+
+@-webkit-keyframes cycleThree {
+  0% {
+    opacity: 0.2;
+  }
+
+  33.333% {
+    opacity: 0.2;
+  }
+
+  66.6667% {
+    opacity: 0.2;
+  }
+
+  100% {
+    opacity: 0.4;
   }
 }
