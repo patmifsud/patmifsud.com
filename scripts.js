@@ -123,7 +123,7 @@
         scrollToTopOfWindow(windowToAnimateIn);
         document.title = ("Pat Mifsud " + windowToAnimateIn.emoji)
         changeDesktopColorOnMobile('white');
-        if (windowToAnimateIn.classString == 'about'){
+        if (windowToAnimateIn.classString == 'about') {
             drawChat();
         };
     };
@@ -139,7 +139,7 @@
         document.getElementById("windowPastebox").innerHTML = `${windowName.data}`;
     }
 
-    function ifOnDesktopThenOpenAboutWindow(){
+    function ifOnDesktopThenOpenAboutWindow() {
         if ((areWeOnMobile() == false)) {
             animateInWindow(windows.about);
         }
@@ -267,43 +267,53 @@
     }
 
     var chatKey;
+    const chatData = windowData.about.chatContents;
+
+    function isItFirstTimeOpeningAboutWindow(){
+        if (chatKey == undefined){return true} else {return false};
+    }
 
     // 📦 About Chat Box
     function drawChat() {
-        // I don't want the animation to continue if the window is closed, nor for it to pick up where you left off if the window is reopened. So i passs through a unique number for animations to check back with before executing. 
-        chatKey = Math.random();
-        let chat = windowData.about.chatContents;
-        addChatBubble(chat.hello, 1000, chatKey);
-        addChatBubble(chat.imADesigner, 2600, chatKey);
-        addChatBubble(chat.imInTheMiddle, 5300, chatKey);
-        addChatBubble(chat.checkBack, 8300, chatKey);
-        addChatBubble(chat.currentlyAvailable, 10000, chatKey);
+        if(isItFirstTimeOpeningAboutWindow()){
+            chatKey = Math.random();
+            addChatBubble(chatData.hello, 1000, chatKey);
+            addChatBubble(chatData.imADesigner, 2600, chatKey);
+            addChatBubble(chatData.imInTheMiddle, 5300, chatKey);
+            addChatBubble(chatData.checkBack, 8300, chatKey);
+            addChatBubble(chatData.currentlyAvailable, 10000, chatKey);
+        }else{
+            chatKey = Math.random();
+            writeChatBubblesNoAnimation();
+        }
     }
+    var delayToRemoveDots;
 
     function addChatBubble(chatBubbleData, delay, uniqueKey) {
         let template = chatBubbleTemplate(chatBubbleData);
-        var delayToRemoveDots = (delay + chatBubbleData.typingDotDelay);
-
-        setTimeout(function() { 
-            writeHtmlToChatIfWindowIsOpen(template, uniqueKey, chatBubbleData);       
-        }, delay);
-
-        setTimeout(function() { 
-            if ((uniqueKey = chatKey) && (isChatWindowOpen())) {
-                let divBubble = document.getElementById('bubble' + chatBubbleData.name);
-                console.log('removing bubbles for ' + chatBubbleData.name + divBubble)
-                removeChatBubbleTypingCircles(divBubble);
-                turnOnChatBubbleText(divBubble, chatBubbleData.width);    
-            }    
-        }, delayToRemoveDots);
+        delayToRemoveDots = (delay + chatBubbleData.typingDotDelay);
+        writeHtmlToChatIfWindowIsOpen(template, uniqueKey, chatBubbleData, delay);
+        replaceChatCirclesWithText(chatBubbleData, uniqueKey);
     }
 
-    function writeHtmlToChatIfWindowIsOpen(template, uniqueKey, chatBubble){
-        if ((uniqueKey = chatKey) && (isChatWindowOpen())) {
-            let divChatPastebox = document.getElementById('chatPastebox');
-            divChatPastebox.insertAdjacentHTML('beforeend', template);
-            animateScaleOfChatBubble(chatBubble);
-        }
+    function writeHtmlToChatIfWindowIsOpen(template, uniqueKey, chatBubble, delay) {
+        setTimeout(function () {
+            if ((uniqueKey == chatKey) && (isChatWindowOpen())) {
+                let divChatPastebox = document.getElementById('chatPastebox');
+                divChatPastebox.insertAdjacentHTML('beforeend', template);
+                animateScaleOfChatBubble(chatBubble);
+            }
+        }, delay);
+    }
+
+    function replaceChatCirclesWithText(chatBubbleData, uniqueKey){
+        setTimeout(function () {
+            if ((uniqueKey == chatKey) && (isChatWindowOpen())) {
+                let divBubble = document.getElementById('bubble' + chatBubbleData.name);
+                removeChatBubbleTypingCircles(divBubble);
+                turnOnChatBubbleText(divBubble, chatBubbleData.width);
+            }
+        }, delayToRemoveDots);
     }
 
     function removeChatBubbleTypingCircles(divBubble) {
@@ -317,25 +327,33 @@
         divText[0].classList.add('aboutTextReveal');
     }
 
-    function animateScaleOfChatBubble(chatBubble){
-        setTimeout(function() { 
+    function animateScaleOfChatBubble(chatBubble) {
+        setTimeout(function () {
             let divToAnimateIn = document.getElementById('bubble' + chatBubble.name);
             divToAnimateIn.classList.add('bubbleReveal');
         }, 10);
 
     }
 
-
-
     function isChatWindowOpen() {
         let divWindow = document.getElementById('window');
-        
         if (divWindow.classList.contains('about') == true) {
             return true
         } else {
             console.log('about window was closed during intro animation');
             return false
         };
+    }
+
+    function writeChatBubblesNoAnimation(){
+        let divChatPastebox = document.getElementById('chatPastebox');
+        Object.keys(chatData).forEach(function(key) {
+            divChatPastebox.innerHTML += chatBubbleTemplateNoDots(chatData[key]);
+            animateScaleOfChatBubble(chatData[key]);
+            let divBubble = document.getElementById('bubble' + key);
+            console.log("chatData[key].textWidth " + chatData[key].width);
+            turnOnChatBubbleText(divBubble, chatData[key].width);
+        });
     }
 
     // 🔝 Menu Bar functions 

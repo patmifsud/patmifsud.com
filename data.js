@@ -543,7 +543,7 @@ const windowData = {
                 name: 'currentlyAvailable',
                 text: `I’m currently available for work. <br/> <a href="#" onClick="animateInWindow(windows.resume)">📑 View Resume</a> <br/> <a href="#" onClick="turnOnLightbox('crunchUi1')">💼 See Portfolio</a>`,
                 width: '55',
-                typingDotDelay: 2800,
+                typingDotDelay: 2000,
             }
         }
     },
@@ -783,3 +783,12 @@ function chatBubbleTemplate(chatBubbleData){
     </div>
 `
 };
+
+function chatBubbleTemplateNoDots(chatBubbleData){
+    return `<div id="bubble${chatBubbleData.name}" class="bubble">
+        <div class="text" style="display:none;">
+        ${chatBubbleData.text}
+        </div>
+    </div>
+`
+}
