@@ -541,7 +541,7 @@ const windowData = {
             },
             currentlyAvailable: {
                 name: 'currentlyAvailable',
-                text: `I’m currently available for work. <br/> <a href="#" onClick="animateInWindow(windows.resume)">📑 View Resume</a> <br/> <a href="#" onClick="animateInWindow(windows.portfolio)">💼 See Portfolio</a>`,
+                text: `I’m currently available for work. <br/> <a href="#" onClick="animateInWindow(windows.resume)">📑 View Resume</a> <br/> <a href="#" onClick="turnOnLightbox('crunchUi1')">💼 See Portfolio</a>`,
                 width: '55',
                 typingDotDelay: 2800,
             }
@@ -683,7 +683,7 @@ const topMenu = [{
             },
             {
                 named: "View Folio",
-                ifClicked: "animateInWindow(windows.portfolio)"
+                ifClicked: "turnOnLightbox('crunchUi1')"
             }
         ],
     },
@@ -730,7 +730,7 @@ const desktopIcons = [{
         named: "Portfolio",
         id: "portfolio",
         img: "images/portfolio-icon.png",
-        whenClicked: "animateInWindow(windows.portfolio)",
+        whenClicked: "turnOnLightbox('crunchUi1')",
     }, {
         named: "Resume",
         id: "resume",
