@@ -541,7 +541,7 @@ const windowData = {
             },
             currentlyAvailable: {
                 name: 'currentlyAvailable',
-                text: `I’m currently available for work. <br/> <a href="#" onClick="animateInWindow(windows.resume)">📑 View Resume</a> <br/> <a href="#" onClick="turnOnLightbox('crunchUi1')">💼 See Portfolio</a>`,
+                text: `I’m currently available for work. <br/> <a href="#" onClick="animateInWindowDelay(windows.resume, 200)">📑 View Resume</a> <br/> <a href="#" onClick="turnOnLightbox('crunchUi1')">💼 See Portfolio</a>`,
                 width: '55',
                 typingDotDelay: 2000,
             }

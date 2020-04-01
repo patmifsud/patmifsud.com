@@ -203,7 +203,7 @@ div {
     min-height: 30vh;
     background-color:var(--windowColorBg);
     border-radius: 1.25vh;
-    transition: opacity 1.4s cubic-bezier(0.215, 0.61, 0.355, 1), transform 0.6s cubic-bezier(0.215, 0.61, 0.355, 1), background-color 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: opacity 0.7s cubic-bezier(0.215, 0.61, 0.355, 1), transform 0.6s cubic-bezier(0.215, 0.61, 0.355, 1), background-color 0.4s cubic-bezier(0.645, 0.045, 0.355, 1), max-width 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
     overflow: auto;
     z-index: 50;
     display: flex;
@@ -216,10 +216,7 @@ div {
     transition: opacity 1.8s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
-#window:active {
-    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
-    transition: opacity 1.8s cubic-bezier(0.215, 0.61, 0.355, 1);
-}
+
 
 #windowHeader {
     transition: all 0.6s cubic-bezier(0.645, 0.045, 0.355, 1), background-color 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);    ;
@@ -234,6 +231,11 @@ div {
     width: 100%;
     position: absolute;
     left: 0;
+}
+
+#windowHeader:active {
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+    transition: opacity 1.8s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
 #windowHeaderText {
@@ -281,7 +283,7 @@ div {
     opacity: 0;
     transform: scale(0) !important;
     pointer-events: none;
-    transition: opacity 0.2s cubic-bezier(0.075, 0.82, 0.165, 1), transform 3s cubic-bezier(0.215, 0.61, 0.355, 1) !important;
+    transition: opacity 0.5s cubic-bezier(0.075, 0.82, 0.165, 1), transform 2s cubic-bezier(0.215, 0.61, 0.355, 1) !important;
 }
 
 .close {

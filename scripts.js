@@ -128,6 +128,18 @@
         };
     };
 
+    function animateInWindowDelay(windowToAnimateIn, delay) {
+        let windowDiv = document.getElementById('window');
+        windowDiv.style.pointerEvents = "none";
+        setTimeout(function () {
+            animateInWindow(windowToAnimateIn);
+            setTimeout(function () {
+            windowDiv.style.pointerEvents = "auto"
+            }, 300);
+        }, delay);
+    }
+
+
     function animateOutWindow() {
         document.getElementById('window').classList = 'windowClosed resize-drag closeDropdownMouseOver';
         document.title = ("Pat Mifsud");
