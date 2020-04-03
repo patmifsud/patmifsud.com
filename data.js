@@ -54,9 +54,9 @@ const folioContent = [{
         description: `UI and interaction design. A place for people to find posts they can use on their Instagram or Twitter account. `,
         lightbox: [{
             img: './images/folio/lightBox/fickleUi.mp4',
-            content: `<video autoplay muted loop class="folio" src="./images/folio/lightBox/fickleUi.mp4" style="border-radius: 1vh;">`,
+            content: `<video loop class="folio" id="fickleVideo" src="./images/folio/lightBox/fickleUi.mp4" style="border-radius: 1vh;">`,
             id: 'fickleUi1',
-            desc: '<span class="emph">Fickle (Big Crunch): </span>UI and interaction design. A place for people to find posts they can use on their Instagram or Twitter account.',
+            desc: '<span class="emph">Fickle (Big Crunch): </span>UI and interaction design. A place for people to find posts they can use on their Instagram or Twitter account. <a target=”_blank” href="https://www.figma.com/proto/E4SEBKFHKrMPisfCCYELxn/Fickle-UI-non-sensitive?node-id=56%3A13668&viewport=214%2C489%2C0.6271884441375732&scaling=min-zoom&hotspot-hints=0"View Prototype</a>.',
         }]
 
     },

@@ -8,6 +8,13 @@
         console.log("image " + url + " loaded");
     }
 
+    function preloadVideos(){
+        var vid = new Video();
+        vid.src = folioContent.imgUrl;
+        console.log("video " + url + " loaded");
+
+    }
+
     // preload every desktop icon for smooth(er) animation on fadein
     function preloadDesktopIcons() {
         desktopIcons.forEach(function (iconObject) {
@@ -240,6 +247,7 @@
         var lightboxClose = document.getElementById('lightboxClose');
         lightboxConatiner.classList.add("closed");
         hide(lightboxClose);
+        document.getElementById("fickleVideo").pause();
     }
 
     function turnOnLightbox(porfolioLightbox) {
@@ -249,7 +257,7 @@
         };
         lightboxConatiner.classList.remove("closed");
         show(lightboxClose);
-
+        document.getElementById("fickleVideo").play();
     }
 
     // 📦 Call Alert Modal
@@ -515,6 +523,7 @@
 
         setTimeout(function afterThreeSeconds() {
             preloadFolioLightboxImages();
+            preloadVideos();
         }, 3000);
 
     };
