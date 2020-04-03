@@ -47,6 +47,20 @@ const caseStudyAccordianContent = [{
 ]
 
 const folioContent = [{
+        folioItemName: 'fickleUi',
+        imgUrl: './images/folio/lightBox/fickleUi.mp4',
+        title: `UI - Social Media Content Platform `,
+        subtitle: `FICKLE`,
+        description: `UI and interaction design. A place for people to find posts they can use on their Instagram or Twitter account. `,
+        lightbox: [{
+            img: './images/folio/lightBox/fickleUi.mp4',
+            content: `<video autoplay muted loop class="folio" src="./images/folio/lightBox/fickleUi.mp4" style="border-radius: 1vh;">`,
+            id: 'fickleUi1',
+            desc: '<span class="emph">Fickle (Big Crunch): </span>UI and interaction design. A place for people to find posts they can use on their Instagram or Twitter account.',
+        }]
+
+    },
+    {
         folioItemName: 'crunchUi',
         imgUrl: './images/folio/crunchUi.png',
         title: `UI - Online Chart Building Tool `,
@@ -54,14 +68,11 @@ const folioContent = [{
         description: `UI, UX and interaction design for a chart and graph tool. Using prototyping, usertests and analytics I worked with the team at Big Crunch to design and iterate on a web and mobile interface that allowed users to quickly create online data visualisations. `,
         lightbox: [{
             img: './images/folio/lightBox/crunchUi1.png',
+            content: '<img class="folio" src="./images/folio/lightBox/crunchUi1.png">',
             id: 'crunchUi1',
             desc: '<span class="emph">Big Crunch: </span> UI and UX design for a desktop and mobile tool that allowed users to quickly create data visualisations, such as bar and pie charts.',
-        }, {
-            img: './images/folio/lightBox/crunchUi2.png',
-            id: 'crunchUi2',
-            desc: '<span class="emph">Big Crunch: </span> An icon library to represent each type of chart a user can create on The Big Crunch tool.',
-
         }]
+
     }, {
         folioItemName: 'healthWeb',
         imgUrl: './images/folio/healthWeb.png',
@@ -71,6 +82,7 @@ const folioContent = [{
     I used existing brand photography and styleguide to design and build a website where people could download the book for free, and press could read through a timeline of the events in the book for reference. `,
         lightbox: [{
             img: './images/folio/lightBox/healthWeb1.png',
+            content: '<img class="folio" src="./images/folio/lightBox/healthWeb1.png">',
             id: 'healthWeb1',
             link: 'http://34.205.8.88/',
             desc: '<span class="emph">"The first 40 years" </span> is a book created by the NSW Government and UTS Publishing. I designed and built a website to facilitate media enquiries and book downloads. <a target="_blank" href="http://34.205.8.88/">View it here.</a>'
@@ -84,10 +96,12 @@ const folioContent = [{
         description: `Part one in a series of local nautical history books for the Hawkesbury Area. My role was to restore the old photography, design and page layout.`,
         lightbox: [{
             img: './images/folio/lightBox/riverboatsPrint1.png',
+            content: '<img class="folio" src="./images/folio/lightBox/riverboatsPrint1.png">',
             id: 'riverboatsPrint1',
             desc: '<span class="emph">Hawksbury Riverboats: </span> Part one in a series of local history books for the Hawkesbury Area. My role was to restore the old photography and page layout design.',
         }, {
             img: './images/folio/lightBox/riverboatsPrint2.png',
+            content: '<img class="folio" src="./images/folio/lightBox/riverboatsPrint2.png">',
             id: 'riverboatsPrint2',
             desc: '<span class="emph">Hawksbury Riverboats: </span> Part one in a series of local history books for the Hawkesbury Area. My role was to restore the old photography and page layout design.',
 
@@ -101,6 +115,7 @@ const folioContent = [{
         description: `Menu design for a French restaurant in The Rocks, Sydney.`,
         lightbox: [{
             img: './images/folio/lightBox/ananasPrint1.png',
+            content: '<img class="folio" src="./images/folio/lightBox/ananasPrint1.png">',
             id: 'ananasPrint1',
             desc: '<span class="emph">Ananas: </span> Menu design for a French restaurant in The Rocks, Sydney.',
 
@@ -114,6 +129,7 @@ const folioContent = [{
         description: `Styling and rollout for a series of events in partnership between Jagermeister and Bavarian Beir Cafe.`,
         lightbox: [{
             img: './images/folio/lightBox/jagerPrint1.png',
+            content: '<img class="folio" src="./images/folio/lightBox/jagerPrint1.png">',
             id: 'jagerPrint1',
             desc: '<span class="emph">Ananas: </span> Styling and rollout for a series of events in partnership between Jagermeister and Bavarian Beir Cafe.',
 
@@ -127,6 +143,7 @@ const folioContent = [{
         subtitle: `Property Management Conference`,
         lightbox: [{
             img: './images/folio/lightBox/conferenceWeb1.png',
+            content: '<img class="folio" src="./images/folio/lightBox/conferenceWeb1.png">',
             id: 'conferenceWeb1',
             desc: `<span class="emph">PMC2017: </span> Website and EDM marketing for an Australian property management conference. Role included design, coding and maintenance.`,
         }]
@@ -138,6 +155,7 @@ const folioContent = [{
         subtitle: `Paid online webinars`,
         lightbox: [{
             img: './images/folio/lightBox/trainingWeb1.png',
+            content: '<img class="folio" src="./images/folio/lightBox/trainingWeb1.png">',
             id: 'trainingWeb1',
             desc: `<span class="emph">Apmasphere Training: </span>  Web Design, filming, production and payment system implementation for an online training webinar subscription service.`,
 
@@ -151,11 +169,13 @@ const folioContent = [{
         subtitle: `Studnet Project`,
         lightbox: [{
             img: './images/folio/lightBox/fluidPrint1.png',
+            content: '<img class="folio" src="./images/folio/lightBox/fluidPrint1.png">',
             id: 'fluidPrint1',
             desc: `<span class="emph">Fluid Print: </span> Experimentation using a randomly generated grid for type layout.`,
 
         }, {
             img: './images/folio/lightBox/fluidPrint2.png',
+            content: '<img class="folio" src="./images/folio/lightBox/fluidPrint2.png">',
             id: 'fluidPrint2',
             desc: `<span class="emph">Fluid Print </span> I used random computer generation and blindfolded drawing to create unusual and interesting layouts.`,
 
@@ -541,7 +561,7 @@ const windowData = {
             },
             currentlyAvailable: {
                 name: 'currentlyAvailable',
-                text: `I’m currently available for work. <br/> <a href="#" onClick="animateInWindowDelay(windows.resume, 200)">📑 View Resume</a> <br/> <a href="#" onClick="turnOnLightbox('crunchUi1')">💼 See Portfolio</a>`,
+                text: `I’m currently available for work. <br/> <a href="#" onClick="animateInWindowDelay(windows.resume, 200)">📑 View Resume</a> <br/> <a href="#" onClick="turnOnLightbox('fickleUi1')">💼 See Portfolio</a>`,
                 width: '55',
                 typingDotDelay: 2000,
             }
@@ -683,7 +703,7 @@ const topMenu = [{
             },
             {
                 named: "View Folio",
-                ifClicked: "turnOnLightbox('crunchUi1')"
+                ifClicked: "turnOnLightbox('fickleUi1')"
             }
         ],
     },
@@ -730,7 +750,7 @@ const desktopIcons = [{
         named: "Portfolio",
         id: "portfolio",
         img: "images/portfolio-icon.png",
-        whenClicked: "turnOnLightbox('crunchUi1')",
+        whenClicked: "turnOnLightbox('fickleUi1')",
     }, {
         named: "Resume",
         id: "resume",
@@ -767,7 +787,7 @@ const callAlert = `
     </div>
 </div>`;
 
-function chatBubbleTemplate(chatBubbleData){
+function chatBubbleTemplate(chatBubbleData) {
     return `
     <div id="bubble${chatBubbleData.name}" class="bubble">
         <div class="dots">
@@ -784,7 +804,7 @@ function chatBubbleTemplate(chatBubbleData){
 `
 };
 
-function chatBubbleTemplateNoDots(chatBubbleData){
+function chatBubbleTemplateNoDots(chatBubbleData) {
     return `<div id="bubble${chatBubbleData.name}" class="bubble">
         <div class="text" style="display:none;">
         ${chatBubbleData.text}

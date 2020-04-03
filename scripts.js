@@ -196,7 +196,7 @@
     function createIndividualLightBoxContainers(folioItemObject, next, prev) {
         let template = `<div class="lightbox" id="${folioItemObject.id}">
                 <a class="lightboxImageLink" href="#${folioItemObject.id}">
-                    <img class="folio" src="${folioItemObject.img}" />
+                    ${folioItemObject.content}
                 </a>
                 <div class="lightboxDesc">
                     <p>${folioItemObject.desc}</p>
@@ -503,20 +503,17 @@
         document.getElementById('menuBarInner').classList.remove('slideIn');
 
         setTimeout(function afterOneSecond() {
-
             ifOnDesktopThenOpenAboutWindow();
-            preloadFolioImages();
+            // preloadFolioImages();
             createFolioLightBoxImageArray();
             document.querySelector('#lightBoxContainer').innerHTML += createLightboxes();
         }, 1500);
 
         setTimeout(function afterTwoSeconds() {
-
             startInteractionObserver();
         }, 2000);
 
         setTimeout(function afterThreeSeconds() {
-
             preloadFolioLightboxImages();
         }, 3000);
 
