@@ -8,13 +8,6 @@
         console.log("image " + url + " loaded");
     }
 
-    function preloadVideos(){
-        var vid = new Video();
-        vid.src = folioContent.imgUrl;
-        console.log("video " + url + " loaded");
-
-    }
-
     // preload every desktop icon for smooth(er) animation on fadein
     function preloadDesktopIcons() {
         desktopIcons.forEach(function (iconObject) {
@@ -523,7 +516,6 @@
 
         setTimeout(function afterThreeSeconds() {
             preloadFolioLightboxImages();
-            preloadVideos();
-        }, 3000);
+        }, 2500);
 
     };
