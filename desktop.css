@@ -154,7 +154,7 @@ div {
     cursor: pointer;
     transition: opacity 1s cubic-bezier(0.165, 0.84, 0.44, 1), transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     opacity: 1;
-    margin-bottom: 2vh;
+    margin-bottom: 2.5vh;
     transform: scale(1);
 }
 
@@ -175,6 +175,11 @@ div {
     width: 10vh;
     margin-bottom: 0.5vh;
     margin-left: -4px;
+}
+
+#portfolio .iconImg{
+    margin-top: -1.2vh;
+
 }
 
 .iconLabel {
@@ -203,7 +208,7 @@ div {
     min-height: 30vh;
     background-color:var(--windowColorBg);
     border-radius: 1.25vh;
-    transition: opacity 0.7s cubic-bezier(0.215, 0.61, 0.355, 1), transform 0.6s cubic-bezier(0.215, 0.61, 0.355, 1), background-color 0.4s cubic-bezier(0.645, 0.045, 0.355, 1), max-width 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: opacity 0.7s cubic-bezier(0.215, 0.61, 0.355, 1), max-width 0.6s cubic-bezier(0.645, 0.045, 0.355, 1), transform 0.6s cubic-bezier(0.215, 0.61, 0.355, 1), background-color 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
     overflow: auto;
     z-index: 50;
     display: flex;
@@ -280,10 +285,11 @@ div {
 
 /* class that gets applied to the window when it is closed */
 .windowClosed {
+    /* max-width:65vh!important; */
     opacity: 0;
     transform: scale(0) !important;
     pointer-events: none;
-    transition: opacity 0.5s cubic-bezier(0.075, 0.82, 0.165, 1), transform 2s cubic-bezier(0.215, 0.61, 0.355, 1) !important;
+    transition: opacity 0.5s cubic-bezier(0.075, 0.82, 0.165, 1), max-width 0.6s cubic-bezier(0.645, 0.045, 0.355, 1), transform 2s cubic-bezier(0.215, 0.61, 0.355, 1) !important;
 }
 
 .close {

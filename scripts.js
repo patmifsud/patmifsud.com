@@ -241,6 +241,8 @@
         lightboxConatiner.classList.add("closed");
         hide(lightboxClose);
         document.getElementById("fickleVideo").pause();
+        document.getElementById("5cogUi").pause();
+
     }
 
     function turnOnLightbox(porfolioLightbox) {
@@ -251,6 +253,8 @@
         lightboxConatiner.classList.remove("closed");
         show(lightboxClose);
         document.getElementById("fickleVideo").play();
+        document.getElementById("5cogUi").play();
+
     }
 
     // 📦 Call Alert Modal
