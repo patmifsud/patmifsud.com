@@ -711,10 +711,10 @@ const topMenu = [{
                 named: "View Resume",
                 ifClicked: "animateInWindow(windows.resume)"
             },
-            {
-                named: "View Casestudies",
-                ifClicked: "animateInWindow(windows.casestudies)"
-            },
+            // {
+            //     named: "View Casestudies",
+            //     ifClicked: "animateInWindow(windows.casestudies)"
+            // },
             {
                 named: "View Folio",
                 ifClicked: "turnOnLightbox('fickleUi1')"
