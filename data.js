@@ -70,7 +70,7 @@ const folioContent = [{
             img: './images/folio/lightBox/5cogUi.mp4',
             content: `<video loop class="folio" id="5cogUi" src="./images/folio/lightBox/5cogUi.mp4" style="border-radius: 1vh;">`,
             id: 'lpmaUI1',
-            desc: '<span class="emph">LPMA: </span> UI, UX and interaction design for Realestate Agency Business Growth Program. Updated for use in this folio.',
+            desc: '<span class="emph">LPMA: </span> UI, UX and interaction design for Realestate Agency Business Growth Program. Design has been polished/ updated for use in this folio.',
         }]
 
     },
